@@ -4,6 +4,5 @@
 echo "Starting new JEDAI server"
 python3 manage.py runserver > temp_file.log &
 sleep 3s
-ADDR=$(cat temp_file.log | grep "Starting development server at" | tr -s ' ' | cut -d ' ' -f 5)
-xdg-open "$ADDR" &
+xdg-open "http://127.0.0.1:8000"
 echo "Started JEDAI server."
