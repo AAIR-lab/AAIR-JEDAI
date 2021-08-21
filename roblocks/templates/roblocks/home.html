@@ -1,0 +1,128 @@
+{% extends "roblocks/layout.html" %}
+{% block title %}
+{% endblock %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'roblocks/style.css' %}">
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+<style>
+    .file_type_label {
+    text-align: center;
+    display: block;
+    }
+</style>
+
+<form method='post' enctype="multipart/form-data" class="form-inline">
+    <span style="white-space: nowrap">
+    {% csrf_token %}
+    <h5><a href="docs/index.html" target="_blank">Need help getting started?</a></h5>
+    <h4>Please select a Domain and Problem</h4>
+
+    <br/>
+        <label class="file_type_label">Select Domain:</label> {{form.domain}}
+    <br/>
+        <label class="file_type_label">Select Problem:</label>
+        <select name = "problem" id = "second_menu"> 
+
+        </select>
+        <br/>
+        <input type="submit" value = "Start JEDAI Training" class="btn btn-primary" style="background-color: #2980b9;">
+        {% if code == 404 %}
+            {{error}}
+        {% endif %}
+        <br/><br/><br/>
+</span>
+</form>
+<script type="text/javascript">
+    const originalElements = [...document.getElementById("second_menu")];
+    let originalSize = originalElements.length;
+    let temp = document.getElementById("second_menu");
+    let size = temp.length;
+    let z = 0;
+    while(z < size-1)
+    {
+        temp[1].remove();
+        z = z + 1;
+    }
+    z = 0;
+    for(let i = 1; i < originalSize; i++)
+    {
+        let problem_name = originalElements[i].text;
+        console.log(problem_name);
+        str_len = problem_name.length;
+        for(let j = str_len-1; j >= 0; j--)
+        {
+            if(problem_name.charAt(j) == '/')
+            {
+                originalElements[i].text = problem_name.substring(j+1, str_len);
+                break;
+            }
+        }
+        console.log(originalElements[i].text);
+    }
+    function getMenu()
+    {
+        var file_path = "{{name}}";
+        const selected_value = document.getElementById("first_menu").value;
+        file_path += file_path + "/" + selected_value;
+        
+        var dd2 = document.getElementById("second_menu");
+        dd2.options.length = 0;
+
+        var data = {'domain': selected_value};
+        $.ajax({
+            url: "get_problem_names",
+            method: "GET",
+            async: false,
+            data: data
+        }).done(function(data){ 
+            console.log(data);
+            for (var i = 0; i < data.problem_names.length; i++) {
+                var opt = document.createElement('option');
+                opt.value = data.problem_names[i];
+                opt.text = data.problem_names[i]
+                dd2.options.add(opt);
+            }
+        })
+
+
+        // the_desired_substring = "";
+        // while(j >= 0)
+        // {
+        //     if(selected_value.charAt(j) == '/')
+        //     {
+        //         the_desired_substring = selected_value.substring(j+1, selected_value.length)
+        //         break;
+        //     }
+        //     j = j - 1;
+        // }
+        // var elements = document.getElementById("second_menu");
+        // let the_length = elements.length;
+        // for(let i=1; i < the_length; i++)
+        // {
+        //     if("" != elements[i].value && !(elements[i].value.includes(the_desired_substring)) || the_desired_substring == "")
+        //     {
+        //         elements[i].remove();
+        //         i = i - 1;
+        //         the_length = the_length - 1;
+        //     }
+        //     console.log(i);
+        // }
+        // for(let i=0; i < originalSize; i++)
+        // {
+        //     if((originalElements[i].value.includes(the_desired_substring)) && the_desired_substring != "")
+        //     {
+        //         console.log(originalElements[i].form);
+        //         elements.insertAdjacentElement('beforeend', originalElements[i]);
+        //     }
+        //     console.log(i);
+        // }
+    }
+</script>
+{% endblock %}

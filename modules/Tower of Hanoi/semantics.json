@@ -1,0 +1,139 @@
+{
+    "predicates": [
+      {
+        "name": "clearlocation",
+        "subjectIndex": 0,
+        "display": "clear"
+      },
+      {
+        "name": "clearbox",
+        "subjectIndex": 0,
+        "display": "clear"
+      },
+      {
+        "name": "onlocation",
+        "subjectIndex": 0,
+        "display": "on %%1%%"
+      },
+      {
+        "name": "onbox",
+        "subjectIndex": 0,
+        "display": "on %%1%%"
+      },
+      {
+        "name": "bigger",
+        "subjectIndex": 1,
+        "display": "smaller than %%0%%"
+      }
+    ],
+    "actions": [
+      {
+        "name": "move_from_box_to_location",
+        "display": "Move",
+        "tooltip": "Use this action to pick up a box that is sitting on top of another box and place it in an empty location.",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this box",
+            "sentenceDisplay": "box"
+          },
+          {
+            "index": 1,
+            "display": "from atop this box",
+            "sentenceDisplay": "from box"
+          },
+          {
+            "index": 2,
+            "display": "with this robot",
+            "sentenceDisplay": "with robot"
+          },
+          {
+            "index": 3,
+            "display": "to this location",
+            "sentenceDisplay": "to location"
+          }
+        ]
+      },
+      {
+        "name": "move_from_box_to_box",
+        "display": "Move",
+        "tooltip": "Use this action to pick up a box that is sitting on top of another box and place it on top of another box.",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this box",
+            "sentenceDisplay": "box"
+          },
+          {
+            "index": 1,
+            "display": "from atop this box",
+            "sentenceDisplay": "from box"
+          },
+          {
+            "index": 2,
+            "display": "with this robot",
+            "sentenceDisplay": "with robot"
+          },
+          {
+            "index": 3,
+            "display": "to top of this box",
+            "sentenceDisplay": "to box"
+          }
+        ]
+      },
+      {
+        "name": "move_from_location_to_box",
+        "display": "Move",
+        "tooltip": "Use this action to pick up a box that is sitting at a location and place it on another box.",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this box",
+            "sentenceDisplay": "box"
+          },
+          {
+            "index": 1,
+            "display": "from this location",
+            "sentenceDisplay": "from location"
+          },
+          {
+            "index": 2,
+            "display": "with this robot",
+            "sentenceDisplay": "with robot"
+          },
+          {
+            "index": 3,
+            "display": "to top of this box",
+            "sentenceDisplay": "to box"
+          }
+        ]
+      },
+      {
+        "name": "move_from_location_to_location",
+        "display": "Move",
+        "tooltip": "Use this action to pick up a box that is sitting at a location and place it in an empty location.",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this box",
+            "sentenceDisplay": "box"
+          },
+          {
+            "index": 1,
+            "display": "from this location",
+            "sentenceDisplay": "from location"
+          },
+          {
+            "index": 2,
+            "display": "with this robot",
+            "sentenceDisplay": "with robot"
+          },
+          {
+            "index": 3,
+            "display": "to this location",
+            "sentenceDisplay": "to location"
+          }
+        ]
+      }
+    ]
+  }

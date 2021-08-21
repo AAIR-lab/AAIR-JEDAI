@@ -1,0 +1,148 @@
+/* header{
+	background-color: #161925;
+} */
+
+body {
+    background: #F0EDEE !important;
+    font-size: 12pt;
+    line-height: 1.4285em;
+}
+
+.questionBlock{
+	background-color: #4e4A4A;
+	border-radius: 10px;
+}
+
+.submit{
+	background-color: #002A32 !important;
+  border-radius: 10px;
+}
+
+.playGround{
+   margin-top: 25px;
+   /* margin-left: 50px; */
+   margin-right: 50px;
+   border-radius: 5px;
+}
+
+.column1{
+  width: 30%;
+  height: 500px;
+  background-color: #fff !important;
+  border: 1px solid grey;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.action_schema{
+  position: relative;
+  border-radius: 10px;
+}
+
+.column2{
+   overflow: auto;
+   width: 70%;
+   height: 500px;
+   border-radius: 5px;
+   border: 1px solid grey;
+}
+form {
+  text-align: center;
+  margin-top: 10%;
+}
+.arena{ 
+   position: relative;
+   background-color: #E0E0E0;
+   height:1000px;
+   border-radius: 10px;
+}
+
+.btn{
+  margin-left: 10px;
+  margin-top: 15px;
+  width: auto;
+}
+
+#question{
+	margin-left: 20px;
+	margin-top: 10px;
+	color: white;
+}
+
+textarea{
+	 border: 1px solid #ba68c8;
+	 border-radius: 5px;
+	 background-color: hsl(212, 70%, 16%) !important;
+	 color: white;
+}
+/* #header{
+	 border: 5px solid hsl(212, 70%, 16%);
+	 background-color: hsl(212, 43%, 21%) !important;
+	 color: white;
+} */
+#inputForm {
+
+left: 100px;
+width: 300px;
+height: 200px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+.container {
+  margin-left: auto  !important;
+  padding-left: 10px;
+  min-width: 768px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 768px !important;
+    margin-left: 10px;
+    padding-left: 10px;
+    min-width: 768px
+    /* min-width: 100; */
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 970px !important;
+    margin-left: 10px;
+    padding-left: 10px;
+    min-width: 768px
+    /* min-width: 100%; */
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1200px !important;
+    margin-left: 10px;
+    padding-left: 10px;
+    min-width: 768px
+    /* min-width: 100%; */
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px !important;
+    margin-left: 10px;
+    padding-left: 10px;
+    min-width: 768px
+    /* min-width: 100%; */
+  }
+}

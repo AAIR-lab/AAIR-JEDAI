@@ -1,0 +1,104 @@
+{% extends "roblocks/layout.html" %}
+{% load static %}
+{% block content %}
+<script src="{% static 'roblocks/blocklytocode.js' %}"></script>
+<script src="{% static 'roblocks/block_generator.js' %}"></script>
+<script src="{% static 'roblocks/blockly_compressed.js' %}"></script>
+<script src="{% static 'roblocks/blocklytocode.js' %}"></script>
+<script src="{% static 'roblocks/blocks_compressed.js' %}"></script>
+<script src="{% static 'roblocks/blocks.js' %}"></script>
+<script src="{% static 'roblocks/blockly.js' %}"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'roblocks/style.css' %}">
+<style>
+
+    .float-child {
+        width: 50%;
+        float: left;
+        padding: 20px;
+    } 
+    .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    }
+    figcaption {
+  font-style: italic;
+  /* padding: 2px; */
+  text-align: center;
+}
+</style>
+<script>
+    // TODO get rid of inline JS
+    function getBlocks(){
+        initializeBlocks();
+        const planningElementsJson = "{{planning_elements|safe}}".replace(/'/g, '"');
+        const planningElementsParsed = JSON.parse(planningElementsJson);
+        const semanticsJson = `{{ semantics | safe }}`;
+        const semanticsParsed = semanticsJson ? JSON.parse(semanticsJson) : null;
+
+    	generateActionBlocks(planningElementsParsed.Actions, planningElementsParsed.Objects, semanticsParsed);
+    	workspace.updateToolbox(document.getElementById('toolbox'));
+    }
+
+    function sendPlan(){
+        var plan = generateCode();
+
+        if (plan !== null && plan.length > 0) {
+            // TODO why is this variable not used?
+            var response = submitPlan(plan);
+        }
+   	}
+</script>
+<body onload="getBlocks()" >
+   <xml id="toolbox" style="display: none">
+	<category name="Actions"></category>
+	</xml>
+    <div class="playGround container" style="min-width: 1150px;">
+        <div class="row questionBlock" style="min-width: 100%;">
+            <div class="col-sm-3">
+                <!-- <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success btn-md" data-toggle="modal">Back</button>
+                 -->
+
+                    <!-- <button type="button" style="margin-top:5px; margin-bottom:5px; background-color: #2980b9;" class="btn btn-primary" onclick="history.go(-1)">Back</button> -->
+                    <!-- <div class="col-*-3" style="text-align: left;"> -->
+                        <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan()" style="margin-bottom:20px;">Submit Plan</button>
+                    <!-- </div> -->
+            </div>
+            <div class="col-sm-9">
+                <p id="question">Goal state: {{goal}}</p>
+            </div>
+        </div>
+        <div class="float-container" style="height: 600px; min-width: 1400px;">
+            <div id="blocklyDiv" class="float-child" style="height: 100%; min-width:700px;">
+            </div>
+            <div class="float-child" style="height: 100%; position: relative; width: 30%;">
+                <figure class="vertical-center" style="max-width: 90%;">
+                <img src="{% static "roblocks/img.png" %}"  alt="Goal Image" >
+                <figcaption>Goal Image</figcaption>
+            </figure>
+            </div>
+        </div>
+        <div class="row submit" style="min-width: 100%;">
+            <!-- <div class="col-sm-3" style="text-align: center;"> -->
+                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-primary" onclick="saveWorkspace()" style="margin-bottom:20px;">Save Workspace</button>
+            <!-- </div>
+            <div class="col-*-3"> -->
+                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-primary" onclick="document.getElementById('file-input').click()" style="margin-bottom:20px;">Load Workspace</button>
+            <!-- </div> -->
+            <!-- <div class="col-*-3"> -->
+                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-danger" onclick="clearWorkspace()" style="margin-bottom:20px;">Clear Workspace</button>
+            <!-- </div> -->
+            <input id="file-input" type="file" name="name" style="visibility: hidden;" />
+        </div>
+        <div class="loader" id="submission-loader">
+        </div>
+        <br/><br/><br/>
+    </div>
+  </body>
+  {% endblock %}
