@@ -32,7 +32,7 @@ To setup the system manually, you can use the steps given below:
    (unless you already have `TMP_Merged` somewhere else on your system and want to use that,
     in which case you can try a symlink):
 
-   `git clone https://github.com/AAIR-lab/TMP_Merged`
+   `git clone https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies.git TMP_Merged`
     
     1. You must then install the dependencies for the submodule (this will probably take a while):
     
@@ -42,7 +42,7 @@ To setup the system manually, you can use the steps given below:
         
         `cd TMP_Merged`
          
-        `git checkout origin/TMP_roblocks`
+        `git checkout origin/TMP_JEDAI`
 
 
 2. Install the web framework:
@@ -88,3 +88,18 @@ You are required to submit a domain and problem file, as well as a .dae environm
 After installing its dependencies, the TMP submodule should work out of the box, with environments popping up and giving a demonstration of successful plans.
 If you get any strange import errors from TMP despite packages seeming to be installed correctly, double-check your
 all your environment variables (especially if using an IDE like PyCharm).
+
+
+## Contributors
+
+[Trevor Angle](http://trevorangle.com) <br/>
+[Naman Shah](https://www.namanshah.net/)<br/>
+[Kiran Prasad](https://github.com/kiranprasad)<br/>
+[Pulkit Verma](https://pulkitverma.net)<br/>
+[Amruta Tapadiya](https://github.com/amy88amy)<br/>
+[Kyle Atkinson](https://github.com/KyleTheEpic)<br/>
+[Chirav Dave](https://chiravdave.github.io/)<br/>
+[Judith Rosenke](https://www.linkedin.com/in/judith-rosenke/)<br/>
+[Rushang Karia](https://github.com/RushangKaria)<br/>
+[Siddharth Srivastava](https://siddharthsrivastava.net/)
+
