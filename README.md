@@ -1,12 +1,38 @@
-# AAIR Lab's JEDAI
+# JEDAI Explains Decision-Making AI
 
 ## Virtual Machine Image
 
-The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: https://bit.ly/2WccU4K
+The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: [https://bit.ly/2WccU4K](https://bit.ly/2WccU4K)
 
 To setup the system manually, you can use the steps given below:
 
-## Requirements
+## Tutorial
+
+A short video tutorial on how to use JEDAI is available here: [https://bit.ly/3BmQugi](https://bit.ly/3BmQugi)
+
+## Running JEDAI
+
+Use this command to start JEDAI from the JEDAI source directory (~/JEDAI/ in VM Image).
+
+`./start_jedai.sh`
+
+Alternatively execute this command:
+
+`python3 manage.py runserver`
+
+The output of this command includes a link to the development server hosting the frontend. 
+
+You can stop the execution anytime using this command from the JEDAI source directory (~/JEDAI/ in VM Image):
+
+
+`./stop_jedai.sh`
+
+
+
+
+## Installing JEDAI on a new system
+
+### Requirements
 
 - Ubuntu 18.04
 - Python 2 and 3
@@ -26,7 +52,7 @@ To setup the system manually, you can use the steps given below:
  NOTE: JEDAI is tested extensively with Chromium (including Edge, Vivaldi, and Google Chrome). Support on other browsers is not guaranteed.  
 
     
-## Setup
+### Setup
 
 1. Retrieve the `TMP_Merged` submodule by running the following in the project root
    (unless you already have `TMP_Merged` somewhere else on your system and want to use that,
@@ -70,16 +96,6 @@ To setup the system manually, you can use the steps given below:
 
 4. Check that `PYTHON_2_PATH` and `VAL_PATH` in `config.py` are pointing to the corresponding binaries on your system.
 
-
-## Running JEDAI
-
-`./start_jedai.sh`
-
-Alternatively execute this command:
-
-`python3 manage.py runserver`
-
-The output of this command includes a link to the development server hosting the frontend. 
 
 You are required to submit a domain and problem file, as well as a .dae environment file. See the `test_domains` directory for examples.
 
