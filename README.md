@@ -1,14 +1,25 @@
 # JEDAI Explains Decision-Making AI
 
+
+This repository contains the code for the tool JEDAI. System Demonstration of JEDAI is accepted at AAMAS 2022, and will appear as:
+
+JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
+[Naman Shah](https://www.namanshah.net/)\*, 
+[Pulkit Verma](https://pulkitverma.net)\*, 
+[Trevor Angle](http://trevorangle.com), and 
+[Siddharth Srivastava](http://siddharthsrivastava.net/). <br/>
+21st International Conference on Autonomous Agents and MultiAgent Systems, 2022. <br/>
+
+[Paper](https://aair-lab.github.io/Publications/svas_aamas22.pdf) | [Demo Talk](https://www.youtube.com/watch?v=MQdoikcnhbY) | [Tutorial](https://www.youtube.com/watch?v=57os8Ap1N5U)
+<br />
+
+
+
 ## Virtual Machine Image
 
 The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: [https://bit.ly/2WccU4K](https://bit.ly/2WccU4K)
 
 To setup the system manually, you can use the steps given below:
-
-## Tutorial
-
-A short video tutorial on how to use JEDAI is available here: [https://bit.ly/3BmQugi](https://bit.ly/3BmQugi)
 
 ## Running JEDAI
 
@@ -108,10 +119,10 @@ all your environment variables (especially if using an IDE like PyCharm).
 
 ## Contributors
 
-[Trevor Angle](http://trevorangle.com) <br/>
 [Naman Shah](https://www.namanshah.net/)<br/>
-[Kiran Prasad](https://github.com/kiranprasad)<br/>
 [Pulkit Verma](https://pulkitverma.net)<br/>
+[Trevor Angle](http://trevorangle.com) <br/>
+[Kiran Prasad](https://github.com/kiranprasad)<br/>
 [Amruta Tapadiya](https://github.com/amy88amy)<br/>
 [Kyle Atkinson](https://github.com/KyleTheEpic)<br/>
 [Chirav Dave](https://chiravdave.github.io/)<br/>
@@ -119,3 +130,15 @@ all your environment variables (especially if using an IDE like PyCharm).
 [Rushang Karia](https://github.com/RushangKaria)<br/>
 [Siddharth Srivastava](https://siddharthsrivastava.net/)
 
+
+
+
+# Citation
+```
+@inproceedings{shah_2022_jedai,
+    author = {Shah, Naman and Verma, Pulkit and Angle, Trevor and Srivastava, Siddharth},
+    title = {{JEDAI: A System for Skill-Aligned Explainable Robot Planning}},
+    booktitle = {Proceedings of the 21st International Conference on Autonomous Agents and MultiAgent Systems},
+    year={2022}
+}
+```

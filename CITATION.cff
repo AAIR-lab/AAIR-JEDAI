@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: "JEDAI: A System for Skill-Aligned Explainable Robot Planning"
+message: >-
+  Please cite JEDAI using the metadata from
+  'preferred-citation'.
+type: software
+authors:
+  - given-names: Naman
+    family-names: Shah
+    email: shah.naman@asu.edu
+    affiliation: Arizona State University
+  - given-names: Pulkit
+    family-names: Verma
+    email: verma.pulkit@asu.edu
+    affiliation: Arizona State UNiversity
+    orcid: 'https://orcid.org/0000-0002-8770-5390'
+  - given-names: Trevor
+    family-names: Angle
+    email: taangle@asu.edu
+    affiliation: Arizona State University  
+  - given-names: Siddharth
+    family-names: Srivastava
+    email: siddharths@asu.edu
+    affiliation: Arizona State University
+license: GPL-3.0-or-later
+preferred-citation:
+  type: conference-paper
+  authors:
+    - given-names: Naman
+      family-names: Shah
+      email: shah.naman@asu.edu
+      affiliation: Arizona State University
+    - given-names: Pulkit
+      family-names: Verma
+      email: verma.pulkit@asu.edu
+      affiliation: Arizona State UNiversity
+      orcid: 'https://orcid.org/0000-0002-8770-5390'
+    - given-names: Trevor
+      family-names: Angle
+      email: taangle@asu.edu
+      affiliation: Arizona State University  
+    - given-names: Siddharth
+      family-names: Srivastava
+      email: siddharths@asu.edu
+      affiliation: Arizona State University
+  title: "JEDAI: A System for Skill-Aligned Explainable Robot Planning"
+  year: 2022
+  collection-title: "Proceedings of the 21st International Conference on Autonomous Agents and MultiAgent Systems"
