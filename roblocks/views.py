@@ -2,10 +2,9 @@
 from __future__ import unicode_literals
 
 import json
-import os
+import logging
 import shutil
 import signal
-import sys
 
 import config
 
@@ -21,211 +20,238 @@ import subprocess
 from django.http import JsonResponse
 import socket
 from PIL import Image
+
 file_dir = os.path.dirname(os.path.abspath(__file__))[:-8]
 
-# TODO why is this being set to a boolean?
-process = True
-server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-server_socket.bind(('127.0.0.1',1233))
+tmp_process = None
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind(('127.0.0.1', config.PORT_NUMBER))
 server_socket.listen(1)
 semantics = None
 cs = None
+log = logging.getLogger(__name__)
+
 
 # TODO check csrf
 @csrf_exempt
+# /plan_submit
 def submit_plan(request):
-    plan_submitted = request.GET.get('plan', None)
-    # TODO display something that lets the user know the plan is being examined
-    explanation_map = explainer_server.call_server(plan_submitted, semantics)
+    submitted_plan = request.GET.get('plan')
+    log.debug(f"Entering /plan_submit endpoint with plan: {submitted_plan}")
+    log.info("Calling explanation code")
+    explanation_map, explained_plan = explainer_server.call_server(submitted_plan, semantics)
+    log.info(f"Explanation code reports plan to be {'unsuccessful' if explanation_map['failed'] else 'successful'}")
     success = "False" if explanation_map["failed"] else "True"
     data = {
         "explanation_map": explanation_map,
-        "success": success
+        "success": success,
+        "execution_plan": explained_plan
     }
     # this updates TMP to execute the plan on robot
     return JsonResponse(data)
 
 
-def start_TMP(request):
-    domain = get_domain_name()
-    problem = get_problem_name()
-    call_TMP_for_domain(domain,problem)
+# /start_TMP
+def start_tmp(request):
+    log.debug("Entering /start_TMP endpoint")
+    domain = _get_domain_name_from_documents()
+    problem = _get_problem_name_from_documents()
+    _spawn_tmp_for_domain_and_problem(domain, problem)
     return JsonResponse({})
 
-def call_TMP(request):
+
+# /call_TMP
+def call_tmp(request):
     global cs
-    plan_submitted = request.GET.get('plan', None)
+    submitted_plan = request.GET.get('plan', None)
+    log.debug(f"Entering /call_TMP endpoint with plan: {submitted_plan}")
     # TODO actually check for success
     success = True
     data_val = {}
     if success:
         data_val["success"] = "True"
 
-    text_file = open(config.SOLUTION_DOCUMENT_FILE, "w")
-    text_file.write(plan_submitted)
-    text_file.close()
-
-    # global process
-    # res = process.communicate()[0]
-
-    os.remove(config.SOLUTION_DOCUMENT_FILE)
-    domain_name = get_domain_name()
-    # call_TMP_for_domain(domain_name)
     (cs, address) = server_socket.accept()
-    print(cs,address)
-    print("connection accepted.")
-    while True:
+    log.debug("Accepted connection")
+    log.debug(f"cs:{cs}")
+    log.debug(f"address:{address}")
+    log.debug("Waiting for 'ready' message")
+    msg = cs.recv(1024).decode("utf-8")
+    # TODO
+    while msg != "ready":
+        log.debug(f"Message: {msg}")
         msg = cs.recv(1024).decode("utf-8")
-        print(msg)
-        if msg == "ready":
-            print("now sending msg")
-            break
-    cs.sendall(bytes(plan_submitted,"utf-8"))
+
+    log.debug("Received 'ready' message, now sending plan over socket")
+    cs.sendall(bytes(submitted_plan, "utf-8"))
+    log.info("User's plan sent to TMP")
+    # TODO
     while True:
         msg = cs.recv(1024).decode("utf-8")
         if msg[0] == "u":
             '''
             update the bar here.. format will be u|#refined_actions|#total_actions 
             '''
-            pass
-        elif msg== "refined":
+            log.debug(f"Received update from TMP: {msg}")
+        elif msg == "refined":
             '''
             TODO: Use this elif to report success.
             refinement done. ALL actions passed. report success
             '''
+            log.info("TMP reported successful refinement")
             break
         elif msg == "failure":
             '''
             TODO: Use this elif to report failure to the users. right now it just report success. 
             refinement reported failure. report failure
             '''
+            log.warning("TMP reported failed refinement")
             break
     return JsonResponse(data_val)
 
+
+# /run_plan
 def run_plan(request):
+    log.debug("Entering /run_plan endpoint")
+    log.debug("Sending 'run' message to TMP")
     global cs
-    cs.sendall(bytes("run","utf-8"))
-    while True:
+    cs.sendall(bytes("run", "utf-8"))
+    log.debug("Waiting for 'run_complete' message from TMP")
+    msg = cs.recv(1024).decode("utf-8")
+    while msg != "run_complete":
+        log.debug(f"Message from TMP: {msg}")
         msg = cs.recv(1024).decode("utf-8")
-        if msg == "run_complete":
-            break
+    log.debug("Received 'run_complete' message from TMP")
     return JsonResponse({})
 
+
+# /kill_tmp
 def kill_tmp(request):
+    log.debug("Entering /kill_tmp endpoint")
+    log.debug("Sending 'terminate' message to TMP")
     global cs
-    cs.sendall(bytes("terminate","utf-8"))
+    cs.sendall(bytes("terminate", "utf-8"))
+    log.debug("Closing socket connection")
     cs.close()
     return JsonResponse({})
 
 
-# Storing files uploaded by user and creating new files from it
-def upload_view(request):
-    global cs
-    cleanup_documents()
-    if not type(process) == bool and request.method != "POST":
-
-        try:
-            if cs is not None:
-                if "closed" not in cs.__repr__():
-                    cs.close()
-                else:
-                    (cs, address) = server_socket.accept()
-                    data = cs.recv(1024)
-                    cs.close()
-            else:
-                (cs, address) = server_socket.accept()
-                cs.close()
-            os.killpg(os.getpgid(process.pid), signal.SIGTERM)
-        except Exception as e:
-            # TODO real loggings
-            print(f"WARNING Error while killing process:", e)
-    if request.method == 'POST':
-        #print(request.POST)
-        form = UploadBookForm(request.POST)
-        name = config.PREBUILT_DOMAIN_FOLDERS
-        #files = request.FILES.getlist('domain')
-        #print(form.is_valid())
-        """
-        the_main_folder = request.POST['domain']
-        the_base = ''
-        while(len(the_base) < len(the_main_folder))
-        """
-        files = [request.POST['domain'] + '/domain.pddl', request.POST['domain'] + "/" + request.POST['problem'] + '/problem.pddl', request.POST['domain'] + "/"  + request.POST['problem'] + '/env.dae', request.POST['domain'] + config.SEMANTICS_FILE]
-        if len(files) < 3:
-            return render(request, 'roblocks/home.html', {
-                'error': "please upload all files",
-                'code': 404,
-                'form': form,
-            })
-        image_address0 = request.POST['domain'] + "/" + request.POST['problem'] + '/img.png'
-        image_address1 = request.POST['domain'] + "/" + request.POST['problem'] + '/img.jpg'
-        image_address2 = request.POST['domain'] + "/" + request.POST['problem'] + '/img.jpeg'
-        if(os.path.exists(config.STATIC_FOLDER + 'img.png')):
-            os.remove(config.STATIC_FOLDER + 'img.png')
-        if(os.path.exists(image_address0)):
-            im0 = Image.open(image_address0)
-            im1 = im0.copy()
-            im1.save(config.STATIC_FOLDER + 'img.png')
-        if(os.path.exists(image_address1)):
-            print(image_address1)
-            im0 = Image.open(image_address1)
-            im1 = im0.copy()
-            im1.save(config.STATIC_FOLDER + 'img.png')
-        if(os.path.exists(image_address2)):
-            im0 = Image.open(image_address2)
-            im1 = im0.copy()
-            im1.save(config.STATIC_FOLDER + 'img.png')
-        set_file_instance_names(form, files)
-        write_template_files()
-        domain_name = get_domain_name()
-        problem_name = get_problem_name()
-        # TODO this will throw an error if there are no semantics, change this once they are optional
-        with open(config.DOCUMENTS_PATH + config.SEMANTICS_FILE, "r") as file:
-            semantics_json = file.read()
-        global semantics
-        semantics = json.loads(semantics_json)
-        create_lattice()
-        call_TMP_for_domain(domain_name, problem_name)
-        return get_blockly_render(request, form, semantics_json)
-    else:
-        cleanup_documents()
-        form = UploadBookForm()
-        name = config.PREBUILT_DOMAIN_FOLDERS
-        return render(request, 'roblocks/home.html', {
-            'form': form,
-            'name': name
-        })
-
-
-def get_blockly_render(request, form, semantics_json):
-    problem_info = get_problem_info(semantics)
-    return render(request, 'roblocks/blockly.html', {
-        'form': form,
-        'planning_elements': problem_info["planning_elements"],
-        'goal': problem_info["goal_str"],
-        'semantics': semantics_json
-    })
-
+# /get_problem_names
 def get_problem_file_names(request):
     domain = request.GET.get('domain')
-    file_path = config.PREBUILT_DOMAIN_FOLDERS + '/' + domain
+    log.debug(f"Entering /get_problem_names endpoint with domain: {domain}")
     files = os.listdir(domain)
 
     final = []
+    # TODO access the directories directly
     for f in files:
         if "." not in f:
             final.append(f)
-    
-    result = {"problem_names":final}
+
+    result = {"problem_names": final}
     return JsonResponse(result)
 
 
-def cleanup_documents():
+# /
+def upload_view(request):
+    log.debug("Entering root endpoint")
+    _cleanup_documents()
+    if request.method == 'POST':
+        return _handle_post_request_to_upload_view(request)
+
+    if tmp_process is not None:
+        _try_to_kill_tmp_and_close_socket()
+
+    form = UploadBookForm()
+    name = config.PREBUILT_DOMAIN_FOLDERS
+    return render(request, 'roblocks/home.html', {
+        'form': form,
+        'name': name
+    })
+
+
+def _handle_post_request_to_upload_view(request):
+    form = UploadBookForm(request.POST)
+    files = [request.POST['domain'] + '/domain.pddl',
+             request.POST['domain'] + "/" + request.POST['problem'] + '/problem.pddl',
+             request.POST['domain'] + "/" + request.POST['problem'] + '/env.dae',
+             request.POST['domain'] + config.SEMANTICS_FILE]
+    # TODO
+    if len(files) < 3:
+        return render(request, 'roblocks/home.html', {
+            'error': "please upload all files",
+            'code': 404,
+            'form': form,
+        })
+    _save_goal_image_to_static_files(request.POST['domain'], request.POST['problem'])
+    _set_file_instance_names(form, files)
+    _write_template_files()
+    domain_name = _get_domain_name_from_documents()
+    problem_name = _get_problem_name_from_documents()
+    # TODO this will throw an error if there are no semantics, change this once they are optional
+    with open(config.DOCUMENTS_PATH + config.SEMANTICS_FILE, "r") as file:
+        semantics_json = file.read()
+    global semantics
+    semantics = json.loads(semantics_json)
+    create_lattice()
+    _spawn_tmp_for_domain_and_problem(domain_name, problem_name)
+    return _get_blockly_render(request, form, semantics_json)
+
+
+def _save_goal_image_to_static_files(domain_path, problem_name):
+    goal_image_for_this_domain = domain_path + "/" + problem_name + "/" + config.GOAL_IMAGE_NAME_IN_MODULES
+    if os.path.exists(config.GOAL_IMAGE_STATIC_FILE):
+        os.remove(config.GOAL_IMAGE_STATIC_FILE)
+    if os.path.exists(goal_image_for_this_domain):
+        image = Image.open(goal_image_for_this_domain)
+        image_copy = image.copy()
+        image_copy.save(config.GOAL_IMAGE_STATIC_FILE)
+
+
+def _try_to_kill_tmp_and_close_socket():
+    log.debug("Trying to kill TMP and close socket connection")
+    global cs
+    try:
+        if cs is not None:
+            log.debug("cs is not None")
+            if "closed" not in cs.__repr__():
+                log.debug("Closing cs without accept()")
+                cs.close()
+            else:
+                log.debug("Closing cs with accept() and one recv()")
+                (cs, address) = server_socket.accept()
+                data = cs.recv(1024)
+                cs.close()
+        else:
+            log.debug("cs is None, closing with accept()")
+            (cs, address) = server_socket.accept()
+            cs.close()
+        log.debug("Sending kill signal to TMP process")
+        os.killpg(os.getpgid(tmp_process.pid), signal.SIGTERM)
+    except Exception as e:
+        # log.exception automatically adds exception trace from handler
+        log.exception("Exception while killing TMP")
+
+
+def _get_blockly_render(request, form, semantics_json):
+    problem_info = get_problem_info(semantics)
+    return render(request, 'roblocks/training-area.html', {
+        'form': form,
+        'problem_actions': json.dumps(problem_info["actions"]),
+        'problem_objects': json.dumps(problem_info["objects"]),
+        'types_to_supertypes': json.dumps(problem_info["types_to_supertypes"]),
+        'goal_str': problem_info["goal_str"],
+        'semantics': semantics_json
+    })
+
+
+def _cleanup_documents():
     global semantics
     semantics = None
 
     # TODO get rid of/rename all the EBooks stuff
-    files = [EBooks_Model.domain for EBooks_Model in EBooksModel.objects.all() if EBooks_Model.domain is not None and EBooks_Model.domain != ""]
+    files = [EBooks_Model.domain for EBooks_Model in EBooksModel.objects.all() if
+             EBooks_Model.domain is not None and EBooks_Model.domain != ""]
     # Deleting all created files in media/documents
     for f in files:
         if os.path.exists(f):
@@ -239,10 +265,10 @@ def cleanup_documents():
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
         except Exception as e:
-            print('Failed to delete %s. Reason: %s' % (file_path, e))
+            log.exception(f"Failed to delete {file_path}")
 
 
-def write_template_files():
+def _write_template_files():
     with open(config.DOMAIN_DOCUMENT_FILE, 'r') as file:
         data = file.read().replace('\n', '')
 
@@ -260,58 +286,49 @@ def write_template_files():
     text_file.close()
 
 
-def get_domain_name():
+def _get_domain_name_from_documents():
     with open(config.PROBLEM_DOCUMENT_FILE, 'r') as file:
         data = file.read().replace('\n', '')
     return data.split("domain ")[1].split(")")[0].replace(' ', '')
 
-def get_problem_name():
+
+def _get_problem_name_from_documents():
     with open(config.PROBLEM_DOCUMENT_FILE, 'r') as file:
         data = file.read().replace('\n', '')
     return data.split("problem ")[1].split(")")[0].replace(' ', '')
 
 
-def call_TMP_for_domain(domain_name,problem_name):
+def _spawn_tmp_for_domain_and_problem(domain_name, problem_name):
+    log.info(f"Spawning TMP process with domain name {domain_name} and problem name {problem_name}")
     python2_command = config.PYTHON_2_PATH + ' "' + file_dir + f'{config.TMP_PATH}" ' + domain_name + ' ' + problem_name
     my_env = os.environ.copy()
-    global process
-    print("call TMP now.............................")
-    process = subprocess.Popen(python2_command,
-                               shell=True,
-                               env=my_env,
-                               preexec_fn=os.setsid)
+    global tmp_process
+    tmp_process = subprocess.Popen(python2_command,
+                                   shell=True,
+                                   env=my_env,
+                                   preexec_fn=os.setsid)
 
 
-def set_file_instance_names(form, files):
+def _set_file_instance_names(form, files):
     if form.is_valid():
-        """
-        for f in files:
-            break
-            file_instance = EBooksModel(domain=f)
-            # TODO don't make assumptions on the names of the files
-            if "domain" in file_instance.domain.name:
-                file_instance.domain.name = "domainD.pddl"
-            if "problem" in file_instance.domain.name:
-                file_instance.domain.name = "problemP.pddl"
-            if "dae" in file_instance.domain.name:
-                file_instance.domain.name = "env.dae"
-            file_instance.save()
-        """
-        with open(files[0], 'r') as domain, open(config.DOCUMENTS_PATH + '/domainD.pddl', 'w') as doc_media:
+        with open(files[0], 'r') as domain, open(config.DOMAIN_DOCUMENT_FILE, 'w') as doc_media:
             for line in domain:
                 doc_media.write(line)
             doc_media.close()
-        with open(files[1], 'r') as problem, open(config.DOCUMENTS_PATH + '/problemP.pddl', 'w') as doc_media:
+        with open(files[1], 'r') as problem, open(config.PROBLEM_DOCUMENT_FILE, 'w') as doc_media:
             for line in problem:
                 doc_media.write(line)
             doc_media.close()
-        with open(files[2], 'r') as env, open(config.DOCUMENTS_PATH + '/env.dae', 'w') as doc_media:
+        with open(files[2], 'r') as env, open(config.ENV_DOCUMENT_FILE, 'w') as doc_media:
             for line in env:
                 doc_media.write(line)
             doc_media.close()
         # TODO this will throw an error if there is no semantics file
         #  update this when the semantics file is made optional
-        with open(files[3], 'r') as semantics_file, open(config.DOCUMENTS_PATH + config.SEMANTICS_FILE, 'w') as doc_media:
-            for line in semantics_file:
+        with open(files[3], 'r') as semantics_document_file, open(
+                                                        config.DOCUMENTS_PATH + config.SEMANTICS_FILE,
+                                                        'w'
+                                                    ) as doc_media:
+            for line in semantics_document_file:
                 doc_media.write(line)
             doc_media.close()

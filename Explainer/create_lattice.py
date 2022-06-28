@@ -36,7 +36,6 @@ def create_lattice():
     edge_map = {}
     inv_edge_map = {}
     while unused_nodes:
-        # print (unused_nodes)
         new_level = set()
         for node in last_level:
             pred_set = node_map[node]
@@ -66,7 +65,6 @@ def create_lattice():
     rev_node_map = {}
     for nd in node_map:
         rev_node_map[nd] = set(preds) - node_map[nd]
-    # print (rev_node_map)
     lattice_dict['Node_map'] = rev_node_map
 
     with open(dest, 'w') as t_fd:

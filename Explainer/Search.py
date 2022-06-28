@@ -1,3 +1,4 @@
+import logging
 from queue import PriorityQueue
 from functools import total_ordering
 import copy
@@ -127,13 +128,13 @@ def greedy_search(start_state):
         val, node = fringe.get()
         node.expand_operations()
         if node.goal_test():
-            print("Goal Found! Number of Nodes Expanded =", nodes_expanded)
+            logging.debug("Goal found!")
             return node  # .get_plan()
         if node.get_state() not in closed:
             closed.add(frozenset(node.get_state()))
             successor_list = node.get_successors()
             nodes_expanded += 1
-            print("Number of Nodes Expanded =", nodes_expanded)
+            logging.debug(f"nodes_expanded: {nodes_expanded}")
 
             while successor_list:
                 candidate_node = successor_list.pop()

@@ -1,25 +1,27 @@
 (define (problem hanoi3)
   (:domain HanoiDeterministic)
+  
   (:objects 
-  loc_I loc_II loc_III - location
-  box_small box_medium box_large - box
-  fetch - Robot
+      location_i location_ii location_iii - loc
+      box_small box_medium box_large - box
+      fetch - robot
   )
   (:init
-   (clearlocation loc_II)
-   (clearlocation loc_III)
-   (clearbox box_small)
-   (onlocation box_large loc_I)
-   (onbox box_medium box_large)
-   (onbox box_small box_medium)
-   (bigger box_large box_medium)
-   (bigger box_medium box_small)
+   (clear location_ii)
+   (clear location_iii)
+   (clear box_small)
+   (on box_large location_i)
+   (on box_medium box_large)
+   (on box_small box_medium)
+   (too_big_to_place_on box_large box_medium)
+   (too_big_to_place_on box_large box_small)
+   (too_big_to_place_on box_medium box_small)
   )
 
   (:goal (and
-    (onlocation box_large loc_III)
-    (onbox box_medium box_large)
-    (onbox box_small box_medium)
+    (on box_large location_iii)
+    (on box_medium box_large)
+    (on box_small box_medium)
     )
   )
 )

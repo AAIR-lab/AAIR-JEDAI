@@ -4,8 +4,8 @@
 	(:objects
 
 		gripper - manip
-		black_can can2 can1 can4 can5 can6 can3 - can
-		can7 can8 can9 - can
+		black_can pink_can purple_can brown_can cream_can maroon_can green_can - can
+		blue_can grey_can red_can - can
 		traj - trajectory
 		fetch - robot
 
@@ -13,9 +13,9 @@
 
 	(:init
 		(empty gripper)
-		(delicate can3)
-		(delicate can5)
-		(delicate can9)
+		(delicate brown_can)
+		(delicate maroon_can)
+		(delicate red_can)
 
 	)
 

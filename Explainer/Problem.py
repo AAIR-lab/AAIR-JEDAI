@@ -1,3 +1,4 @@
+import logging
 import os
 import yaml
 import pddlpy
@@ -14,6 +15,7 @@ TEMP_PLAN_FILE = FILE_DIR + '/temp/plan.sol'
 VAL_COMMAND = FILE_DIR + '/scripts/valplan.sh {} {} {} ' + config.VAL_PATH
 VAL_INFO_COMMAND = FILE_DIR + '/scripts/val_info.sh {} {} {} ' + config.VAL_PATH
 ACTION_DEF_STR = '(:action {}\n:parameters ({})\n:precondition\n(and\n{}\n)\n:effect\n(and\n{}\n)\n)\n'
+log = logging.getLogger(__name__)
 
 
 class Problem:
@@ -232,7 +234,7 @@ class Problem:
         # Run a pretest to see if the foil is executable in the most concrete model
         unres_fls = self.find_unresolved_foils(self.init_node, set('@'.join(i) for i in self.foil))
         if len(unres_fls) == len(self.foil):
-            print("All foils are valid!!!")
+            log.debug("All foils are valid as given")
             return {"failed": False}
 
         # Make a node for start state
@@ -263,13 +265,13 @@ class Problem:
         error_trace = dict()
         self.make_problem_domain_file(curr_model, TEMP_DOM_FILE, TEMP_PROB_FILE)
         for f in self.foil:
-            print(f)
+            log.debug(f"Putting together explanation for foil: {f}")
             self.write_plan_sol(f, TEMP_PLAN_FILE)
 
             output = [i.strip() for i in
                       os.popen(VAL_INFO_COMMAND.format(TEMP_DOM_FILE, TEMP_PROB_FILE, TEMP_PLAN_FILE)).read().strip().split('\n')]
             fail_info = [o.strip() for o in output[0].split("@")]
-            print("fail_info:", fail_info)
+            log.debug("fail_info:{}".format(fail_info))
             failure_type = fail_info[0]
             if failure_type == "precondition" or failure_type == "negated-precondition":
                 failed_step_str = fail_info[1]
@@ -308,7 +310,7 @@ class Problem:
                 error_trace[failed_step - 1] = failure_cause
                 explanation_map["failed_precondition"] = "N/A"
             else:
-                raise Exception(f"The VAL script did not give the expected output! Specifically, the first bit of output was '{failure_type}', but was expected to be the failure type of 'precondition' or 'goal'.")
+                raise Exception(f"The VAL script did not give the expected output! Specifically, the first bit of output was '{failure_type}', but was expected to be the failure type of 'precondition', 'negated-precondition', or 'goal'.")
 
         """if failed_prop in self.node_list[curr_model]["problem"]["init"]:
             error_trace[-1] = "The proposition {} is true in the initial state".format(failed_prop)
@@ -338,7 +340,7 @@ class Problem:
             error_trace[failed_step - 1] += " was false in the initial state."
         explanation_map["error_trace"] = error_trace
         explanation_map["failed"] = True
-        print("explanation_map", explanation_map)
+        log.debug(f"explanation_map:{explanation_map}")
         return explanation_map
 
     def explain(self):

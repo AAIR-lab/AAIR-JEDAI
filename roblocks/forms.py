@@ -10,8 +10,5 @@ class UploadBookForm(forms.ModelForm):
         fields = ['domain']
         widgets = {
             'domain': Select(
-                attrs={'multiple': False, 'id': 'first_menu', 'onclick': 'getMenu()', 'required': True}),
-            # 'problem': Select(
-            #     attrs={'multiple': False, 'id': 'second_menu', 'required': True}
-            # )
+                attrs={'multiple': False, 'id': 'domain_select', 'onclick': 'getMenu()', 'required': True}),
         }

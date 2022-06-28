@@ -122,3 +122,34 @@ USE_TZ = True
 STATIC_URL = '/static/'
 DOCS_URL = '/docs/'
 DOCS_ROOT = os.path.join('./docs/build')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console_formatter': {
+            'format': '%(levelname)s %(name)s: %(message)s'
+        },
+        'file_formatter': {
+            'format': '%(asctime)s %(levelname)s %(name)s: %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': 'ext://sys.stdout',
+            'formatter': 'console_formatter'
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'log.txt',
+            'formatter': 'file_formatter'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'file']
+        }
+    }
+}

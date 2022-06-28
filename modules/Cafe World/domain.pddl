@@ -25,6 +25,7 @@
         :parameters(?g - manipulator ?loc - location ?obj - can ?r - robot)
         :precondition(and
             (empty ?g)
+            (at ?loc ?r)
         )
         :effect(and
             (not (empty ?g))
@@ -35,6 +36,7 @@
         :parameters(?g - manipulator ?loc - location ?obj - can ?r - robot)
         :precondition(and
             (ingripper ?obj ?g)
+            (at ?loc ?r)
         )
         :effect(and
             (not (ingripper ?obj ?g))

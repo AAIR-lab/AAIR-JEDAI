@@ -13,9 +13,9 @@ function initializeBlocks(){
                 controls: true,
                 wheel: false,
                 startScale: 1.0,
-                maxScale: 3.0,
-                minScale: .2,
-                scaleSpeed: 1.2,
+                maxScale: 2.0,
+                minScale: .4,
+                scaleSpeed: 1.1,
                 pinch: true
             },
             move: {
@@ -91,6 +91,34 @@ function clearWorkspace() {
     start_block.render();
     start_block.setDeletable(false);
     start_block.moveBy(200,10)
+}
+
+function showMsg(msg, msgType, blockType){
+
+    let paraId = "statusmsg_"+blockType;
+    let status_bar = document.getElementById(blockType);
+    let status_para = document.getElementById(paraId);
+    console.log(status_para);
+    let para = document.createElement("p");
+    para.className = msgType;
+    para.id = paraId;
+    paratext = document.createTextNode(msg);
+    para.appendChild(paratext);
+
+    if (status_para !== null){
+        status_bar.removeChild(status_para);
+    }
+    status_bar.appendChild(para);
+}
+
+function clearMsg(blockType){
+    // Remove the status message block from the screen
+    let paraId = "statusmsg_"+blockType;
+    let status_bar = document.getElementById(blockType);
+    let status_para = document.getElementById(paraId);
+    if (status_para !== null){
+        status_bar.removeChild(status_para);
+    }
 }
 
 /**

@@ -2,7 +2,10 @@
 
 ./stop_jedai.sh
 echo "Starting new JEDAI server"
-python3 manage.py runserver > temp_file.log &
+python3 manage.py runserver > out.txt 2>&1 &
+PID=$(echo $!)
+echo "$PID" > pid.txt
 sleep 3s
-xdg-open "http://127.0.0.1:8000"
-echo "Started JEDAI server."
+ADDR=$(cat out.txt | grep "Starting development server at" | tr -s ' ' | cut -d ' ' -f 5)
+xdg-open "$ADDR" &
+echo "Started JEDAI server with process ID $PID."

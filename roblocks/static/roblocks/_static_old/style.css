@@ -1,0 +1,15 @@
+.wy-nav-content {
+    width: 100%;
+    max-width:  1400px;
+}
+
+.wy-side-nav-search .wy-dropdown > a img.logo, .wy-side-nav-search > a img.logo {
+    width: 175px;
+}
+
+.header {
+    padding: 2px;
+    text-align: center;
+    /* background-image: url('/static/roblocks/robot.jpeg'); */
+    font-size: 50px;
+  }
