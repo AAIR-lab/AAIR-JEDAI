@@ -1,8 +1,8 @@
-Explainer/temp/***
-!Explainer/temp/.gitkeep
-media/documents/***
-!media/documents/.gitkeep
+Explainer/temp
+media/
 cmovetraj.txt
+log.txt
+roblocks/static/roblocks/images/goal.png
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
