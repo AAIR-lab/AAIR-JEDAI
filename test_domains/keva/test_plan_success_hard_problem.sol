@@ -1,0 +1,6 @@
+1: (pickUp_plank_human_placed_AND_not_free_loc_AND_not_inBuffer location1 plank1 yumi)
+2: (putDown_plank_vertical_onTable plank1 yumi)
+3: (pickUp_plank_human_placed_AND_free_loc_AND_not_inBuffer location2 plank2 yumi)
+4: (putDown_plank_vertical_onTable plank1 yumi)
+5: (pickUp_plank_not_human_placed_AND_not_free_loc_AND_inBuffer location3 plank3 yumi)
+6: (putDown_plank_horizontal_onDoublePlank_both_vertical(plank3 plank1 plank2 yumi)

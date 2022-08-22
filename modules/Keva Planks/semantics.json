@@ -58,6 +58,7 @@
   ],
   "actions": [
     {
+      "category":"Pick Up",
       "name": "pickUp_plank_from_table",
       "display": "Pick up",
       "tooltip": "Use this action to pick up the selected plank from the table with the selected gripper. A gripper can only hold one plank at a time!",
@@ -80,6 +81,7 @@
       ]
     },
     {
+      "category":"Place vertical",
       "name": "putDown_plank_vertical_onTable",
       "display": "Put on table vertically",
       "tooltip": "Use this action to put the selected plank on the table, such that it stands vertically. The selected gripper has to be holding the plank before it can place it!",
@@ -102,6 +104,7 @@
       ]
     },
     {
+      "category":"Place sideways",
       "name": "putDown_plank_sideways_onTable",
       "display": "Put on table sideways",
       "tooltip": "Use this action to put the selected plank on the table, such that it lies on its side. The selected gripper has to be holding the plank before it can place it!",
@@ -124,6 +127,7 @@
       ]
     },
     {
+      "category":"Place horizontal",
       "name": "putDown_plank_horizontal_onPlank",
       "display": "Stack horizontally",
       "tooltip": "Use this action to put the selected plank on top of another plank, such that it lies horizontally. The selected gripper has to be holding the plank before it can place it!",
@@ -151,6 +155,7 @@
       ]
     },
     {
+      "category":"Place vertical",
       "name": "putDown_plank_vertical_onPlank",
       "display": "Stack vertically",
       "tooltip": "Use this action to put the selected plank on top of another plank, such that it stands vertically. The selected gripper has to be holding the plank before it can place it!",
@@ -178,6 +183,7 @@
       ]
     },
     {
+      "category":"Place sideways",
       "name": "putDown_plank_sideways_onPlank",
       "display": "Stack sideways",
       "tooltip": "Use this action to put the selected plank on top of another (single) plank, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
@@ -205,6 +211,7 @@
       ]
     },
     {
+      "category":"Place horizontal",
       "name": "putDown_plank_horizontal_onDoublePlank_both_horizontal",
       "display": "Stack horizontally on two horizontal planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are horizontal, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
@@ -237,6 +244,7 @@
       ]
     },
     {
+      "category":"Place sideways",
       "name": "putDown_plank_sideways_onDoublePlank_both_horizontal",
       "display": "Stack sideways on two horizontal planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are horizontal, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
@@ -269,6 +277,7 @@
       ]
     },
     {
+      "category":"Place horizontal",
       "name": "putDown_plank_horizontal_onDoublePlank_both_vertical",
       "display": "Stack horizontally on two vertical planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are vertical, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
@@ -301,6 +310,7 @@
       ]
     },
     {
+      "category":"Place sideways",
       "name": "putDown_plank_sideways_onDoublePlank_both_vertical",
       "display": "Stack sideways on two vertical planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are vertical, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
@@ -333,6 +343,7 @@
       ]
     },
     {
+      "category":"Place horizontal",
       "name": "putDown_plank_horizontal_onDoublePlank_both_sideways",
       "display": "Stack horizontally on two sideways planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are sideways, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
@@ -365,6 +376,7 @@
       ]
     },
     {
+      "category":"Place sideways",
       "name": "putDown_plank_sideways_onDoublePlank_both_sideways",
       "display": "Stack sideways on two sideways planks",
       "tooltip": "Use this action to put the selected plank on top of two other planks that are sideways, such that the placed plank lies on its side as well. The selected gripper has to be holding the plank before it can place it!",

@@ -14,6 +14,7 @@ urlpatterns = [
     path("start_TMP/", views.start_tmp, name="start_TMP"),
     path("run_plan/", views.run_plan, name="run_plan"),
     path("kill_tmp/", views.kill_tmp, name="kill_tmp"),
+    path("terminate_tmp/", views.terminate_tmp, name="terminate_tmp"),
     path("get_problem_names/", views.get_problem_file_names, name="get_problem_names")
 
 ]

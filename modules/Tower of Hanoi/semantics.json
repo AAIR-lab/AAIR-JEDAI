@@ -18,6 +18,7 @@
     ],
     "actions": [
       {
+        "category":"Move",
         "name": "move",
         "display": "Move",
         "tooltip": "Use this action to move a box (with nothing on top) from one place to another. Boxes can go on top of empty locations or on top other boxes that don't already have another box on top.",

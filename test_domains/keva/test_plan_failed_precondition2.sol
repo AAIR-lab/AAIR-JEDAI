@@ -1,0 +1,1 @@
+1: (pickUp_plank_human_placed_AND_not_free_loc_AND_not_inBuffer location2 plank1 yumi)

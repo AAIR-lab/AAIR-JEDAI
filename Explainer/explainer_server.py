@@ -51,6 +51,10 @@ def generate_plan_string_from_explanation(plan, explanation_map,val_output):
     Check if HELM returns an error and then prune the output based on VAL's output
     '''
 
+    plan_length = len(plan.split(','))
+    explanation_map['total_actions'] = plan_length
+    explanation_map['exec_actions'] = plan_length
+
     if 'failed_precondition' in explanation_map.keys():        
 
         if val_output[0] != 'goal':
@@ -58,8 +62,14 @@ def generate_plan_string_from_explanation(plan, explanation_map,val_output):
             badActionStep = int(val_output[1])-1
             log.debug(f"badActionStep:{badActionStep}")
             plan = (',').join(plan[:badActionStep])
+            exec_length = len(plan[:badActionStep])
             log.debug(f"plan:{plan}")
             explanation_map['badStep'] = badActionStep
+            explanation_map['exec_actions'] = exec_length
+            explanation_map['err_code'] = "BAD ACTION"
+        else:
+            explanation_map['err_code'] = "GOAL ERROR"
+
 
     return explanation_map, plan
 

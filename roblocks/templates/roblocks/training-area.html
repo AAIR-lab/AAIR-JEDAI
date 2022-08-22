@@ -18,12 +18,11 @@
         float: left;
         padding: 20px;
     }
-    .vertical-center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
+    .fig-pos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: fit-content;
     }
     figcaption {
         font-style: italic;
@@ -61,16 +60,19 @@
 </script>
 <body onload="getBlocks()" >
    <xml id="toolbox" style="display: none">
-	<category name="Actions"></category>
+    <category id="Actions" name="Actions" hidden="true"></category>
 	</xml>
     <div class="playGround container" style="min-width: 1150px;">
         <div class="row questionBlock" style="min-width: 100%;">
             <div class="col-sm-3">
-                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan()" style="margin-bottom:20px;">Submit Plan</button>
+                 <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan()" style="margin-bottom:20px;">Submit Plan</button>
+             </div>
+            <div class="col-sm-6">
+                <p id="question">Goal State: {{goal_str}}</p>
             </div>
-            <div class="col-sm-9">
-                <p id="question">Goal state: {{goal_str}}</p>
-            </div>
+            <div class="col-sm-3" style="justify-content: flex-end; display: flex;">
+                <button type="button" id="stopExecBtn" style="margin-top:5px; margin-bottom:5px;" class="btn btn-danger" onclick="terminateExec()" style="margin-bottom:20px;" disabled>Stop Execution</button>
+             </div>
         </div>
         <div id="explainer_status" class="row statusBlock" style="min-width: 100%;">
         </div>
@@ -80,9 +82,13 @@
             <div id="blocklyDiv" class="float-child" style="height: 100%; min-width:700px;">
             </div>
             <div class="float-child" style="height: 100%; position: relative; width: 30%;">
-                <figure class="vertical-center" style="max-width: 90%;">
-                <img src="{% static "roblocks/images/goal.png" %}"  alt="Goal Image" >
-                <figcaption>Goal Image</figcaption>
+                <figcaption class="fig-pos" style="max-width: 70%;">Start state configuration</figcaption>
+                <figure class="fig-pos" style="max-width: 75%;">
+                <img src="{% static "roblocks/images/init.png" %}"  alt="Initial state image" >
+                </figure>
+                <figcaption class="fig-pos" style="max-width: 70%;">Expected goal state configuration</figcaption>
+                <figure class="fig-pos" style="max-width: 75%;">
+                <img src="{% static "roblocks/images/goal.png" %}"  alt="Goal state image" >
             </figure>
             </div>
         </div>

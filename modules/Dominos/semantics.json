@@ -18,6 +18,7 @@
     ],
     "actions": [
       {
+      "category":"Pick Up",
         "name": "pick",
         "display": "Pick up",
         "tooltip": "Use this action to pick up a domino",

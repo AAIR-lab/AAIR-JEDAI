@@ -9,6 +9,7 @@ class UploadBookForm(forms.ModelForm):
         model = EBooksModel
         fields = ['domain']
         widgets = {
+            # TODO what is this? why can't we just use html?
             'domain': Select(
                 attrs={'multiple': False, 'id': 'domain_select', 'onclick': 'getMenu()', 'required': True}),
         }

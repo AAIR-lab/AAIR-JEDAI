@@ -23,6 +23,7 @@
     ],
     "actions": [
       {
+        "category":"Pick Up",
         "name": "grasp",
         "display": "Pick up",
         "tooltip": "Use this action to pick up an object from a location using the gripper.",
@@ -51,6 +52,7 @@
         ]
       },
       {
+        "category":"Place",
         "name": "put",
         "display": "Place",
         "tooltip": "Use this action to place the object at a specified location using the gripper.",

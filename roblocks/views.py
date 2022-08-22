@@ -135,6 +135,13 @@ def kill_tmp(request):
     cs.close()
     return JsonResponse({})
 
+# /terminate_tmp
+def terminate_tmp(request):
+    log.debug("Entering /terminate_tmp endpoint")
+    log.debug("Force killing tmp process")
+    _try_to_kill_tmp_and_close_socket()
+    return JsonResponse({})
+
 
 # /get_problem_names
 def get_problem_file_names(request):
@@ -183,7 +190,7 @@ def _handle_post_request_to_upload_view(request):
             'code': 404,
             'form': form,
         })
-    _save_goal_image_to_static_files(request.POST['domain'], request.POST['problem'])
+    _save_images_to_static_files(request.POST['domain'], request.POST['problem'])
     _set_file_instance_names(form, files)
     _write_template_files()
     domain_name = _get_domain_name_from_documents()
@@ -198,8 +205,16 @@ def _handle_post_request_to_upload_view(request):
     return _get_blockly_render(request, form, semantics_json)
 
 
-def _save_goal_image_to_static_files(domain_path, problem_name):
+def _save_images_to_static_files(domain_path, problem_name):
+    init_image_for_this_domain = domain_path + "/" + problem_name + "/" + config.INIT_IMAGE_NAME_IN_MODULES
     goal_image_for_this_domain = domain_path + "/" + problem_name + "/" + config.GOAL_IMAGE_NAME_IN_MODULES
+    if os.path.exists(config.INIT_IMAGE_STATIC_FILE):
+        os.remove(config.INIT_IMAGE_STATIC_FILE)
+    if os.path.exists(init_image_for_this_domain):
+        image = Image.open(init_image_for_this_domain)
+        image_copy = image.copy()
+        image_copy.save(config.INIT_IMAGE_STATIC_FILE)
+    
     if os.path.exists(config.GOAL_IMAGE_STATIC_FILE):
         os.remove(config.GOAL_IMAGE_STATIC_FILE)
     if os.path.exists(goal_image_for_this_domain):

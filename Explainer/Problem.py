@@ -304,7 +304,7 @@ class Problem:
                     [True for _ in failed_goals]
                 )
                 failed_prop = set([p.replace('(', '').replace(')', '') for p in failed_goals])
-                failure_cause = failed_goals_display + " The goal state is not achieved! Please adjust your plan."
+                failure_cause = "The goal state is not achieved! " + failed_goals_display
 
                 explanation_map["failure_cause"] = failure_cause
                 error_trace[failed_step - 1] = failure_cause

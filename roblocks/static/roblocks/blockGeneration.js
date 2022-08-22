@@ -49,7 +49,15 @@ function generateActionBlocks(actions, objects, semantics, typesToSupertypes) {
         };
         const xml = '<block type="' + blockName + '"></block>';
         // TODO handle category names better
-        $('[name="Actions"]').append(xml);
+        let toolbox=document.getElementById('Actions');
+        if (document.getElementById(actionSemantics.category) == null){
+            let element = document.createElement('category');
+            element.id = actionSemantics.category;
+            element.setAttribute('name', actionSemantics.category);
+            toolbox.append(element);
+        }
+        $('[name="'+actionSemantics.category+'"]').append(xml);
+
     });
     const step = 90 / (actions.length*0.5);
     let color = 90;

@@ -75,7 +75,8 @@ form {
 }
 
 .pass{
-  background-color: #5b7935;
+  background-color: #648FFF;
+  /* background-color: #5b7935; */
   border-radius: 5px;
 	text-align: center;
 	margin-left: 20px;
@@ -95,7 +96,8 @@ form {
 }
 
 .fail{
-  background-color: #793535;
+  background-color: #EC2020;
+  /* background-color: #793535; */
   border-radius: 5px;
 	text-align: center;
 	margin-left: 20px;
