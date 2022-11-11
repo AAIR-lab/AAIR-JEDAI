@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Getting Started with JEDAI &#8212; JEDAI  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
@@ -12,7 +13,9 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -23,10 +26,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -127,12 +130,12 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="getting-started-with-jedai">
-<h1>Getting Started with JEDAI<a class="headerlink" href="#getting-started-with-jedai" title="Permalink to this headline">¶</a></h1>
+  <section id="getting-started-with-jedai">
+<h1>Getting Started with JEDAI<a class="headerlink" href="#getting-started-with-jedai" title="Permalink to this heading">¶</a></h1>
 <p>The goal of this system to introduce AI planning concepts using mobile manipulator robots. It uses a visual programming interface to make these concepts easier to grasp. Users can get the robot to accomplish desired tasks by connecting jigsaw-like blocks that encode the robot’s possible actions. This allows users to carry out navigation, planning and manipulation by dragging and dropping blocks instead of writing code.</p>
 <p>The following steps will help you get started:</p>
-<div class="section" id="step-1-start-the-system">
-<h2>Step 1: Start the System<a class="headerlink" href="#step-1-start-the-system" title="Permalink to this headline">¶</a></h2>
+<section id="step-1-start-the-system">
+<h2>Step 1: Start the System<a class="headerlink" href="#step-1-start-the-system" title="Permalink to this heading">¶</a></h2>
 <p>Open the home page using the following command in Terminal from the root directory of JEDAI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./start_jedai.sh
 </pre></div>
@@ -147,9 +150,9 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
-<div class="section" id="step-2-choose-the-domain-and-problem">
-<h2>Step 2: Choose the domain and problem<a class="headerlink" href="#step-2-choose-the-domain-and-problem" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-2-choose-the-domain-and-problem">
+<h2>Step 2: Choose the domain and problem<a class="headerlink" href="#step-2-choose-the-domain-and-problem" title="Permalink to this heading">¶</a></h2>
 <p>You will need to choose a domain and a problem within that domain to use JEDAI.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -157,7 +160,7 @@
 </div>
 <p>Follow these steps to pick a domain and problem:</p>
 <ol class="arabic simple">
-<li><p>Choose a domain from the dropdown menu to play around with. The default options are <a class="reference external" href="./domains/keva.html">Keva</a> and <a class="reference external" href="./domains/hanoi.html">Hanoi</a>.</p></li>
+<li><p>Choose a domain from the dropdown menu to play around with. There are six default options to choose from: <a class="reference external" href="./domains/cafe.html">Cafe World</a>, <a class="reference external" href="./domains/delicateCans.html">Delicate Cans</a>, <a class="reference external" href="./domains/domino.html">Dominos</a>, <a class="reference external" href="./domains/keva.html">Keva Planks</a>, <a class="reference external" href="./domains/towers.html">Stack of Towers</a>, and <a class="reference external" href="./domains/hanoi.html">Tower of Hanoi</a>.</p></li>
 </ol>
 <a class="reference internal image-reference" href="_images/choose_domain.png"><img alt="Choosing the domain" src="_images/choose_domain.png" style="width: 300px;" /></a>
 <div class="line-block">
@@ -170,9 +173,9 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
-<div class="section" id="step-3-learn-to-plan">
-<h2>Step 3: Learn to Plan<a class="headerlink" href="#step-3-learn-to-plan" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-3-learn-to-plan">
+<h2>Step 3: Learn to Plan<a class="headerlink" href="#step-3-learn-to-plan" title="Permalink to this heading">¶</a></h2>
 <p>In the field of automated planning, a “plan” is defined as a sequence of actions, where an action represents something
 the robot can do to change the state of the world. In JEDAI, you will learn how these plans work and the kind of requirements
 that are imposed on you when dealing with a system that does not have its own common sense to guess at what you really mean.</p>
@@ -243,8 +246,8 @@ in your plan!</p>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
     </div>
@@ -258,8 +261,8 @@ in your plan!</p>
       
     </p>
     <p>
-        &copy; Copyright 2021, AAIR Lab, ASU.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2.<br/>
+        &copy; Copyright 2022, AAIR Lab, ASU.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>

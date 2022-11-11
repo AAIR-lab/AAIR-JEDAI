@@ -4,12 +4,16 @@ Domains and Problems
 Default Domains
 -------------------
 
-JEDAI comes with two default domains
+JEDAI comes with six default domains
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 6
 
+   domains/cafe
+   domains/delicateCans
+   domains/domino
    domains/keva
+   domains/towers
    domains/hanoi
 
 Creating new Domains

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Keva Planks &#8212; JEDAI  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
@@ -12,21 +13,23 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tower of Hanoi" href="hanoi.html" />
-    <link rel="prev" title="Domains and Problems" href="../domains.html" />
+    <link rel="next" title="Stack of Towers" href="towers.html" />
+    <link rel="prev" title="Dominos" href="domino.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -88,11 +91,11 @@
               
                 
   <li>
-    <a href="../domains.html" title="Previous Chapter: Domains and Problems"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Domains and Problems</span>
+    <a href="domino.html" title="Previous Chapter: Dominos"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Dominos</span>
     </a>
   </li>
   <li>
-    <a href="hanoi.html" title="Next Chapter: Tower of Hanoi"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Tower of Hanoi &raquo;</span>
+    <a href="towers.html" title="Next Chapter: Stack of Towers"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Stack of Towers &raquo;</span>
     </a>
   </li>
               
@@ -122,8 +125,8 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="keva-planks">
-<h1>Keva Planks<a class="headerlink" href="#keva-planks" title="Permalink to this headline">¶</a></h1>
+  <section id="keva-planks">
+<h1>Keva Planks<a class="headerlink" href="#keva-planks" title="Permalink to this heading">¶</a></h1>
 <p>This domain features an ABB YuMi Robot, and multiple Keva planks as shown below.</p>
 <a class="reference internal image-reference" href="../_images/keva_domain.png"><img alt="Domain with YuMi robot and Keva planks" src="../_images/keva_domain.png" style="width: 600px;" /></a>
 <div class="line-block">
@@ -135,22 +138,21 @@
 </div>
 <p>In all the problems for this domain, the YuMi robot must
 build structures as shown in the goal configuration using the Keva planks.
-Keva planks are laser cut wooden planks with uniform geometry.
-Planks can be picked up one after another from the table
-in front of YuMi.</p>
+Keva planks are laser-cut wooden planks with uniform geometry.
+And, YuMi can pick up the planks in front of it one after another.</p>
 <p>The actions that the YuMi robot can take in this environment are:</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<ol class="arabic simple">
-<li><p><strong>Pick up a plank from a table</strong>:
-Use this action to pick up the selected plank from the table with the selected gripper.
-A gripper can only hold one plank at a time!</p></li>
-</ol>
-<a class="reference internal image-reference" href="../_images/keva_pickup.png"><img alt="Pick up a plank from a table" src="../_images/keva_pickup.png" style="width: 200px;" /></a>
+<p><strong>Action Group: Pick up</strong></p>
+<p>1. <strong>Pick up a plank</strong>:
+Use this action to pick up the selected plank with the selected gripper.
+A gripper can only hold one plank at a time!</p>
+<a class="reference internal image-reference" href="../_images/keva_pickup.png"><img alt="Pick up a plank" src="../_images/keva_pickup.png" style="width: 200px;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p><strong>Action Group: Place vertical</strong></p>
 <p>2. <strong>Put on table vertically</strong>:
 Use this action to pick up the selected plank from the table with the selected gripper.
 A gripper can only hold one plank at a time!</p>
@@ -158,43 +160,29 @@ A gripper can only hold one plank at a time!</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>3. <strong>Put on table sideways</strong>:
-Use this action to put the selected plank on the table, such that it lies on its side.
-The selected gripper has to be holding the plank before it can place it!</p>
-<a class="reference internal image-reference" href="../_images/keva_puton_sideways.png"><img alt="Put on table sideways" src="../_images/keva_puton_sideways.png" style="width: 200px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>4. <strong>Stack horizontally</strong>:
-Use this action to put the selected plank on top of another plank, such that it lies horizontally.
-The selected gripper has to be holding the plank before it can place it!</p>
-<a class="reference internal image-reference" href="../_images/keva_stack_horizontally.png"><img alt="Stack horizontally" src="../_images/keva_stack_horizontally.png" style="width: 200px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>5. <strong>Stack vertically</strong>:
+<p>3. <strong>Stack vertically</strong>:
 Use this action to put the selected plank on top of another plank, such that it stands vertically.
 The selected gripper has to be holding the plank before it can place it!</p>
 <a class="reference internal image-reference" href="../_images/keva_stack_vertically.png"><img alt="Stack vertically" src="../_images/keva_stack_vertically.png" style="width: 200px;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>6. <strong>Stack sideways</strong>:
+<p><strong>Action Group: Place sideways</strong></p>
+<p>4. <strong>Put on table sideways</strong>:
+Use this action to put the selected plank on the table, such that it lies on its side.
+The selected gripper has to be holding the plank before it can place it!</p>
+<a class="reference internal image-reference" href="../_images/keva_puton_sideways.png"><img alt="Put on table sideways" src="../_images/keva_puton_sideways.png" style="width: 200px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>5. <strong>Stack sideways</strong>:
 Use this action to put the selected plank on top of another (single) plank, such that the placed plank lies on its side.
 The selected gripper has to be holding the plank before it can place it!</p>
 <a class="reference internal image-reference" href="../_images/keva_stack_sideways.png"><img alt="Stack sideways" src="../_images/keva_stack_sideways.png" style="width: 200px;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>7. <strong>Stack horizontally on two horizontal planks</strong>:
-Use this action to put the selected plank on top of two other planks that are horizontal,
-such that the placed plank lies horizontally.
-The selected gripper has to be holding the plank before it can place it!</p>
-<a class="reference internal image-reference" href="../_images/keva_stack_horizontal_on_two_planks.png"><img alt="Stack horizontally on two horizontal planks" src="../_images/keva_stack_horizontal_on_two_planks.png" style="width: 325px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>8. <strong>Stack sideways on two horizontal planks</strong>:
+<p>6. <strong>Stack sideways on two horizontal planks</strong>:
 Use this action to put the selected plank on top of two other planks that are horizontal,
 such that the placed plank lies on its side.
 The selected gripper has to be holding the plank before it can place it!</p>
@@ -202,15 +190,7 @@ The selected gripper has to be holding the plank before it can place it!</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>9. <strong>Stack horizontally on two vertical planks</strong>:
-Use this action to put the selected plank on top of two other planks that are vertical,
-such that the placed plank lies horizontally.
-The selected gripper has to be holding the plank before it can place it!</p>
-<a class="reference internal image-reference" href="../_images/keva_stack_horizontal_on_two_vertical_planks.png"><img alt="Stack horizontally on two vertical planks" src="../_images/keva_stack_horizontal_on_two_vertical_planks.png" style="width: 325px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>10. <strong>Stack sideways on two vertical planks</strong>:
+<p>7. <strong>Stack sideways on two vertical planks</strong>:
 Use this action to put the selected plank on top of two other planks that are vertical,
 such that the placed plank lies on its side.
 The selected gripper has to be holding the plank before it can place it!</p>
@@ -218,24 +198,48 @@ The selected gripper has to be holding the plank before it can place it!</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>11. <strong>Stack horizontally on two sideways planks</strong>:
-Use this action to put the selected plank on top of two other planks that are sideways,
-such that the placed plank lies horizontally.
-The selected gripper has to be holding the plank before it can place it!</p>
-<a class="reference internal image-reference" href="../_images/keva_stack_horizontally_on_two_sideways_planks.png"><img alt="Stack horizontally on two sideways planks" src="../_images/keva_stack_horizontally_on_two_sideways_planks.png" style="width: 325px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>12. <strong>Stack sideways on two sideways planks</strong>:
+<p>8. <strong>Stack sideways on two sideways planks</strong>:
 Use this action to put the selected plank on top of two other planks that are sideways,
 such that the placed plank lies on its side as well.
 The selected gripper has to be holding the plank before it can place it!</p>
 <a class="reference internal image-reference" href="../_images/keva_stack_sideways_on_two_sideways_planks.png"><img alt="Stack sideways on two sideways planks" src="../_images/keva_stack_sideways_on_two_sideways_planks.png" style="width: 325px;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<p><strong>Action Group: Place horizontal</strong></p>
+<p>9. <strong>Stack horizontally</strong>:
+Use this action to put the selected plank on top of another plank, such that it lies horizontally.
+The selected gripper has to be holding the plank before it can place it!</p>
+<a class="reference internal image-reference" href="../_images/keva_stack_horizontally.png"><img alt="Stack horizontally" src="../_images/keva_stack_horizontally.png" style="width: 200px;" /></a>
+<div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p>10. <strong>Stack horizontally on two horizontal planks</strong>:
+Use this action to put the selected plank on top of two other planks that are horizontal,
+such that the placed plank lies horizontally.
+The selected gripper has to be holding the plank before it can place it!</p>
+<a class="reference internal image-reference" href="../_images/keva_stack_horizontally_on_two_horizontal_planks.png"><img alt="Stack horizontally on two horizontal planks" src="../_images/keva_stack_horizontally_on_two_horizontal_planks.png" style="width: 325px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
+<p>11. <strong>Stack horizontally on two vertical planks</strong>:
+Use this action to put the selected plank on top of two other planks that are vertical,
+such that the placed plank lies horizontally.
+The selected gripper has to be holding the plank before it can place it!</p>
+<a class="reference internal image-reference" href="../_images/keva_stack_horizontally_on_two_vertical_planks.png"><img alt="Stack horizontally on two vertical planks" src="../_images/keva_stack_horizontally_on_two_vertical_planks.png" style="width: 325px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>12. <strong>Stack horizontally on two sideways planks</strong>:
+Use this action to put the selected plank on top of two other planks that are sideways,
+such that the placed plank lies horizontally.
+The selected gripper has to be holding the plank before it can place it!</p>
+<a class="reference internal image-reference" href="../_images/keva_stack_horizontally_on_two_sideways_planks.png"><img alt="Stack horizontally on two sideways planks" src="../_images/keva_stack_horizontally_on_two_sideways_planks.png" style="width: 325px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
 
 
     </div>
@@ -249,8 +253,8 @@ The selected gripper has to be holding the plank before it can place it!</p>
       
     </p>
     <p>
-        &copy; Copyright 2021, AAIR Lab, ASU.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2.<br/>
+        &copy; Copyright 2022, AAIR Lab, ASU.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>

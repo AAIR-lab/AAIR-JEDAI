@@ -34,7 +34,7 @@ You will need to choose a domain and a problem within that domain to use JEDAI.
 
 Follow these steps to pick a domain and problem:
 
-1. Choose a domain from the dropdown menu to play around with. The default options are `Keva`_ and `Hanoi`_.
+1. Choose a domain from the dropdown menu to play around with. There are six default options to choose from: `Cafe World`_, `Delicate Cans`_, `Dominos`_, `Keva Planks`_, `Stack of Towers`_, and `Tower of Hanoi`_.
 
 .. image:: ./images/choose_domain.png
   :width: 300
@@ -140,6 +140,10 @@ in your plan!
 
 
 .. _here : ./domains.html
-.. _Keva : ./domains/keva.html
-.. _Hanoi : ./domains/hanoi.html
+.. _Cafe World : ./domains/cafe.html
+.. _Delicate Cans : ./domains/delicateCans.html
+.. _Dominos : ./domains/domino.html 
+.. _Keva Planks : ./domains/keva.html
+.. _Stack of Towers : ./domains/towers.html
+.. _Tower of Hanoi : ./domains/hanoi.html
 .. _why : ./explanations.html

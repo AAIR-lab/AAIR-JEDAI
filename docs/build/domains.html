@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Domains and Problems &#8212; JEDAI  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
@@ -12,21 +13,23 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Keva Planks" href="domains/keva.html" />
+    <link rel="next" title="Cafe World" href="domains/cafe.html" />
     <link rel="prev" title="Getting Started with JEDAI" href="getting_started.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
 
   </head><body>
 
@@ -104,7 +107,7 @@
     </a>
   </li>
   <li>
-    <a href="domains/keva.html" title="Next Chapter: Keva Planks"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Keva Planks &raquo;</span>
+    <a href="domains/cafe.html" title="Next Chapter: Cafe World"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Cafe World &raquo;</span>
     </a>
   </li>
               
@@ -134,20 +137,24 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="domains-and-problems">
-<h1>Domains and Problems<a class="headerlink" href="#domains-and-problems" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="default-domains">
-<h2>Default Domains<a class="headerlink" href="#default-domains" title="Permalink to this headline">¶</a></h2>
-<p>JEDAI comes with two default domains</p>
+  <section id="domains-and-problems">
+<h1>Domains and Problems<a class="headerlink" href="#domains-and-problems" title="Permalink to this heading">¶</a></h1>
+<section id="default-domains">
+<h2>Default Domains<a class="headerlink" href="#default-domains" title="Permalink to this heading">¶</a></h2>
+<p>JEDAI comes with six default domains</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="domains/cafe.html">Cafe World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains/delicateCans.html">Delicate Cans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains/domino.html">Dominos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domains/keva.html">Keva Planks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains/towers.html">Stack of Towers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domains/hanoi.html">Tower of Hanoi</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="creating-new-domains">
-<h2>Creating new Domains<a class="headerlink" href="#creating-new-domains" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-new-domains">
+<h2>Creating new Domains<a class="headerlink" href="#creating-new-domains" title="Permalink to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This feature is recommended for advanced users only</p>
@@ -166,8 +173,8 @@
       <span class="o">|--</span> <span class="n">img</span><span class="o">.</span><span class="n">png</span>
 </pre></div>
 </div>
-<div class="section" id="domain-file">
-<h3>Domain File<a class="headerlink" href="#domain-file" title="Permalink to this headline">¶</a></h3>
+<section id="domain-file">
+<h3>Domain File<a class="headerlink" href="#domain-file" title="Permalink to this heading">¶</a></h3>
 <p>The domain.pddl file contains semantics of the planning problem and actions descriptions. Each action contains an action name, a list of parameters a set of preconditions and a set of effects. Rename your domain file to “domain.pddl” and place it in your domain folder as shown in the directory structure above.</p>
 <p>Important points to remember while making the domain file:
 * The action names must be in the lowercase.
@@ -177,9 +184,9 @@
 * Quantified preconditions and/or effects are not supported yet.
 * No comments are allowed in the domain file.
 |</p>
-</div>
-<div class="section" id="problem-file">
-<h3>Problem File<a class="headerlink" href="#problem-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="problem-file">
+<h3>Problem File<a class="headerlink" href="#problem-file" title="Permalink to this heading">¶</a></h3>
 <p>A problem file defines a universe of objects, an initial state, and the goal condition for a planning problem. Each problem would need a separate problem file. For each new problem, create a sub directory under the domain directory. Rename your problem file to “problem.pddl” and place it in the problem directory as shown in the directory structure above.</p>
 <p>Important points to remember while making the problem file:
 * The object names should be all lowercase.
@@ -187,9 +194,9 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
-<div class="section" id="environment-file">
-<h3>Environment File<a class="headerlink" href="#environment-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="environment-file">
+<h3>Environment File<a class="headerlink" href="#environment-file" title="Permalink to this heading">¶</a></h3>
 <p>An environment file contains the low-level 3d setup for the problem. A separate environment file is required for each problem. Rename your environment file to “env.dae” and place it in the problem sub directory as shown in the directory structure above.</p>
 <p>Important points to remember while making the environment file:
 * The environment should either be a collada file in a dae (version 1.5) format or an xml file compatible with OpenRave.
@@ -198,13 +205,13 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
-<div class="section" id="goal-image">
-<h3>Goal Image<a class="headerlink" href="#goal-image" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="goal-image">
+<h3>Goal Image<a class="headerlink" href="#goal-image" title="Permalink to this heading">¶</a></h3>
 <p>A goal images helps the users to visualize what goal they are planning for. Rename the goal image to “img.png” and place it in the problem sub directory as shown in the directory structure above.</p>
-</div>
-<div class="section" id="semantics-file">
-<h3>Semantics File<a class="headerlink" href="#semantics-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="semantics-file">
+<h3>Semantics File<a class="headerlink" href="#semantics-file" title="Permalink to this heading">¶</a></h3>
 <p>The semantics file is used to generate “natural language” versions of actions and predicates. The general structure of the semantics file is something like this:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{
    &quot;predicates&quot;: [
@@ -217,6 +224,7 @@
    ],
    &quot;actions&quot;: [
       {
+         &quot;category&quot;: &quot;<span class="nt">&lt;category_name&gt;</span>&quot;
          &quot;name&quot;: &quot;<span class="nt">&lt;action_name&gt;</span>&quot;,
          &quot;display&quot;: &quot;<span class="nt">&lt;action_display&gt;</span>&quot;,
          &quot;tooltip&quot;: &quot;<span class="nt">&lt;info_to_show_on_hovering&gt;</span>&quot;,
@@ -239,6 +247,7 @@
 <li><p><strong>&lt;predicate_name&gt;</strong>: This is the name of the predicate used in the corresponding domain and problem files. The user will not necessarily see this.</p></li>
 <li><p><strong>&lt;subject_index&gt;</strong>: This gives the (zero-based) index of the “subject” of the predicate. The subject of the predicate is whichever parameter would come before the “is” in a sentence describing that predicate.</p></li>
 <li><p><strong>&lt;predicate_display&gt;</strong>: This is the text that would come after the “is” in a sentence describing the predicate. For example, if you wanted a full phrase like “plank1 is standing vertically”, <strong>&lt;predicate_display&gt;</strong> would need to be “standing vertically”. If there are more objects in your predicate, you should add those to this field as well. To make it so that the object for parameter at index <strong>&lt;index&gt;</strong> gets substituted into <strong>&lt;predicate_display&gt;</strong>, include that index between a pair of double percent signs in the string, like so: “%%<strong>&lt;index&gt;</strong>%%”.</p></li>
+<li><p><strong>&lt;action_category&gt;</strong>: This is the category of the action used to bin the actions in the action selection list. The user will see this name in the list.</p></li>
 <li><p><strong>&lt;action_name&gt;</strong>: This is the name of the action used in the corresponding domain and problem files. The user will not necessarily see this.</p></li>
 <li><p><strong>&lt;action_display&gt;</strong>: This is the initial part of any natural language meant to encapsulate this action. It should consist of anything needed to indicate which action is being discussed before the parameters are introduced. For example, to get the sentence “Pick up plank plank1 with robot yumi using gripper left”, the <strong>&lt;action_display&gt;</strong> should be “Pick up”.</p></li>
 <li><p><strong>&lt;info_to_show_on_hovering&gt;</strong>: This is a longer-form generic description of the action that pops up when a user hovers their mouse over an action block.</p></li>
@@ -249,17 +258,17 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
-<div class="section" id="other-requirements">
-<h3>Other Requirements<a class="headerlink" href="#other-requirements" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="other-requirements">
+<h3>Other Requirements<a class="headerlink" href="#other-requirements" title="Permalink to this heading">¶</a></h3>
 <p>Apart from these requirements, the domain has to be setup in task and motion planning framework with the same name used to define the domain in the domain.pddl under “TMP_Merged/test_domains/” directory. For steps to setup this domain, visit: <a class="reference external" href="https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies/blob/master/README.md">https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies/blob/master/README.md</a></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
     </div>
@@ -273,8 +282,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2021, AAIR Lab, ASU.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2.<br/>
+        &copy; Copyright 2022, AAIR Lab, ASU.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>
