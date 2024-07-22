@@ -1,0 +1,44 @@
+{
+    "predicates": [
+      {
+        "name": "ontable",
+        "subjectIndex": 0,
+        "display": "on table"
+      },
+      {
+        "name": "picked",
+        "subjectIndex": 0,
+        "display": "picked up"
+      },
+      {
+        "name": "empty_gripper",
+        "subjectIndex": 0,
+        "display": "empty"
+      }
+    ],
+    "actions": [
+      {
+      "category":"Pick Up",
+        "name": "pick",
+        "display": "Pick up",
+        "tooltip": "Use this action to pick up a domino",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this domino",
+            "sentenceDisplay": "domino"
+          },
+          {
+            "index": 1,
+            "display": "using this gripper",
+            "sentenceDisplay": "using"
+          },
+          {
+            "index": 2,
+            "display": "of this robot",
+            "sentenceDisplay": "of robot"
+          }
+        ]
+      }
+    ]
+  }

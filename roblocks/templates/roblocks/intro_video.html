@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter ID</title>
+</head>
+<style>
+    /* Style for the heading */
+    h1 {
+        font-size: 2em; /* Large font size */
+        text-align: center; /* Center align the heading */
+    }
+
+    /* Style for the paragraph */
+    p {
+        font-weight: bold; /* Make text bold */
+        text-align: center; /* Center align the paragraph */
+        font-size: 1;
+    }
+
+    /* Style for the QR code and link container for centering */
+    .center-content {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Thank You For Joining the JEDAI-Ed User Study</h1>
+
+    <div class="center-content"> 
+        <!-- Paragraph element with the introductory text -->
+        <p>Before proceeding, please open this QR code and view the introductory video.</p>
+        
+        <!-- Image of the QR code (replace 'qr_code_image_url.jpg' with the actual URL of your QR code image) -->
+        <img src="/static/roblocks/images/video_qr.png" alt="QR Code" style="display:block; margin:auto;">
+
+        <!-- Link to the video (replace 'http://example.com/video' with the actual URL of your video) -->
+        <p style="text-align:center;"><a href="https://bit.ly/jedai_video" target="_blank">Watch the Video</a></p>
+    
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" style="padding: 15px 30px; font-size: 20px;">Proceed to the Study</button>
+        </form>
+    
+    </div>    
+</body>
+</html>

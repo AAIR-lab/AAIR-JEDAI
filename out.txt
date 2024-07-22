@@ -1,0 +1,20 @@
+DEBUG asyncio: Using selector: EpollSelector
+DEBUG asyncio: Using selector: EpollSelector
+Watching for file changes with StatReloader
+INFO django.utils.autoreload: Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+roblocks.EBooksModel: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the RoblocksConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 1 issue (0 silenced).
+Performing system checks...
+
+File Dir =  /root/git/JEDAI/
+ABCD
+NAME  =  /root/git/JEDAI/logs_dir/log_file_new_.txt
+July 22, 2024 - 08:20:42
+Django version 3.2.18, using settings 'web_project.settings'
+Starting development server at http://192.168.16.3:8000/
+Quit the server with CONTROL-C.

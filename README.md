@@ -69,7 +69,7 @@ You can stop the execution anytime using this command from the JEDAI source dire
    (unless you already have `TMP_Merged` somewhere else on your system and want to use that,
     in which case you can try a symlink):
 
-   `git clone https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies.git TMP_Merged`
+   `git clone https://github.com/AAIR-lab/ATAM.git TMP_Merged`
     
     1. You must then install the dependencies for the submodule (this will probably take a while):
     

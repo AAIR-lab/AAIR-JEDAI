@@ -53,12 +53,13 @@ html_show_sourcelink = False
 html_theme_options = {
     # Disable showing the sidebar. Defaults to 'false'
     'nosidebar': True,
-# Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "JEDAI",
+    # Navigation bar title. (Default: ``project`` value)
+    'navbar_title': " ",
     # 'header_searchbox': False,
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "JEDAI Documentation",
     'navbar_links': [
+        ("JEDAI", "/", True),
         ("AAIR Lab", "https://aair-lab.github.io", True),
     ],
     'navbar_class': "navbar navbar-inverse",

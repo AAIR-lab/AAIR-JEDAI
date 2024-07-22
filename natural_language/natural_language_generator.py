@@ -3,6 +3,8 @@ from collections import defaultdict
 
 def get_natural_language_action(semantics, action_str):
     # assuming action_str includes grounded objects as parameters
+    
+    print("action being nlged = ",action_str)
 
     if semantics is None:
         return action_str
@@ -122,6 +124,7 @@ def _get_predicate_semantics(semantics, predicate_name):
 
 
 def _get_action_semantics(semantics, action_name):
+    print("action_name = ",action_name)
     return [a for a in semantics["actions"] if a["name"].lower() == action_name.lower()][0]
 
 

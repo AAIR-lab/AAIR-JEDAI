@@ -1,0 +1,49 @@
+{
+    "predicates": [
+      {
+        "name": "clear",
+        "subjectIndex": 0,
+        "display": "clear"
+      },
+      {
+        "name": "on",
+        "subjectIndex": 0,
+        "display": "on %%1%%"
+      },
+      {
+        "name": "too_big_to_place_on",
+        "subjectIndex": 0,
+        "display": "too big to place on %%1%%"
+      }
+    ],
+    "actions": [
+      {
+        "category":"Move",
+        "name": "move",
+        "display": "Move",
+        "tooltip": "Use this action to move a box (with nothing on top) from one place to another. Boxes can go on top of empty locations or on top other boxes that don't already have another box on top.",
+        "parameters": [
+          {
+            "index": 0,
+            "display": "this box",
+            "sentenceDisplay": "box"
+          },
+          {
+            "index": 1,
+            "display": "from atop",
+            "sentenceDisplay": "from"
+          },
+          {
+            "index": 3,
+            "display": "to the top of",
+            "sentenceDisplay": "to"
+          },
+          {
+            "index": 2,
+            "display": "with this robot",
+            "sentenceDisplay": "with robot"
+          }
+        ]
+      }
+    ]
+  }

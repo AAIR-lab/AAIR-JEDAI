@@ -1,0 +1,149 @@
+{
+  "_comments" : [
+    "HL_ARGS should be in the same order as declared in PDDL",
+    "If no generator is provided for LL_ARGS it will check for the value in HL_ARGS with the same name",
+    "The sequence is important"
+  ],
+  "ignore_hl_actions": [
+    "done"
+  ],
+  "non_removable_bodies": [
+    "fetch",
+    "table6"
+  ],
+  "robots" : {
+    "fetch" : "FetchRobot"
+  },
+  "config_map": {
+    "move" : {
+      "HL_ARGS" : ["object1","object2" ,"robot","object3"],
+      "LL_ARGS" : {
+        "gripper_open_traj": ["GripperOpenStateGenerator","GripperOpenTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "pdpose": ["PutDownPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"]
+
+      },
+      "precondition" : [
+        "IsValidGripperOpenTraj(robot,gripper_open_traj)",
+        "IsBigger(gripper_state:gripper_open_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(object1,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidPDPose(object1,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:pdpose,traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["gripper_open_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "object1"
+    },
+    "move_from_box_to_location" : {
+      "HL_ARGS" : ["object1","object2" ,"robot","object3"],
+      "LL_ARGS" : {
+        "gripper_open_traj": ["GripperOpenStateGenerator","GripperOpenTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "pdpose": ["PutDownPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"]
+
+      },
+      "precondition" : [
+        "IsValidGripperOpenTraj(robot,gripper_open_traj)",
+        "IsBigger(gripper_state:gripper_open_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(object1,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidPDPose(object1,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:pdpose,traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["gripper_open_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "object1"
+    },
+    "move_from_box_to_box" : {
+      "HL_ARGS" : ["object1","object2" ,"robot","object3"],
+      "LL_ARGS" : {
+        "gripper_open_traj": ["GripperOpenStateGenerator","GripperOpenTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "pdpose": ["PutDownPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"]
+
+      },
+      "precondition" : [
+        "IsValidGripperOpenTraj(robot,gripper_open_traj)",
+        "IsBigger(gripper_state:gripper_open_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(object1,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidPDPose(object1,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:pdpose,traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["gripper_open_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "object1"
+    },
+    "move_from_location_to_box" : {
+      "HL_ARGS" : ["object1","object2" ,"robot","object3"],
+      "LL_ARGS" : {
+        "gripper_open_traj": ["GripperOpenStateGenerator","GripperOpenTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "pdpose": ["PutDownPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"]
+
+      },
+      "precondition" : [
+        "IsValidGripperOpenTraj(robot,gripper_open_traj)",
+        "IsBigger(gripper_state:gripper_open_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(object1,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidPDPose(object1,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:pdpose,traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["gripper_open_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "object1"
+    },
+    "move_from_location_to_location" : {
+      "HL_ARGS" : ["object1","object2" ,"robot","object3"],
+      "LL_ARGS" : {
+        "gripper_open_traj": ["GripperOpenStateGenerator","GripperOpenTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "pdpose": ["PutDownPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"]
+
+      },
+      "precondition" : [
+        "IsValidGripperOpenTraj(robot,gripper_open_traj)",
+        "IsBigger(gripper_state:gripper_open_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(object1,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidPDPose(object1,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:pdpose,traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["gripper_open_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "object1"
+    }
+  }
+}

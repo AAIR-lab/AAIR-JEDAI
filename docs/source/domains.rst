@@ -74,7 +74,7 @@ An environment file contains the low-level 3d setup for the problem. A separate 
 Important points to remember while making the environment file:
 * The environment should either be a collada file in a dae (version 1.5) format or an xml file compatible with OpenRave. 
 * The object names in the environment file should exactly match to object names in the problem file. 
-* For more information on making an environment file, visit https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies/blob/master/README.md and http://openrave.org/docs/latest_stable/ 
+* For more information on making an environment file, visit https://github.com/AAIR-lab/ATAM/blob/master/README.md and http://openrave.org/docs/latest_stable/ 
 
 |
 
@@ -137,7 +137,7 @@ Each template element that needs to be filled in is explained below:
 Other Requirements
 ********************
 
-Apart from these requirements, the domain has to be setup in task and motion planning framework with the same name used to define the domain in the domain.pddl under "TMP_Merged/test_domains/" directory. For steps to setup this domain, visit: https://github.com/AAIR-lab/Anytime-Task-and-Motion-Policies/blob/master/README.md 
+Apart from these requirements, the domain has to be setup in task and motion planning framework with the same name used to define the domain in the domain.pddl under "TMP_Merged/test_domains/" directory. For steps to setup this domain, visit: https://github.com/AAIR-lab/ATAM/blob/master/README.md 
 
 |
 |

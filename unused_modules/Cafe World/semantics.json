@@ -1,0 +1,153 @@
+{
+  "predicates": [
+    {
+      "name": "empty",
+      "subjectIndex": 0,
+      "display": "clear"
+    },
+    {
+      "name": "ingripper",
+      "subjectIndex": 1,
+      "display": "holding %%0%%"
+    },
+    {
+      "name": "at",
+      "subjectIndex": 1,
+      "display": "at location %%0%%"
+    },
+    {
+      "name": "order",
+      "subjectIndex": 0,
+      "display": "on %%1%%"
+    }
+  ],
+  "actions": [
+    {
+      "category":"Move robot",
+      "name": "move",
+      "display": "Move",
+      "tooltip": "Use this action to move the robot to a specified location",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "the robot",
+          "sentenceDisplay": "robot"
+        },
+        {
+          "index":0,
+          "display":"from this location",
+          "sentenceDisplay":"from location"
+        },
+        {
+          "index": 2,
+          "display": "to this location",
+          "sentenceDisplay": "to location"
+        }
+      ]
+    },
+    {
+      "category":"Move robot",
+      "name": "move_to_table",
+      "display": "Move To Table",
+      "tooltip": "Use this action to move the robot to a specified location",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "the robot",
+          "sentenceDisplay": "robot"
+        },
+        {
+          "index":0,
+          "display":"from this location",
+          "sentenceDisplay":"from location"
+        },
+        {
+          "index": 2,
+          "display": "to this location",
+          "sentenceDisplay": "to location"
+        }
+      ]
+    },
+    {
+      "category":"Move robot",
+      "name": "move_to_counter",
+      "display": "Move To Counter",
+      "tooltip": "Use this action to move the robot to a specified location",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "the robot",
+          "sentenceDisplay": "robot"
+        },
+        {
+          "index":0,
+          "display":"from this location",
+          "sentenceDisplay":"from location"
+        },
+        {
+          "index": 2,
+          "display": "to this location",
+          "sentenceDisplay": "to location"
+        }
+      ]
+    },
+
+    {
+      "category":"Pick Up",
+      "name": "grasp",
+      "display": "Pick up",
+      "tooltip": "Use this action to pick up an object from a location using the gripper.",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "from this location",
+          "sentenceDisplay": "from location"
+        },
+        {
+          "index": 2,
+          "display": "this object",
+          "sentenceDisplay": "object"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        },
+        {
+          "index": 3,
+          "display": "of this robot",
+          "sentenceDisplay": "this robot"
+        }
+      ]
+    },
+    {
+      "category":"Place",
+      "name": "put",
+      "display": "Place",
+      "tooltip": "Use this action to place the object at a specified location using the gripper.",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "at this location",
+          "sentenceDisplay": "at location"
+        },
+        {
+          "index": 2,
+          "display": "this object",
+          "sentenceDisplay": "object"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        },
+        {
+          "index": 3,
+          "display": "of this robot",
+          "sentenceDisplay": "this robot"
+        }
+      ]
+    }
+  ]
+}
+

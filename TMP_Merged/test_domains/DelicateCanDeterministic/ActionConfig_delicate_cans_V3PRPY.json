@@ -1,0 +1,104 @@
+{
+  "_comments" : [
+    "HL_ARGS should be in the same order as declared in PDDL",
+    "If no generator is provided for LL_ARGS it will check for the value in HL_ARGS with the same name",
+    "The sequence is important"
+  ],
+  "ignore_hl_actions": [
+    "initialize",
+    "done",
+    "stop",
+    "first",
+    "second",
+    "third"
+  ],
+  "non_removable_bodies": [
+    "fetch",
+    "table6"
+  ],
+  "robots" : {
+    "fetch" : "FetchRobot"
+  },
+  "config_map": {
+    "grasp" : {
+      "HL_ARGS" : ["obj","gripper","robot","trajectory"],
+      "LL_ARGS" : {
+        "cbpose" : ["CurrentBasePoseGenerator","BasePose"],
+        "tbpose" : ["BasePoseAroundTableGenerator","BasePose"],
+        "base_traj" : ["BaseMotionPlanGeneratorPRPY", "BaseTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "endpose" :  ["InitPoseGenerator","ManipPose"],
+        "traj1" :  ["MotionPlanGeneratorPRPY","ManipTrajectory"],
+        "traj2" : ["MotionPlanGeneratorPRPY","ManipTrajectory"]
+      },
+      "precondition" : [
+        "IsValidBasePose(robot,cbpose)",
+        "IsValidBasePose(robot,tbpose)",
+        "IsValidBaseTrajectory(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(obj,gpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "NotObstructs(t:traj1)",
+        "RobotPose(robot,cpose)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidEndPose(robot,endpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:endpose,traj2)",
+        "NotObstructs(t:traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["base_traj","traj1","gripper_close_traj","traj2"],
+      "attach" : "obj"
+    },
+
+    "put": {
+      "HL_ARGS" : ["obj","gripper","robot","trajectory"],
+      "LL_ARGS" : {
+        "cbpose" : ["CurrentBasePoseGenerator","BasePose"],
+        "tbpose" : ["BasePoseAroundTableGenerator","BasePose"],
+        "base_traj" : ["BaseMotionPlanGeneratorPRPY", "BaseTrajectory"],
+        "cpose": [
+          "CurrentManipPoseGenerator",
+          "ManipPose"
+        ],
+        "pdpose": [
+          "PutDownPoseGenerator",
+          "ManipPose"
+        ],
+        "traj": [
+          "MotionPlanGeneratorPRPY",
+          "ManipTrajectory"
+        ],
+        "gripper_open_trajectory": [
+          "GripperOpenStateGenerator",
+          "GripperOpenTrajectory"
+        ],
+        "endpose": [
+          "InitPoseGenerator",
+          "MotionPlanGeneratorPRPY"
+        ],
+        "traj2": [
+          "MotionPlanGeneratorPRPY",
+          "ManipTrajectory"
+        ]
+      },
+      "precondition" : [
+        "IsValidBasePose(robot,cbpose)",
+        "IsValidBasePose(robot,tbpose)",
+        "IsValidBaseTrajectory(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidPDPose(obj,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:pdpose,traj)",
+        "NotPutdownObstructs(t:traj)",
+        "IsValidGripperOpenTraj(robot,gripper_open_trajectory)",
+        "IsValidEndPose(obj,endpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:pdpose,pose_end:endpose,traj2)",
+        "NotPutdownObstructs(t:traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["base_traj","traj","gripper_open_trajectory","traj2"]
+    }
+
+  }
+}

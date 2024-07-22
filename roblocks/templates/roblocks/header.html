@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JEDAI</title>
+        <title>JEDAI.Ed</title>
         <link rel="stylesheet" type="text/css" href="{% static 'roblocks/_static/pygments.css'  %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'roblocks/_static/bootstrap-sphinx.css'  %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'roblocks/_static/copybutton.css'  %}" />
@@ -24,7 +24,7 @@
     </head>
     <body>
         <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-          <div class="container">
+          <div class="container-fluid">
             <div class="navbar-header">
               <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -32,25 +32,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="">JEDAI</a>
+              <a class="navbar-brand" href="">JEDAI.Ed</a>
               <span class="navbar-text navbar-version pull-left"><b></b></span>
             </div>
               <div class="collapse navbar-collapse nav-collapse">
                 <ul class="nav navbar-nav">
                       <li><a href="https://aair-lab.github.io" target="_blank">AAIR Lab</a></li>
-                      <li><a href="docs/index.html" target="_blank">JEDAI Documentation</a></li>
-                      <li><a href="docs/tutorial.html" target="_blank">Tutorial</a></li>
+                      <li><a href="docs/index.html" target="_blank">About</a></li>
+                      <!-- <li><a href="docs/tutorial.html" target="_blank">Tutorial</a></li> -->
                 </ul>
               </div>
           </div>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
               <div class="body col-md-12 content" role="main">
 
                 <div class="section" id="welcome-to-jedai-s-documentation">
-                  <center><h1>JEDAI Explains Decision-Making AI<a class="headerlink" href="#welcome-to-jedai-s-documentation" title="Permalink to this headline">¶</a></h1></center>
+                  <center id = "top_heading_banner"><h1>JEDAI.Ed Explains Decision-Making AI<a class="headerlink" href="#welcome-to-jedai-s-documentation" title="Permalink to this headline">¶</a></h1></center>
                   <div class="toctree-wrapper compound">
                         {% block content %}
                         {% endblock %}
@@ -65,7 +65,7 @@
                     <a href="#">Back to top</a>
                 </p>
                 <p>
-                    &copy; Copyright 2022, AAIR Lab, ASU.<br/>
+                    &copy; Copyright 2023, AAIR Lab, ASU.<br/>
                     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
                 </p>
             </div>

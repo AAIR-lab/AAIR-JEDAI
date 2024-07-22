@@ -1,0 +1,52 @@
+{
+  "_comments" : [
+    "HL_ARGS should be in the same order as declared in PDDL",
+    "If no generator is provided for LL_ARGS it will check for the value in HL_ARGS with the same name",
+    "The sequence is important"
+  ],
+  "ignore_hl_actions": [
+    "init",
+    "done",
+    "human_notify",
+    "stop"
+  ],
+  "non_removable_bodies": [
+    "yumi",
+    "table6",
+    "table60"
+  ],
+  "robots": {
+    "yumi": "YumiRobot"
+  },
+  "config_map": {
+    "pick" : {
+      "HL_ARGS" : ["domino","gripper","robot"],
+      "LL_ARGS" : {
+        "cpose": ["CurrentManipPoseGenerator", "ManipPose"],
+        "g_open": ["GripperOpenStateGenerator", "GripperOpenTrajectory"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "tr1": ["MotionPlanGenerator", "ManipTrajectory"],
+        "tr2": ["MotionPlanGenerator", "ManipTrajectory"],
+        "g_close" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "hold_pose": ["HoldPoseGenerator", "ManipPose"],
+        "hand": ["HandGenerator", "HandChange"]
+      },
+      "precondition" : [
+        "IsValidHand(robot,hand)",
+        "CurrentPose(robot, cpose)",
+        "GripperOpenState(robot, g_open)",
+        "IsGraspPose(robot,domino,gpose)",
+        "IsMotionPlan(robot, pose_current:cpose, pose_end:gpose, tr1)",
+        "NotObstructs(trajectory:tr1)",
+        "GripperCloseState(robot,g_close)",
+        "IsHoldPose(robot, domino, hold_pose)",
+        "IsMotionPlan(robot, pose_current:gpose, pose_end:hold_pose, tr2)",
+        "NotObstructs(trajectory:tr2)"
+        ],
+
+      "effect" : [],
+      "execution_sequence" : ["hand","g_open","tr1","g_close","tr2"],
+      "attach" : "domino"
+    }
+  }
+}
