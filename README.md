@@ -1,7 +1,20 @@
 # JEDAI Explains Decision-Making AI
 
+This repository contains the code for the tool JEDAI. In-detail review of its architecture and features is given in paper at ArXiv, appearing as - 
 
-This repository contains the code for the tool JEDAI. System Demonstration of JEDAI is accepted at AAMAS 2022, and will appear as:
+Using Explainable AI and Hierarchical Planning for Outreach with Robots. <br/>
+
+[Daksh Dobhal](https://github.com/DakshASU)\*,
+[Jayesh Nagpal](https://github.com/jayesh59)\*,
+[Rushang Karia](https://rushangkaria.github.io/),
+[Pulkit Verma](https://pulkitverma.net),
+[Rashmeet Kaur Nayyar](https://www.rashmeetnayyar.com/),
+[Naman Shah](https://www.namanshah.net/), and
+[Siddharth Srivastava](http://siddharthsrivastava.net/). <br/>
+
+[Paper](https://arxiv.org/pdf/2404.00808.pdf)
+
+System Demonstration of JEDAI is accepted at AAMAS 2022, and will appear as:
 
 JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
 [Naman Shah](https://www.namanshah.net/)\*, 
@@ -13,127 +26,56 @@ JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
 [Paper](https://aair-lab.github.io/Publications/svas_aamas22.pdf) | [Demo Talk](https://www.youtube.com/watch?v=MQdoikcnhbY) | [Tutorial](https://www.youtube.com/watch?v=57os8Ap1N5U)
 <br />
 
+##  Docker Image
 
+<!-- The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: [https://bit.ly/2WccU4K](https://bit.ly/2WccU4K) -->
+The recommended way of using JEDAI is to use the pre-configured docker image that is available here: 
 
-## Virtual Machine Image
+Once all the files are downloaded, run the following command to load docker images - 
 
-The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: [https://bit.ly/2WccU4K](https://bit.ly/2WccU4K)
-
-To setup the system manually, you can use the steps given below:
+`docker load --input jedai_ed.tar` <br/>
+`docker load --input novnc.tar`
 
 ## Running JEDAI
 
-Use this command to start JEDAI from the JEDAI source directory (~/JEDAI/ in VM Image).
+Now, to start a JEDAI instance, run the following script from the directory where all the files have been downloaded - 
 
-`./start_jedai.sh`
+`./start_instances.sh -n 1`
 
-Alternatively execute this command:
+You can access the JEDAI interface over web by going to the link given after running the script.
 
-`python3 manage.py runserver`
+To stop the JEDAI instance, run following - 
 
-The output of this command includes a link to the development server hosting the frontend. 
-
-You can stop the execution anytime using this command from the JEDAI source directory (~/JEDAI/ in VM Image):
-
-
-`./stop_jedai.sh`
-
-
-
-
-## Installing JEDAI on a new system
-
-### Requirements
-
-- Ubuntu 18.04
-- Python 2 and 3
-- Validate: https://github.com/KCL-Planning/VAL
-  1. Retrieve and enter the repo:
-     
-     `git clone https://github.com/KCL-Planning/VAL`
-     
-     `cd VAL`
-     
-  2. Build the binary:
-    
-     `./scripts/linux/build_linux64.sh all Release`
-  
-     - This will put `Validate` in `<PARENT_DIR>/VAL/build/linux64/Release/bin`
-    
- NOTE: JEDAI is tested extensively with Chromium (including Edge, Vivaldi, and Google Chrome). Support on other browsers is not guaranteed.  
-
-    
-### Setup
-
-1. Retrieve the `TMP_Merged` submodule by running the following in the project root
-   (unless you already have `TMP_Merged` somewhere else on your system and want to use that,
-    in which case you can try a symlink):
-
-   `git clone https://github.com/AAIR-lab/ATAM.git TMP_Merged`
-    
-    1. You must then install the dependencies for the submodule (this will probably take a while):
-    
-        `bash TMP_Merged/install_tmp_dependencies.sh`
-    
-    2. Also make sure to check out the correct branch of the submodule:
-        
-        `cd TMP_Merged`
-         
-        `git checkout origin/TMP_JEDAI`
-
-
-2. Install the web framework:
-
-    `pip3 install django`
-
-
-3. Install the YAML library:
-
-   `pip3 install PyYAML`
-
-
-4. Install the PDDL library:
-
-    `pip3 install pddlpy`
-    
-    - If you get an error while running the code about a missing module named `__builtin__` in the `antlr4` library, then running this should help:
-        
-        `pip3 install antlr4-python3-runtime==4.7`
-
-5. Install the imaging library:
-    
-    `pip3 install Pillow`
-
-
-4. Check that `PYTHON_2_PATH` and `VAL_PATH` in `config.py` are pointing to the corresponding binaries on your system.
-
-
-You are required to submit a domain and problem file, as well as a .dae environment file. See the `test_domains` directory for examples.
-
-### TMP submodule
-
-After installing its dependencies, the TMP submodule should work out of the box, with environments popping up and giving a demonstration of successful plans.
-If you get any strange import errors from TMP despite packages seeming to be installed correctly, double-check your
-all your environment variables (especially if using an IDE like PyCharm).
-
+`./stop_instances.sh -n 1`
 
 ## Contributors
-
-[Naman Shah](https://www.namanshah.net/)<br/>
+[Daksh Dobhal](https://github.com/DakshASU)<br/>
+[Jayesh Nagpal](https://github.com/jayesh59)<br/>
+[Rushang Karia](https://rushangkaria.github.io/)<br/>
 [Pulkit Verma](https://pulkitverma.net)<br/>
+[Rashmeet Kaur Nayyar](https://www.rashmeetnayyar.com/)<br/>
+[Naman Shah](https://www.namanshah.net/)<br/>
 [Trevor Angle](http://trevorangle.com) <br/>
 [Kiran Prasad](https://github.com/kiranprasad)<br/>
 [Amruta Tapadiya](https://github.com/amy88amy)<br/>
 [Kyle Atkinson](https://github.com/KyleTheEpic)<br/>
 [Chirav Dave](https://chiravdave.github.io/)<br/>
 [Judith Rosenke](https://www.linkedin.com/in/judith-rosenke/)<br/>
-[Rushang Karia](https://github.com/RushangKaria)<br/>
 [Siddharth Srivastava](https://siddharthsrivastava.net/)
 
-
-
-
 # Citation
+The latest version of this work can be cited as :
+
+```
+@article{dobhal2024using,
+  title={Using Explainable AI and Hierarchical Planning for Outreach with Robots},
+  author={Dobhal, Daksh and Nagpal, Jayesh and Karia, Rushang and Verma, Pulkit and Nayyar, Rashmeet Kaur and Shah, Naman and Srivastava, Siddharth},
+  journal={arXiv preprint arXiv:2404.00808},
+  year={2024}
+}
+```
+The earlier version (AAMAS 2022) can be cited as :
+
 ```
 @inproceedings{shah_2022_jedai,
     author = {Shah, Naman and Verma, Pulkit and Angle, Trevor and Srivastava, Siddharth},
@@ -142,3 +84,5 @@ all your environment variables (especially if using an IDE like PyCharm).
     year={2022}
 }
 ```
+
+
