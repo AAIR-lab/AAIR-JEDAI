@@ -3,7 +3,6 @@
 This repository contains the code for the tool JEDAI. In-detail review of its architecture and features is given in paper at ArXiv, appearing as - 
 
 Using Explainable AI and Hierarchical Planning for Outreach with Robots. <br/>
-
 [Daksh Dobhal](https://github.com/DakshASU)\*,
 [Jayesh Nagpal](https://github.com/jayesh59)\*,
 [Rushang Karia](https://rushangkaria.github.io/),
@@ -11,10 +10,10 @@ Using Explainable AI and Hierarchical Planning for Outreach with Robots. <br/>
 [Rashmeet Kaur Nayyar](https://www.rashmeetnayyar.com/),
 [Naman Shah](https://www.namanshah.net/), and
 [Siddharth Srivastava](http://siddharthsrivastava.net/). <br/>
-
+ArXiv 2404.00808, 2024 <br/>
 [Paper](https://arxiv.org/pdf/2404.00808.pdf)
 
-System Demonstration of JEDAI is accepted at AAMAS 2022, and will appear as:
+System Demonstration of JEDAI was published at AAMAS 2022 as:
 
 JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
 [Naman Shah](https://www.namanshah.net/)\*, 
