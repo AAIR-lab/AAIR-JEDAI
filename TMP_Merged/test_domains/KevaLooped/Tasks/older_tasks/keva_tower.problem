@@ -1,0 +1,41 @@
+(define (problem keva)
+(:domain keva)
+(:objects plank1 plank2 plank3 plank4 plank5 plank6 plank7 plank8 - plank
+ horizontal vertical - orientated
+ region_1 region_2 region_3 - region
+ yumi - robot
+)
+
+
+
+(:init (orientation plank1 sideways) (orientation plank2 sideways) (orientation plank3 sideways) (orientation plank4 sideways) (orientation plank5 sideways) (orientation plank6 sideways) (orientation plank7 sideways) (orientation plank8 sideways)
+
+(clearPlank plank1) (clearPlank plank2) (clearPlank plank3) (clearPlank plank4) (clearPlank plank5) (clearPlank plank6) (clearPlank plank7) (clearPlank plank8)
+
+(handempty)
+
+)
+
+(:goal (and (onTable plank1)
+			(orientation plank1 sideways)
+			(onTable plank2)
+			(orientation plank2 sideways)
+			(onDoublePlank plank3 plank1 plank2)
+			(orientation plank3 sideways)
+			(not (clearPlank plank1))
+			(not (clearPlank plank2))
+			(onDoublePlank plank4 plank1 plank2)
+			(orientation plank4 sideways)
+			(onDoublePlank plank5 plank3 plank4)
+			(orientation plank5 sideways)
+			(onDoublePlank plank6 plank3 plank4)
+			(orientation plank6 sideways)
+			(not (clearPlank plank3))
+			(not (clearPlank plank4))
+			(onDoublePlank plank7 plank5 plank6)
+			(orientation plank7 sideways)
+			(onDoublePlank plank8 plank5 plank6)
+			(orientation plank8 sideways)
+			(not (clearPlank plank5))
+			(not (clearPlank plank6)))
+))

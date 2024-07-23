@@ -10,7 +10,11 @@ import os
 class Robot(object):
 
     def __init__(self):
-        pass
+        raise NotImplementedError
+
+    def get_ik_solutions(self,end_effector_solution,check_collisions=False):
+        raise NotImplementedError
+
     #
     # def set_robot(self,robot):
     #     self.robot = robot

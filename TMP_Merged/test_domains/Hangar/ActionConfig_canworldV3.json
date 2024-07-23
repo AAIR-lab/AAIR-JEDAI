@@ -1,0 +1,118 @@
+{
+  "_comments" : [
+    "HL_ARGS should be in the same order as declared in PDDL",
+    "If no generator is provided for LL_ARGS it will check for the value in HL_ARGS with the same name",
+    "The sequence is important"
+  ],
+  "ignore_hl_actions": [
+    "initialize",
+    "done",
+    "stop"
+  ],
+  "non_removable_bodies": [
+    "fetch",
+    "table6"
+  ],
+  "config_map": {
+    "grasp" : {
+      "HL_ARGS" : ["obj","robot","cpose","gp","gripper","trajectory","loc"],
+      "LL_ARGS" : {
+        "obj" :  []  ,
+        "robot" :  [] ,
+        "gripper" : [],
+        "cbpose": ["CurrentBasePoseGenerator","BasePose"],
+        "tbpose": ["BasePoseAroundTableGenerator","BasePose"],
+        "base_traj": ["MotionPlanGenerator", "BaseTrajectory"],
+        "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
+        "gpose" : ["GraspPoseGenerator","ManipPose"],
+        "pgpose": ["PreGraspPoseGeneratorCan","ManipPose"],
+        "traj0" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "traj1" : ["MotionPlanGenerator", "ManipTrajectory"],
+        "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
+        "endpose" :  ["InitPoseGenerator","ManipPose"],
+        "traj2" :  ["MotionPlanGenerator","ManipTrajectory"],
+        "loc" : []
+      },
+      "precondition" : [
+        "RobotBasePose(robot,cbpose)",
+        "IsValidBasePose(obj,robot,tbpose)",
+        "IsValidMotionPlan(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidGraspPose(obj,gpose,robot)",
+        "IsValidPreGraspPose(gpose,pgpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:pgpose,traj0)",
+        "NotObstructs(trajectory:traj0)",
+        "IsValidMotionPlan(robot,pose_current:pgpose,pose_end:gpose,traj1)",
+        "NotObstructs(trajectory:traj1)",
+        "IsValidGripperCloseTraj(robot,gripper_close_traj)",
+        "IsValidEndPose(robot,endpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:gpose,pose_end:endpose,traj2)",
+        "NotObstructs(trajectory:traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["base_traj", "traj0","traj1","gripper_close_traj","traj2"],
+      "attach" : "obj"
+    },
+
+    "put": {
+      "HL_ARGS" : ["obj","robot","cpose","pdpose","gripper","trajectory","loc"],
+      "LL_ARGS" : {
+        "obj": [],
+        "robot": [],
+        "cbpose": [
+          "CurrentBasePoseGenerator",
+          "BasePose"
+        ],
+        "tbpose": [
+          "BasePoseAroundTableGenerator",
+          "BasePose"
+        ],
+        "base_traj": [
+          "MotionPlanGenerator",
+          "BaseTrajectory"
+        ],
+        "cpose": [
+          "CurrentManipPoseGenerator",
+          "ManipPose"
+        ],
+        "pdpose": [
+          "PutDownPoseGenerator",
+          "ManipPose"
+        ],
+        "traj": [
+          "MotionPlanGenerator",
+          "ManipTrajectory"
+        ],
+        "gripper_open_trajectory": [
+          "GripperOpenStateGenerator",
+          "GripperOpenTrajectory"
+        ],
+        "endpose": [
+          "InitPoseGenerator",
+          "ManipPose"
+        ],
+        "traj2": [
+          "MotionPlanGenerator",
+          "ManipTrajectory"
+        ],
+        "loc" : []
+      },
+      "precondition" : [
+        "RobotBasePose(robot,cbpose)",
+        "IsValidBasePose(obj,robot,tbpose)",
+        "IsValidMotionPlan(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
+        "RobotPose(robot,cpose)",
+        "IsValidPDPose(obj,pdpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:cpose,pose_end:pdpose,traj)",
+        "NotObstructs(trajectory:traj)",
+        "IsValidGripperOpenTraj(robot,gripper_open_trajectory)",
+        "IsValidEndPose(obj,endpose,robot)",
+        "IsValidMotionPlan(robot,pose_current:pdpose,pose_end:endpose,traj2)",
+        "NotObstructs(trajectory:traj2)"
+      ],
+      "effect" : [],
+      "execution_sequence" : ["base_traj","traj","gripper_open_trajectory","traj2"]
+    }
+
+  }
+}

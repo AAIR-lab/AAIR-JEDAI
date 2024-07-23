@@ -10,7 +10,7 @@ FF_PLANNER = 'ff'
 LAO_SOLVER = "lao"
 
 TYPE='deterministic'
-# HL_PLANNER = FF_PLANNER
+HL_PLANNER = FF_PLANNER
 DEFAULT_PDDL_FILE = DOMAIN_DIR+'Tasks/domain.pddl'
 
 

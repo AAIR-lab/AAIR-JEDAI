@@ -1,0 +1,20 @@
+(define (problem p01)
+    (:domain domino)
+    (:objects
+        ###DOMINOS_HERE###
+        yumi - robot
+        gripper - gripper
+    )
+    (:init
+        (empty_gripper yumi gripper)
+
+    )
+
+    (:goal
+        (and
+            (terminated)
+            ###GOAL_HERE###
+        )
+    )
+
+)

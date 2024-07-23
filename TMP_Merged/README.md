@@ -11,7 +11,7 @@ reason about, and plan for multiple possible contingencies.
 We present a new approach for integrated task and motion
 planning in stochastic settings.
 
-Full paper is available at: https://aair-lab.github.io/Publications/skkks_icra20.pdf
+Full paper is available at: https://aair-lab.github.io/atam/atam_full_version.pdf
 
 The repository servers as an implementation of the paper mentioned above providing a framework for task and motion planning based on abstraction. It takes the abstract specification, concrete specification, and the means of concretizing the abstraction as the input and produces a task and motion plan which can be directly executed on a real robot.
 

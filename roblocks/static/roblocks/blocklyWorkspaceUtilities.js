@@ -152,6 +152,11 @@ function generateCode(){
             continue;
         }
 
+        if(block.type=='loops_block'||blocks.type=='goals_block'){
+            stochastic_plan(blocks);
+            return "Run the Stochastic Plan";
+        }
+
         // subtract 1 for the dummy input holding the name of the block
         let parameterInputLength = block.inputList.length - 1;
         let jsonAction = {};
@@ -175,6 +180,9 @@ function generateCode(){
             block.setWarningText(null);
         }
     }
+
+
+    
 
     return valid ? [jsonPlan,Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace))] : null;
 }

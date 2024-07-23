@@ -38,7 +38,7 @@ class InitFileMgr:
         pddlStr = self.getPDDLStr()
 
         initSection = ""
-        print(pddlStr)
+
         for section in pddlStr.split("(:"):
             if section.strip().find("init") == 0:
                 initSection = section.replace("init", "", 1)

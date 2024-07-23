@@ -113,18 +113,96 @@ function generate_action_block(action, objects, semantics, typesToSupertypes, co
 
 function generateActionBlocks(actions, objects, semantics, typesToSupertypes) {
     const promises = [];
+    const inputsInline = false;
+
     const blockGenerator = (index, color) => new Promise((resolve, reject) => {
         action = actions[index];
         
         generate_action_block(action, objects, semantics, typesToSupertypes, color);
         
     });
+
+    const blockGenerator2 = (color) => new Promise((resolve, reject) => {
+        const blockName = "loops"+ "_block";
+        Blockly.Blocks[blockName] = {
+            init: function() {
+                // Add the "while" label
+                this.appendDummyInput()
+                    .appendField("while");
+        
+                // Add a boolean input for the loop condition
+                this.appendValueInput("CONDITION")
+                    .setCheck("Boolean")
+                    .appendField("condition");
+        
+                // Add a statement input for the loop body
+                this.appendStatementInput("DO")
+                    .setCheck(null)
+                    .appendField("do");
+        
+                this.setInputsInline(inputsInline);
+                this.setPreviousStatement(true, null);
+                this.setNextStatement(true, null);
+                this.setColour(color);
+                this.setHelpUrl("");
+            }
+        };        
+        const xml = '<block type="' + blockName + '"></block>';
+        // TODO handle category names better
+        let toolbox=document.getElementById('Loops');
+        let element = document.createElement('category');
+        element.id = "loops";
+        element.setAttribute('name',"loops");
+        toolbox.append(element);
+        $('[name="'+"loops"+'"]').append(xml);
+
+    });
+
+    const blockGenerator3 = (color) => new Promise((resolve, reject) => {
+        const blockName = "goals"+ "_block";
+        Blockly.Blocks[blockName] = {
+            init: function() {
+                // Add the "Goal Condition Not Met" label
+                this.appendDummyInput()
+                    .appendField("Goal Condition Not Met");
+        
+                // Set the output type to Boolean so it can fit in the condition slot
+                this.setOutput(true, "Boolean");
+        
+                this.setColour(color);
+                this.setTooltip("Represents a goal condition that's not met.");
+                this.setHelpUrl("");
+ 
+                // this.setInputsInline(inputsInline);
+                // this.setPreviousStatement(true, null);
+                // this.setNextStatement(true, null);
+                this.setColour(color);
+                this.setHelpUrl("");
+                 
+            }
+        };
+        const xml = '<block type="' + blockName + '"></block>';
+        // TODO handle category names better
+        let toolbox=document.getElementById('Goals');
+        let element = document.createElement('category');
+        element.id = "goals";
+        element.setAttribute('name',"goals");
+        toolbox.append(element);
+        $('[name="'+"goals"+'"]').append(xml);
+
+    });
+
+
+
     const step = 90 / (actions.length*0.5);
     let color = 90;
     for(let i = 0; i < actions.length; i++){
         color += step;
         promises.push(blockGenerator(i, color));
     }
+
+    promises.push(blockGenerator2('#33AACC'))
+    promises.push(blockGenerator3("#FFAA33"))
     Promise.all(promises);
 }
 

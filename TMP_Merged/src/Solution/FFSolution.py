@@ -7,7 +7,6 @@ class FFSolution(Solution):
         self.success = success
         self.policyTree = policyTree
         self.root = root
-        
 
     def get_root_node(self):
         return self.root

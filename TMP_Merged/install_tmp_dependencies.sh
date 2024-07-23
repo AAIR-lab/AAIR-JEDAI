@@ -66,7 +66,6 @@ if [ ${UBUNTU_VER} = '16.04' ]; then
 fi
 cd or_catkin/openrave-installation/
 sudo ./install-dependencies.sh
-sudo ./install-dependencies.sh
 sudo ./install-osg.sh
 sudo ./install-fcl.sh
 sudo ./install-openrave.sh

@@ -31,7 +31,7 @@ class OpenRaveTrajectoryExecutor:
 
     @staticmethod
     def select_child_using_props(policy_tree, node, choice, children):
-        stochastic_policy = getattr(importlib.import_module('test_domains.'+Config.DOMAIN + '.StochasticPolicy'),'StochasticPolicy')
+        stochastic_policy = getattr(importlib.import_module( Config.TEST_DIR_NAME + '.'+Config.DOMAIN + '.StochasticPolicy'),'StochasticPolicy')
         return stochastic_policy.select_child_using_props(policy_tree, node, choice, children)
 
 
@@ -102,14 +102,18 @@ class OpenRaveTrajectoryExecutor:
                     ll_plan = edge.ll_plan
                     exec_sequence = edge.exec_seq
                     for arg in exec_sequence:
-                        exec_obj = getattr(importlib.import_module('test_domains.'+Config.DOMAIN + '.Executor.' + ll_plan[arg]['type']), ll_plan[arg]['type'])(ll_plan[arg]['type'])
+                        exec_obj = getattr(importlib.import_module( Config.TEST_DIR_NAME + '.'+Config.DOMAIN + '.Executor.' + ll_plan[arg]['type']), ll_plan[arg]['type'])(ll_plan[arg]['type'])
                         exec_obj.execute(self.ll_state, ll_plan[arg]['value'], edge.generated_values)
                         # phys_val = self.convert_to_ros_traj(ll_plan[arg]['value'], speed=0.1)
                         #ros_traj_list.append([ll_plan[arg]['type'], phys_val])
                     # for i in edge.effect:
-                    #     if i[0] == 'pos':
-                    #         pred_obj = getattr(importlib.import_module('test_domains.'+Config.DOMAIN + '.Predicates.' + i[1]), i[1])(i[1])
-                    #         pred_obj.apply(self.ll_state, edge.generated_values)
+                    #     # import IPython
+                    #     # IPython.embed()
+                    #     # if i[0] == 'pos':
+                    #     #     pred_obj = getattr(importlib.import_module(  Config.TEST_DIR_NAME + '.'+Config.DOMAIN + '.Predicates.' + i[1]), i[1])(i[1])
+                    #     #     pred_obj.apply(self.ll_state, edge.generated_values)
+                    #     import IPython
+                    #     IPython.embed()
                     self.ll_state.sync_simulator(edge.ll_values)
                     self.ll_state.values = self.ll_state.get_values_from_env(self.sim.env)
                 q.append(selected_child)

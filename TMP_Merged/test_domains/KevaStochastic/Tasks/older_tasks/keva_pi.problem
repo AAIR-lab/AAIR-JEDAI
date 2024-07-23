@@ -1,0 +1,24 @@
+(define (problem keva-problem)
+(:domain keva)
+(:objects region1_broad1 region1_broad2 region1_broad3 region1_thin1 region1_thin2 region1_thin3 region1_side1 region1_side2 region2_broad1 region2_broad2 region2_broad3 region2_thin1 region2_thin2 region2_thin3 region2_side1 region2_side2 region3_broad1 region3_broad2 region3_broad3 region3_thin1 region3_thin2 region3_thin3 region3_side1 region3_side2 - region
+ plank1 plank2 plank3 - plank
+ horizontal, vertical - orientated
+ group_1, group_2, group_3 - group
+ yumi - robot
+)
+
+
+
+(:init (orientation plank1 horizontal) (clearRegion region1_broad1) (clearRegion region1_broad2) (clearRegion region1_broad3) (clearRegion region1_thin1) (clearRegion region1_thin2) (clearRegion region1_thin3) (clearRegion region1_side1) (clearRegion region1_side2) (orientation plank2 horizontal) (clearRegion region2_broad1) (clearRegion region2_broad2) (clearRegion region2_broad3) (clearRegion region2_thin1) (clearRegion region2_thin2) (clearRegion region2_thin3) (clearRegion region2_side1) (clearRegion region2_side2) (orientation plank3 horizontal) (clearRegion region3_broad1) (clearRegion region3_broad2) (clearRegion region3_broad3) (clearRegion region3_thin1) (clearRegion region3_thin2) (clearRegion region3_thin3) (clearRegion region3_side1) (clearRegion region3_side2)
+
+(clearPlank plank1) (clearPlank plank2) (clearPlank plank3)
+
+
+ (belongTo region1_broad1 plank1) (belongTo region1_broad2 plank1) (belongTo region1_broad3 plank1) (belongTo region1_thin1 plank1) (belongTo region1_thin2 plank1) (belongTo region1_thin3 plank1) (belongTo region1_side1 plank1) (belongTo region1_side2 plank1) (belongTo region2_broad1 plank2) (belongTo region2_broad2 plank2) (belongTo region2_broad3 plank2) (belongTo region2_thin1 plank2) (belongTo region2_thin2 plank2) (belongTo region2_thin3 plank2) (belongTo region2_side1 plank2) (belongTo region2_side2 plank2) (belongTo region3_broad1 plank3) (belongTo region3_broad2 plank3) (belongTo region3_broad3 plank3) (belongTo region3_thin1 plank3) (belongTo region3_thin2 plank3) (belongTo region3_thin3 plank3) (belongTo region3_side1 plank3) (belongTo region3_side2 plank3)
+ 
+ (sideGroup region1_side1) (sideGroup region1_side2) (sideGroup region2_side1) (sideGroup region2_side2) (sideGroup region3_side1) (sideGroup region3_side2)
+
+ (handempty)
+)
+
+(:goal (and (onTable plank1) (orientation plank1 vertical) (onTable plank2) (orientation plank2 vertical) (on region3_broad1 region1_side1) (on region3_broad3 region2_side1) (orientation plank3 horizontal) (not (clearPlank plank1)) (not (clearPlank plank2)))))

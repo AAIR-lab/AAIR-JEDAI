@@ -1,0 +1,20 @@
+<robot name="UAV">
+<link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="file:////home/naman/TMP_Merged/GeneratedEnvironments/Hanger/model.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="0.356 0.361 0.376 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="file:////home/naman/TMP_Merged/GeneratedEnvironments/Hanger/modelenv.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+</robot>

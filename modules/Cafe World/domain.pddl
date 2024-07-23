@@ -1,4 +1,4 @@
-(define (domain cafeWorld)
+(define (domain CafeworldDeterministic)
     (:requirements :typing :strips)
     (:types
         can

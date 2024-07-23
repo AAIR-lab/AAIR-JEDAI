@@ -286,6 +286,11 @@
         if(setting!='random'){
             // document.querySelectorAll(".random_goals").forEach(el => el.remove());
             document.querySelectorAll(".random_goals").forEach(el => el.style.visibility = "hidden");
+            is_random_problem = false;
+        }
+        else {
+
+            is_random_problem = true;
         }
 
     }
@@ -571,6 +576,9 @@
 
     <xml id="toolbox" style="display: none">
         <category id="Actions" name="Actions" hidden="true">
+        <category id="Loops" name="Loops" hidden="true"></category>
+        <category id="Goals" name="Goals" hidden="true"></category>
+    
             <!-- Injected code -->
         </category>
     </xml>

@@ -14,7 +14,8 @@ from src.DataStructures.Edge import Edge
 
 class HighLevelPlanGraph(Graph):
 
-    def __init__(self,hl_solution=None,problem_specification=None,state_list=None):
+    def __init__(self,hl_solution=None,problem_specification=None,state_list=None,
+                 assume_refinable=False):
         '''
         :param hl_solution: HL Solution Graph with root. Each Node State::Action::Prob
         :param state_list: HL State List
@@ -29,7 +30,8 @@ class HighLevelPlanGraph(Graph):
         self.problem_specification = problem_specification
         if self.problem_specification is not None:
             self.object_map = ObjecTypeMapParse(self.problem_specification.pddl_problem_file,problem_specification.pddl_domain_file).get_object_map()
-        self.ll_complete_spec_parser = ActionConfigParserV2(Config.LL_ACTION_CONFIG)
+        self.ll_complete_spec_parser = ActionConfigParserV2(Config.LL_ACTION_CONFIG,
+                                                            assume_refinable=assume_refinable)
         self.__create_graph(hl_solution)
         self.generated_values = {}
         self.refined_ll_values = {}
@@ -37,7 +39,7 @@ class HighLevelPlanGraph(Graph):
             try:
                 self.cost = hl_solution.cost
             except Exception,e:
-                self.cost = 0
+                self.cost = len(self.edges)
 
         else:
             self.cost = float("inf")
@@ -72,6 +74,25 @@ class HighLevelPlanGraph(Graph):
                 return False
         else:
             return False
+
+    def readjust_probabilities(self):
+        root = self.get_root()
+        q = [root]
+        p = 1
+        while len(q) > 0:
+            cur = q.pop(0)
+            children = cur.get_children()
+            for child in children:
+                parent_of_parent = cur.get_parent()
+                edge = self.get_edge(cur,child)
+                if parent_of_parent is None:
+                    edge.prob = edge.prob * p
+                else:
+                    parent_edge = self.get_edge(parent_of_parent,cur)
+                    edge.prob = edge.prob * parent_edge
+                q.append(child)
+
+
 
     def add_edge(self,parent,child,edge,label=None,new=True,only_nx=False):
         super(HighLevelPlanGraph,self).add_edge(parent,child,label)
@@ -143,6 +164,7 @@ class HighLevelPlanGraph(Graph):
                     # new_hlpg.edges[cur_new][child_copy] = e
                     new_hlpg.add_edge(cur_new, child_copy,e, new=True)
                     cur_new.add_child(child_copy)
+                    child_copy.set_parent(cur_new)
                     copy_list.append(child_copy)
                     old_list.append(child)
         return new_hlpg
@@ -150,7 +172,6 @@ class HighLevelPlanGraph(Graph):
     def __create_graph(self,hl_solution):
         if hl_solution is not None:
             root = hl_solution.get_root_node()
-            print(root)
             root_graph_node,edge = self.make_high_level_node(root)
             self.add_node(root_graph_node)
             self.set_root(root_graph_node)
@@ -159,7 +180,6 @@ class HighLevelPlanGraph(Graph):
                 cur,cur_graph_node,edge = queue.pop(0)
                 for node in self.hl_solution.policyTree[cur]:
                     edge_copy = copy.deepcopy(edge)
-                    print(node)
                     new_graph_node,new_edge = self.make_high_level_node(node)
                     cur_graph_node.add_child(new_graph_node)
                     new_graph_node.set_parent(cur_graph_node)
@@ -182,23 +202,24 @@ class HighLevelPlanGraph(Graph):
         return PDDLState(trueSet = pos_set)
 
     def make_high_level_node(self,node):
-        print(self.hl_solution.policyTree.nodes,node)
         detial_node = self.hl_solution.policyTree.nodes[node]
-        print(detial_node)
+
         details = detial_node['label'].strip().split("::")
         if self.state_list is None:
             state = self.make_high_level_state(details[0])
         else:
             state = self.state_list[self.n]
             self.n+=1
-        if 'STOP' not in details[1]:
+            
+        if "tmp_goal_reached" in details[1]:
+            actionStr= "tmp_goal_reached"
+        elif 'STOP' not in details[1]:
             actionStr = details[1].strip()[1:-1]
         else:
             actionStr = "STOP"
 
         prob = float(details[2].strip().replace("\"",""))
         args = actionStr.lower().split()
-        print(detial_node)
         actionName = args[0]
         arg_list = args[1:]
         ll_complete_spec_parser = self.ll_complete_spec_parser
@@ -219,7 +240,10 @@ class HighLevelPlanGraph(Graph):
         action_arg_map = self.get_action_arg_map(list_argument_objects)
         ll_action_spec = copy.deepcopy(ll_complete_spec_parser.get_specification(actionName))
         hlAction = HLAction(actionName,precondition_pos,precondition_neg,effect_pos,effect_neg,action_arg_map)
-        assert  ll_action_spec is not None or actionName in ll_complete_spec_parser.get_ignore_action_list(), "Could not find Action Spec for action: " + str(actionName)
+        assert  ll_action_spec is not None \
+            or actionName == "tmp_goal_reached" \
+            or actionName in ll_complete_spec_parser.get_ignore_action_list(), "Could not find Action Spec for action: " + str(actionName)
+
         if ll_action_spec is not None:
             ll_action_spec.generated_values = {}
             for i in range(len(arg_list)):
@@ -227,6 +251,12 @@ class HighLevelPlanGraph(Graph):
             ll_action_spec.init_values = copy.deepcopy(ll_action_spec.generated_values)
         node = HighLevelPlanNode(hlAction, hl_state=state,children= [])
         e = Edge(parent=node,child=None,hl_action=hlAction,ll_action_spec=ll_action_spec,prob=prob,debug_name=actionName)
+        
+        # Check if this node is a goal node.
+        if actionStr == "tmp_goal_reached":
+            
+            node.is_goal = True
+        
         return node,e
 
     def get_action_arg_map(self,action_arguments):
@@ -264,6 +294,20 @@ class HighLevelPlanGraph(Graph):
 
     def merge(self,parent,new_tree,failed_node,label= ""):
         edge_copy = copy.deepcopy(self.get_edge(parent,failed_node))
+        parent_of_parent = parent.get_parent()
+        if parent_of_parent is not None:
+            parent_edge_prob = self.get_edge(parent_of_parent,parent).prob
+
+            new_tree_root = new_tree.get_root()
+            if parent_of_parent is not None:
+                q = [new_tree_root]
+                while len(q) > 0:
+                    cur = q.pop(0)
+                    children = cur.get_children()
+                    for child in children:
+                        edge = new_tree.get_edge(cur,child)
+                        edge.prob  *= parent_edge_prob
+                        q.append(child)
         parent.remove_child(failed_node)
         self.remove_edge(parent,failed_node)
         failed_node.set_parent(None)
@@ -277,6 +321,7 @@ class HighLevelPlanGraph(Graph):
         parent.add_child(failed_node)
         self.remove_edge(parent,new_tree.get_root())
         self.add_edge(parent,failed_node,edge_copy)
+        failed_node.set_parent(parent)
         copy_policy_tree.cost += new_tree.cost
         return copy_policy_tree
 

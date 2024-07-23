@@ -7,6 +7,8 @@ class RefinedPolicyNode(GraphNode):
         super(RefinedPolicyNode,self).__init__()
         self.children = []
         self.hl_state = hl_state
+        self.ll_state = None
+        self.is_goal = False
 
 
     def add_child(self, child):

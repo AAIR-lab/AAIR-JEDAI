@@ -14,6 +14,7 @@ from random import random
 from .gpt import *
 from . import global_vars
 from natural_language import natural_language_generator as nlg
+from TMP_Merged.communicator import Communicator
 
 import config
 # import pddl_parser.pddl_parser.planner as pl
@@ -43,6 +44,9 @@ print("File Dir = ",file_dir)
 
 tmp_process = None
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# To allow multiple connects and avoid address-in-use errors.
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind(('127.0.0.1', config.PORT_NUMBER))
 server_socket.listen(1)
 
@@ -485,20 +489,18 @@ def call_tmp(request):
     log.debug("Accepted connection")
     log.debug(f"cs:{cs}")
     log.debug(f"address:{address}")
-    log.debug("Waiting for 'ready' message")
-    msg = cs.recv(1024).decode("utf-8")
-    # TODO
-    while msg != "ready":
-        log.debug(f"Message: {msg}")
-        msg = cs.recv(1024).decode("utf-8")
 
-    log.debug("Received 'ready' message, now sending plan over socket")
-    cs.sendall(bytes(submitted_plan, "utf-8"))
+    cmd = "legacy_plan%s" % (submitted_plan)
+    Communicator.send(cs, cmd)    
     log.info("User's plan sent to TMP")
     # TODO
     while True:
-        msg = cs.recv(1024).decode("utf-8")
-        if msg[0] == "u":
+        msg = Communicator.recv(cs)
+
+        if msg is None or len(msg) == 0:
+
+            log.info("Received empty message from TMP!")
+        elif msg[0] == "u":
             '''
             update the bar here.. format will be u|#refined_actions|#total_actions 
             '''
@@ -525,12 +527,14 @@ def run_plan(request):
     log.debug("Entering /run_plan endpoint")
     log.debug("Sending 'run' message to TMP")
     global cs
-    cs.sendall(bytes("run", "utf-8"))
+    
+    Communicator.send(cs, "run_plan")
     log.debug("Waiting for 'run_complete' message from TMP")
-    msg = cs.recv(1024).decode("utf-8")
+    
+    msg = Communicator.recv(cs)
     while msg != "run_complete":
         log.debug(f"Message from TMP: {msg}")
-        msg = cs.recv(1024).decode("utf-8")
+        msg = Communicator.recv(cs)
     log.debug("Received 'run_complete' message from TMP")
     return JsonResponse({})
 
@@ -540,7 +544,7 @@ def kill_tmp(request):
     log.debug("Entering /kill_tmp endpoint")
     log.debug("Sending 'terminate' message to TMP")
     global cs
-    cs.sendall(bytes("terminate", "utf-8"))
+    Communicator.send(cs, "terminate")
     log.debug("Closing socket connection")
     cs.shutdown(socket.SHUT_RDWR)
     cs.close()
@@ -575,12 +579,21 @@ def get_problem_file_names(request):
 
 
 def cafe_world_tutorial(request):
-    return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/CafeWorld.html', {
-    })
+
+    if config.IS_VM:
+        return render(request, '%s/roblocks/templates/roblocks/CafeWorld.html' % (os.getcwd()), 
+            {})
+    else:
+        return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/CafeWorld.html', 
+            {})
     
 def keva_tutorial(request):
-    return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/Keva.html', {
-    })
+    if config.IS_VM:
+        return render(request, '%s/roblocks/templates/roblocks/Keva.html' % (os.getcwd()), 
+            {})
+    else:
+        return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/Keva.html', 
+            {})
     
 
 # /
@@ -1125,8 +1138,10 @@ def _save_images_to_static_files(domain_path, problem_name):
 def _try_to_kill_tmp_and_close_socket():
     log.debug("Trying to kill TMP and close socket connection")
     global cs
+    global tmp_process
     try:
         if cs is not None:
+
             log.debug("cs is not None")
             if "closed" not in cs.__repr__():
                 log.debug("Closing cs without accept()")
@@ -1136,29 +1151,11 @@ def _try_to_kill_tmp_and_close_socket():
                 log.debug("Closing cs with accept() and one recv() with timeout=1s")
 
                 # Only allow 1 second timeout since we are wrapping up.
-                server_socket.settimeout(1.0)
+                Communicator.send(cs, "terminate")
 
-                try:
-                    (cs, address) = server_socket.accept()
-                    cs.settimeout(1.0)
-
-                    data = cs.recv(1024)
-                except Exception:
-
-                    print("Socket timedout")
-                    pass
-
-                # Restore the timeout back.
-                server_socket.settimeout(None)
-                cs.shutdown(socket.SHUT_RDWR)
-                cs.close()
-        else:
-            log.debug("cs is None, closing with accept()")
-            (cs, address) = server_socket.accept()
-            cs.shutdown(socket.SHUT_RDWR)
-            cs.close()
         log.debug("Sending kill signal to TMP process")
         os.killpg(os.getpgid(tmp_process.pid), signal.SIGTERM)
+        tmp_process = None
     except Exception as e:
         # log.exception automatically adds exception trace from handler
         log.exception("Exception while killing TMP")
@@ -1265,11 +1262,28 @@ def _get_problem_name_from_documents():
 
 
 def _spawn_tmp_for_domain_and_problem(domain_name, problem_name):
+    
+    global tmp_process
+    if tmp_process is not None:
+        
+        _try_to_kill_tmp_and_close_socket()
+    
     log.info(f"Spawning TMP process with domain name {domain_name} and problem name {problem_name}")
-    python2_command = config.PYTHON_2_PATH + ' "' + file_dir + f'{config.TMP_PATH}" ' + domain_name + ' ' + problem_name
+    
+    domain_name = _get_domain_name_from_documents()
+    python2_command = "/usr/bin/python2.7" + \
+        " %s/%s" % (file_dir, config.TMP_PATH)  \
+        + " --domain %s" % (domain_name) \
+        + " --domain-file %s/%s/domainD.pddl" % (file_dir, config.DOCUMENTS_PATH) \
+        + " --problem-file %s/%s/problemP.pddl" % (file_dir, config.DOCUMENTS_PATH) \
+        + " --env-path %s/%s/env.dae" % (file_dir, config.DOCUMENTS_PATH) \
+        + " --show-viewer" \
+        + " --set-camera" \
+        + " --port %s" % (config.PORT_NUMBER) \
+        + " --ip-address %s" % (config.IP_ADDRESS) \
+        
     print("SPAWN TMP PYTHON CMD = ",python2_command)
     my_env = os.environ.copy()
-    global tmp_process
     tmp_process = subprocess.Popen(python2_command,
                                    shell=True,
                                    env=my_env,

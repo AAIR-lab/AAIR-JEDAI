@@ -36,7 +36,7 @@ class PutDownPoseGenerator(Generator):
         length, breadth, height = self.simulator.get_obj_name_box_extents(object_name=self.grasped_box_name)
         grasp_num = 10
         region_length = length/3.0
-        gripper_offset = 0.04 + 0.021
+        gripper_offset = 0.06 + 0.021
         rot_angle = math.pi / 2.0
 
         # _, region = self.grasp_region.split('_')
@@ -48,20 +48,19 @@ class PutDownPoseGenerator(Generator):
 
         env = self.simulator.env
         if "loc" in self.object_name:
-            print(self.object_name)
-            loc_no = self.object_name.split("_")[-1]
+            loc_no = int(self.object_name[-1])
             print(self.object_name, loc_no)
-            if loc_no == "i":
+            if loc_no == 1:
                 y = -0.25
-            elif loc_no == "ii":
+            elif loc_no == 2:
                 y = 0
-            elif loc_no == "iii":
+            elif loc_no == 3:
                 y = 0.25
             x = 0.7
             body_trans = np.identity(4)
             body_trans[0][3] = x
             body_trans[1][3] = y
-            body_trans[2][3] = 0.603
+            body_trans[2][3] = 0.59
             # print("Loc")
         else:
             body = env.GetKinBody(self.object_name)
@@ -115,10 +114,8 @@ class PutDownPoseGenerator(Generator):
         # if sol is not None:
         #     robot.SetActiveDOFValues(sol)
 
-        ik_sols = self.simulator.robots[self.known_argument_values["robot"]].get_ik_solutions(move_to_pose, check_collisions=True)
-
-        if len(ik_sols) > 0: 
-            pose_list.append(ik_sols[0])
+        if OpenraveUtils.has_ik_to(self.simulator.env, self.simulator.env.GetRobots()[0], move_to_pose,True):
+            pose_list.append(move_to_pose)
 
         # random.shuffle(pose_list)
         if len(pose_list) == 0:

@@ -1,0 +1,22 @@
+(define (problem p01)
+
+	(:domain keva)
+	(:objects
+
+		plank1 plank2 - plank
+ 		horizontal vertical sideways - orientated
+ 		region_1 region_2 region_3 - region
+		location1 location2 - location
+ 		yumi - robot
+	)
+
+	(:init
+		(handempty)
+		(free location1)
+		(free location2)
+	)
+
+	(:goal
+		(terminated)
+	)
+)

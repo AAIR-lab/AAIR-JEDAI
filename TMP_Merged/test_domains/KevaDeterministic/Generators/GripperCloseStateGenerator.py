@@ -7,7 +7,12 @@ class GripperCloseStateGenerator(Generator):
         super(GripperCloseStateGenerator, self).__init__(known_argument_values, required_values=None)
         self.known_argument_values = known_argument_values
         next_hl_state_true_prop = known_argument_values["next_hl_state"].getTrueProps()
-        self.l = ["close"]
+        for s in next_hl_state_true_prop:
+            if "ingripper" in s:
+                self.l = ["close"]
+                break
+            else:
+                self.l = ["none"]
         self.generate_function_state = self.generate_function()
         self.number_of_values = 1
         # self.type = Generator.TYPE_QUERY_GENERATOR
