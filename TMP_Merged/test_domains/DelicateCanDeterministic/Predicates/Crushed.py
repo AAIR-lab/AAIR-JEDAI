@@ -5,6 +5,7 @@ import numpy as np
 class Crushed(Predicate):
     def __init__(self, name, arg_list=None):
         super(Crushed, self).__init__(name, arg_list)
+        self.ar
 
     def __deepcopy__(self, memodict={}):
         return Crushed(copy.deepcopy(self.name), copy.deepcopy(self.arg_list))

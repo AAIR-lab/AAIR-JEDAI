@@ -1,5 +1,6 @@
 from src.DataStructures.Generator import Generator
 import Config
+import openravepy
 
 class CurrentBasePoseGenerator(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
@@ -17,8 +18,11 @@ class CurrentBasePoseGenerator(Generator):
             # import IPython
             # IPython.embed()
             robot = self.simulator.env.GetRobot(self.known_argument_values["robot"])
-            dof_values = robot.GetTransformPose()
-            yield [dof_values[-3],dof_values[-2],dof_values[-1]]
+            t = robot.GetTransform()
+            x = t[0,3]
+            y = t[1,3]
+            theta = openravepy.axisAngleFromRotationMatrix(t)[2]
+            yield [x,y,theta]
 
     def get_next(self,flag):
         return self.generate_function_state.next()

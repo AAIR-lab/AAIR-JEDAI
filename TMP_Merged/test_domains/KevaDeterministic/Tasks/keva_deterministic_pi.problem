@@ -1,13 +1,9 @@
 (define (problem keva)
 (:domain keva)
 (:objects plank1 plank2 plank3 - plank
+ location1 - location location2 - location
  horizontal vertical sideways - orientated
- region_1 region_2 region_3 - region
  yumi - robot
-
-           location1 - location location2 - location
-
-
 )
 
 
@@ -17,10 +13,10 @@
 )
 
 (:goal (and (onTable plank1)
-			(orientation plank1 vertical)
+			(orientation vertical plank1)
 			(onTable plank2)
-			(orientation plank2 vertical)
+			(orientation vertical plank2)
 			(onDoublePlank plank3 plank1 plank2)
-			(orientation plank3 horizontal)
+			(orientation horizontal plank3)
 			)
 ))

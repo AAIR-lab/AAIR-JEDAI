@@ -11,7 +11,7 @@ import Config
 
 class HandGenerator(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
-        required_values = ['robot', 'obj', 'region']
+        required_values = ['robot', 'obj']
 
         super(HandGenerator, self).__init__(known_argument_values, required_values)
         self.ll_state = ll_state
@@ -25,8 +25,17 @@ class HandGenerator(Generator):
         self.generate_function_state = self.generate_function()
 
     def generate_function(self):
-        active_hands = ["right"]
-        # location = self.location
+        location = self.location
+        # if self.object_name in ["plank3","plank4","plank7","plank8","plank11","plank12","plank15","plank16"]:
+        #     active_hands = ["left"]
+        # else:
+        #     active_hands = ["right"]
+        if self.known_argument_values["gripper"] == "left":
+            active_hands = ["left"]
+        elif self.known_argument_values["gripper"] == "right":
+            active_hands = ["right"]
+        else:
+            active_hands = ["left","right"]
         for gt in active_hands:
             # self.simulator.robots[self.known_argument_values["robot"]].activate_arm(gt)
             yield gt

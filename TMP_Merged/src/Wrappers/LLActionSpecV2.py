@@ -6,8 +6,7 @@ from collections import OrderedDict
 
 class LLActionSpecV2(object):
 
-    def __init__(self, name, precondition, effect, updates_ll_state = False,execution_sequence=None,hl_args = None,ll_args = None,
-                 assume_refinable=False):
+    def __init__(self, name, precondition, effect, updates_ll_state = False,execution_sequence=None,hl_args = None,ll_args = None):
         self.name = name
         self.precondition = precondition
         self.effect = effect
@@ -27,12 +26,9 @@ class LLActionSpecV2(object):
         self.last_stable_state =None
         self.init_values = None
         self.new_generated_values = None
-        self.start_time = None
-        self.assume_refinable = assume_refinable
 
     def __deepcopy__(self, memodict={}):
-        temp = LLActionSpecV2(copy.deepcopy(self.name), copy.deepcopy(self.precondition), copy.deepcopy(self.effect),execution_sequence=copy.deepcopy(self.exec_sequence),hl_args=copy.deepcopy(self.hl_args),
-                              assume_refinable=self.assume_refinable)
+        temp = LLActionSpecV2(copy.deepcopy(self.name), copy.deepcopy(self.precondition), copy.deepcopy(self.effect),execution_sequence=copy.deepcopy(self.exec_sequence),hl_args=copy.deepcopy(self.hl_args))
         if "partial_copy" not in memodict.keys():
             temp.generated_values = copy.deepcopy(self.generated_values)
         temp.init_values = copy.deepcopy(self.init_values)
@@ -94,7 +90,7 @@ class LLActionSpecV2(object):
                             print "*********TIME OUT*************"
                             raise TimeOutException
                         argument = arguments[j]
-                        generated_values_copy = {"assume_refinable": self.assume_refinable}
+                        generated_values_copy = {}
 
                         for k in generated_values:
                             try:
@@ -191,7 +187,7 @@ class LLActionSpecV2(object):
                         while not self.predicates[i].has_generatable_arguments():
 
                             for a in range(self.predicates[i].get_argument_count()):
-                                if self.predicates[i].get_arguments()[a].name in self.exec_sequence:
+                                if self.predicates[i].get_arguments()[j].name in self.exec_sequence:
                                     low_level_state.rollback()
 
                             i = i - 1

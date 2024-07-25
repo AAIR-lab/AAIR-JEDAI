@@ -20,7 +20,7 @@
   },
   "config_map": {
     "pick" : {
-      "HL_ARGS" : ["domino","robot","gripper"],
+      "HL_ARGS" : ["domino","gripper","robot"],
       "LL_ARGS" : {
         "cpose": ["CurrentManipPoseGenerator", "ManipPose"],
         "g_open": ["GripperOpenStateGenerator", "GripperOpenTrajectory"],

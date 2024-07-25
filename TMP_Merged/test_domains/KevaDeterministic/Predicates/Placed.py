@@ -15,16 +15,17 @@ class Placed(Predicate):
     def apply(self, ll_state, generated_values):
         next_hl_state = generated_values["next_hl_state"].getTrueProps()
         plank = generated_values["plank"]
+
+        left = ["plank3","plank4","plank7","plank8","plank11","plank12","plank15","plank16"]
+
         if Config.LOOPED_RUNS:
             plank = Config.correct_plank_name(plank)
         rel_pose = matrixFromPose([ 0.5, -0.5, -0.5,  0.5, -0.05884+0.003875,0.,1.5*(2*0.003875)+0.01162+0.0001])
-        for prop in next_hl_state:
-            if "human_placed" in prop:
-                if "location1" in prop:
-                    central_plank = ll_state.simulator.env.GetKinBody('left_station_base').GetTransform()
-                elif "location2" in prop:
-                    central_plank = ll_state.simulator.env.GetKinBody('right_station_base').GetTransform()
-                break
+        if plank in left:
+            central_plank = ll_state.simulator.env.GetKinBody('left_station_base').GetTransform()
+        else:
+            central_plank = ll_state.simulator.env.GetKinBody('right_station_base').GetTransform()
+
             # if "human_placed" in prop: and plank in prop and "location1" in prop:
             #     
             #     t = [[0.0,  0.0, -1.0,  0.4916909], \

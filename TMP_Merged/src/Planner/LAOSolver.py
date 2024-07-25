@@ -13,37 +13,26 @@ import time
 
 class LAOSolver(Planner):
 
-    def __init__(self, policy_file=None):
+    def __init__(self):
         self.succ_str = "Found legal sequence actions"
         self.success = True
-        self.policy_file = policy_file
-        # if not os.path.isfile(Config.PLANNER_DIR+'mdp-lib'):
-        #     import tarfile
-        #     my_tar = tarfile.open(Config.PLANNER_DIR+'mdp-lib.tar.gz')
-        #     my_tar.extractall(Config.PLANNER_DIR)
-        #     my_tar.close()
+        if not os.path.isfile(Config.PLANNER_DIR+'mdp-lib'):
+            import tarfile
+            my_tar = tarfile.open(Config.PLANNER_DIR+'mdp-lib.tar.gz')
+            my_tar.extractall(Config.PLANNER_DIR)
+            my_tar.close()
 
-    def solve(self, hlproblem, problem_specification, raise_exception=True):
-        
-        if self.policy_file is None:
-            self.policy_file = Config.POLICY_OUTPUT_FILE
-            self.__runPlanner(domain_file=hlproblem.domain_file,problem_file=hlproblem.problem_file)
-            
-            if not self.success:
-                return None,None
-        
-        try:
-            graph, root, cost = self.prepare_planStr(self.policy_file)
-
-            laosolution = LAOSolution(self.succ_str,graph,root,cost)
-            return laosolution,None
-        except Exception as e:
-            
-            if raise_exception:
-                raise e
-            
-            return None, None
-        
+    def solve(self,hlproblem,problem_specification):
+        self.__runPlanner(domain_file=hlproblem.domain_file,problem_file=hlproblem.problem_file)
+        graph,root = self.prepare_planStr()
+        if not self.success:
+            return None,None
+        f = open(Config.POLICY_OUTPUT_FILE,"r")
+        lines = f.readlines()
+        cost_line = lines[-1]
+        cost = float(cost_line.split("Cost:")[-1])
+        laosolution = LAOSolution(self.succ_str,graph,root,cost)
+        return laosolution,None
 
     def create_domainproblem_combined_file(self, domain_file, problem_file):
         dom_prb_file_path = Config.COMBINED_FILE
@@ -63,7 +52,7 @@ class LAOSolver(Planner):
             p1 = subprocess.Popen([Config.PLANNER_DIR+"mdp-lib/testppddl.out",dom_prob_file_path,"p01",str(Config.HORIZON),Config.POLICY_OUTPUT_FILE])
             start_time = time.time()
             while p1.poll() is None:
-                if time.time() - start_time > 60:
+                if time.time() - start_time > 200:
                     killed = True
                     self.success = False
                     p1.kill()
@@ -78,36 +67,12 @@ class LAOSolver(Planner):
                 self.success = False
                 break
 
-    def prepare_planStr(self, policy_file):
-        
-        cost = 0.0
-        if isinstance(policy_file, str):
-            graph = nx.drawing.nx_pydot.read_dot(policy_file)
-            
-            f = open(policy_file,"r")
-            lines = f.readlines()
-            cost_line = lines[-1]
-            cost = float(cost_line.split("Cost:")[-1])
-        else:
-            graph = policy_file
+    def prepare_planStr(self):
+        graph = nx.drawing.nx_pydot.read_dot(Config.POLICY_OUTPUT_FILE)
         # os.remove(os.curdir+"graph.gv")
-        
-        # Need to set the goal attribute for places where the goal
-        # is reached.
-        for u, v, edge_key in graph.edges:
-            
-            edge_data = graph.get_edge_data(u, v, edge_key)
-            if "color" in edge_data:
-                
-                label = graph.nodes[v]["label"]
-                assert ":: STOP ::" in label
-                label = label.replace(":: STOP ::", ":: tmp_goal_reached ::")
-                graph.nodes[v]["label"] = label
-                pass
-        
         root = None
         for node in graph.nodes():
             if graph.in_degree[node] ==0:
                 root = node
                 break
-        return graph, root, cost
+        return graph,root

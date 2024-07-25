@@ -1,4 +1,4 @@
-(define (domain domino)
+(define (domain DominoDeterministic)
     (:requirements :adl :typing :equality :conditional-effects)
     (:types
         domino
@@ -9,7 +9,7 @@
     (:predicates
         (ontable ?d - domino)
         (picked ?d - domino)
-        (empty_gripper ?robot - robot ?gripper - gripper)
+        (empty_gripper ?gripper - gripper ?robot - robot)
         (notified ?d - domino)
         (dropped ?d - domino)
         (init)
@@ -17,15 +17,15 @@
     )
 
     (:action pick
-        :parameters (?d - domino ?r - robot ?g - gripper)
+        :parameters (?d - domino ?g - gripper ?r - robot)
         :precondition (and
             (ontable ?d)
-            (empty_gripper ?r ?g)
+            (empty_gripper ?g ?r)
             (init)
         )
         :effect (and
             (not (ontable ?d))
-            (not (empty_gripper ?r ?g))
+            (not (empty_gripper ?g ?r))
             (picked ?d)
          )
     )
@@ -36,7 +36,7 @@
             (not (init))
         )
         :effect (and
-            (forall (?d - domino)(ontable ?d))
+            ;(forall (?d - domino)(ontable ?d))
             (init)
         )
     )

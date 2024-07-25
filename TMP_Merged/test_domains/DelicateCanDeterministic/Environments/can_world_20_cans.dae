@@ -4,9 +4,9 @@
 		<contributor>
 			<authoring_tool>OpenRAVE Collada Writer v0.3.5</authoring_tool>
 		</contributor>
-		<created>2020-11-28T00:17:26-0700</created>
+		<created>2021-02-24T23:00:01-0700</created>
 		<keywords/>
-		<modified>2020-11-28T00:17:26-0700</modified>
+		<modified>2021-02-24T23:00:01-0700</modified>
 		<unit/>
 		<up_axis>Z_UP</up_axis>
 	</asset>
@@ -18,102 +18,102 @@
 				<instance_node url="#v0.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual1" name="object0" sid="visual1">
-				<translate>1.248711942628733 -0.1005862831624729 0.611</translate>
+				<translate>0.8894567980947301 0.2197046868942282 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v1.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual2" name="object1" sid="visual2">
-				<translate>1.326083537413221 -0.2830101533205157 0.611</translate>
+				<translate>1.263426003597545 0.1283774830260171 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v2.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual3" name="object2" sid="visual3">
-				<translate>0.973262956215962 0.1410958814713653 0.611</translate>
+				<translate>1.342790629629887 0.09010471820171551 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v3.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual4" name="object3" sid="visual4">
-				<translate>1.14225246825102 0.07322143751705523 0.611</translate>
+				<translate>0.9361844331364575 -0.03635543859284596 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v4.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual5" name="object4" sid="visual5">
-				<translate>1.296076055153088 0.1451241717660993 0.611</translate>
+				<translate>0.7906179614822327 0.2227172588791922 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v5.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual6" name="object5" sid="visual6">
-				<translate>0.6122533971423305 0.3375345204698051 0.611</translate>
+				<translate>1.133955658265443 -0.07060250657811806 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v6.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual7" name="object6" sid="visual7">
-				<translate>1.132264105497774 0.3547884337840842 0.611</translate>
+				<translate>1.013708240719 0.1648322542038599 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v7.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual8" name="object7" sid="visual8">
-				<translate>0.5630338897660707 -0.2921251253586651 0.611</translate>
+				<translate>0.5829835916528275 0.2859769054912223 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v8.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual9" name="object8" sid="visual9">
-				<translate>1.091499248014162 -0.3690894182354134 0.611</translate>
+				<translate>1.02069310554864 -0.3868958956398947 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v9.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual10" name="object9" sid="visual10">
-				<translate>0.7945666408374797 -0.150850022313665 0.611</translate>
+				<translate>0.7948399961345362 0.3688619743740976 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v10.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual11" name="object10" sid="visual11">
-				<translate>0.9799255761081254 -0.3759387666328407 0.611</translate>
+				<translate>1.042521734565359 -0.03878845674232856 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v11.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual12" name="object11" sid="visual12">
-				<translate>0.8050369940807481 -0.253765808546432 0.611</translate>
+				<translate>1.017262584541881 -0.3126970680465135 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v12.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual13" name="object12" sid="visual13">
-				<translate>1.062892605541475 -0.08907961188356167 0.611</translate>
+				<translate>1.114553433125642 -0.3362212098042877 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v13.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual14" name="object13" sid="visual14">
-				<translate>0.6904961271340525 0.1551785960609118 0.611</translate>
+				<translate>0.8327254530688553 0.03693015229151897 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v14.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual15" name="object14" sid="visual15">
-				<translate>0.6963487578241582 -0.1843508894788165 0.611</translate>
+				<translate>0.8357602379549383 -0.3886146494327544 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v15.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual16" name="object15" sid="visual16">
-				<translate>1.240929229059043 -0.3008369469381374 0.611</translate>
+				<translate>1.188827891823425 -0.01340405654830512 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v16.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual17" name="object16" sid="visual17">
-				<translate>0.7616444462276463 0.09463531040907841 0.611</translate>
+				<translate>0.9001644730775697 -0.1615491607150328 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v17.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual18" name="object17" sid="visual18">
-				<translate>0.7571570856496104 0.3515328585841164 0.611</translate>
+				<translate>0.7112558144812718 0.322430342132127 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v18.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual19" name="object18" sid="visual19">
-				<translate>0.9551676621279118 0.04226853386136875 0.611</translate>
+				<translate>0.9831609009767299 0.2187198411870538 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v19.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual20" name="object19" sid="visual20">
-				<translate>1.191844836982212 -0.1433711803679657 0.611</translate>
+				<translate>0.8246792576315902 -0.1399776616578385 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v20.node0" sid="node0" name="base"/>
 			</node>
@@ -161,7 +161,7 @@
 		<geometry id="g0_link0_geom1">
 			<mesh>
 				<source id="g0_link0_geom1_positions">
-					<float_array id="g0_link0_geom1_positions-array" count="24" digits="2490384">0.45 0.45 -0.09999999999999998 0.45 0.45 -0.5 0.45 0.25 -0.09999999999999998 0.45 0.25 -0.5 0.4 0.45 -0.09999999999999998 0.4 0.45 -0.5 0.4 0.25 -0.09999999999999998 0.4 0.25 -0.5</float_array>
+					<float_array id="g0_link0_geom1_positions-array" count="24" digits="2490384">0.45 0.45 -0.1 0.45 0.45 -0.5 0.45 0.25 -0.1 0.45 0.25 -0.5 0.4 0.45 -0.1 0.4 0.45 -0.5 0.4 0.25 -0.1 0.4 0.25 -0.5</float_array>
 					<technique_common>
 						<accessor count="8" source="#g0_link0_geom1_positions-array" stride="3">
 							<param name="X" type="float"/>
@@ -194,7 +194,7 @@
 		<geometry id="g0_link0_geom2">
 			<mesh>
 				<source id="g0_link0_geom2_positions">
-					<float_array id="g0_link0_geom2_positions-array" count="24" digits="2490384">0.45 -0.25 -0.09999999999999998 0.45 -0.25 -0.5 0.45 -0.45 -0.09999999999999998 0.45 -0.45 -0.5 0.4 -0.25 -0.09999999999999998 0.4 -0.25 -0.5 0.4 -0.45 -0.09999999999999998 0.4 -0.45 -0.5</float_array>
+					<float_array id="g0_link0_geom2_positions-array" count="24" digits="2490384">0.45 -0.25 -0.1 0.45 -0.25 -0.5 0.45 -0.45 -0.1 0.45 -0.45 -0.5 0.4 -0.25 -0.1 0.4 -0.25 -0.5 0.4 -0.45 -0.1 0.4 -0.45 -0.5</float_array>
 					<technique_common>
 						<accessor count="8" source="#g0_link0_geom2_positions-array" stride="3">
 							<param name="X" type="float"/>
@@ -227,7 +227,7 @@
 		<geometry id="g0_link0_geom3">
 			<mesh>
 				<source id="g0_link0_geom3_positions">
-					<float_array id="g0_link0_geom3_positions-array" count="24" digits="2490384">-0.4 0.45 -0.09999999999999998 -0.4 0.45 -0.5 -0.4 0.25 -0.09999999999999998 -0.4 0.25 -0.5 -0.45 0.45 -0.09999999999999998 -0.45 0.45 -0.5 -0.45 0.25 -0.09999999999999998 -0.45 0.25 -0.5</float_array>
+					<float_array id="g0_link0_geom3_positions-array" count="24" digits="2490384">-0.4 0.45 -0.1 -0.4 0.45 -0.5 -0.4 0.25 -0.1 -0.4 0.25 -0.5 -0.45 0.45 -0.1 -0.45 0.45 -0.5 -0.45 0.25 -0.1 -0.45 0.25 -0.5</float_array>
 					<technique_common>
 						<accessor count="8" source="#g0_link0_geom3_positions-array" stride="3">
 							<param name="X" type="float"/>
@@ -260,7 +260,7 @@
 		<geometry id="g0_link0_geom4">
 			<mesh>
 				<source id="g0_link0_geom4_positions">
-					<float_array id="g0_link0_geom4_positions-array" count="24" digits="2490384">-0.4 -0.25 -0.09999999999999998 -0.4 -0.25 -0.5 -0.4 -0.45 -0.09999999999999998 -0.4 -0.45 -0.5 -0.45 -0.25 -0.09999999999999998 -0.45 -0.25 -0.5 -0.45 -0.45 -0.09999999999999998 -0.45 -0.45 -0.5</float_array>
+					<float_array id="g0_link0_geom4_positions-array" count="24" digits="2490384">-0.4 -0.25 -0.1 -0.4 -0.25 -0.5 -0.4 -0.45 -0.1 -0.4 -0.45 -0.5 -0.45 -0.25 -0.1 -0.45 -0.25 -0.5 -0.45 -0.45 -0.1 -0.45 -0.45 -0.5</float_array>
 					<technique_common>
 						<accessor count="8" source="#g0_link0_geom4_positions-array" stride="3">
 							<param name="X" type="float"/>

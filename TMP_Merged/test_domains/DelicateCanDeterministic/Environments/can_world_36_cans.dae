@@ -4,9 +4,9 @@
 		<contributor>
 			<authoring_tool>OpenRAVE Collada Writer v0.3.5</authoring_tool>
 		</contributor>
-		<created>2020-11-28T00:24:46-0700</created>
+		<created>2021-02-16T12:55:09-0700</created>
 		<keywords/>
-		<modified>2020-11-28T00:24:46-0700</modified>
+		<modified>2021-02-16T12:55:09-0700</modified>
 		<unit/>
 		<up_axis>Z_UP</up_axis>
 	</asset>
@@ -18,182 +18,182 @@
 				<instance_node url="#v0.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual1" name="object0" sid="visual1">
-				<translate>0.8704249880114256 -0.1178939955408453 0.611</translate>
+				<translate>0.9822297161118446 -0.0997415203869651 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v1.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual2" name="object1" sid="visual2">
-				<translate>0.8068608947033787 0.3556076426125853 0.611</translate>
+				<translate>1.124206125104608 -0.3923338190873255 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v2.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual3" name="object2" sid="visual3">
-				<translate>0.6970571114688827 0.3060598836400404 0.611</translate>
+				<translate>0.9287518279246231 0.08710419294272631 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v3.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual4" name="object3" sid="visual4">
-				<translate>0.827144144208915 0.1908051955521125 0.611</translate>
+				<translate>0.865754144459131 -0.003016224113585875 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v4.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual5" name="object4" sid="visual5">
-				<translate>0.819258453556581 -0.009582988476533827 0.611</translate>
+				<translate>0.8913744122943112 -0.1927789789894757 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v5.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual6" name="object5" sid="visual6">
-				<translate>1.124770414424417 0.1613934416775576 0.611</translate>
+				<translate>1.020511726623363 0.3985337600198661 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v6.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual7" name="object6" sid="visual7">
-				<translate>1.182186388659292 0.1012187228835362 0.611</translate>
+				<translate>0.7960315482061575 -0.3132880396849011 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v7.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual8" name="object7" sid="visual8">
-				<translate>1.254493911953623 0.3465586512551698 0.611</translate>
+				<translate>1.020332600895809 -0.2911576118159873 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v8.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual9" name="object8" sid="visual9">
-				<translate>0.9238102323400397 0.1404745020609679 0.611</translate>
+				<translate>1.255582536533948 0.2901667134236894 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v9.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual10" name="object9" sid="visual10">
-				<translate>0.9703793377828287 -0.005470359243103851 0.611</translate>
+				<translate>1.218522547193035 0.22101147411111 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v10.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual11" name="object10" sid="visual11">
-				<translate>0.6602092067792176 -0.2619953038148324 0.611</translate>
+				<translate>0.5785544562642412 0.1565544153377373 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v11.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual12" name="object11" sid="visual12">
-				<translate>0.5838067236578399 0.3949195333445344 0.611</translate>
+				<translate>0.9397981314451551 -0.2829611744838662 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v12.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual13" name="object12" sid="visual13">
-				<translate>1.165524859973839 0.3659926767180384 0.611</translate>
+				<translate>1.145988278451414 -0.324838205453031 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v13.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual14" name="object13" sid="visual14">
-				<translate>0.9245061136827902 -0.3208689977670541 0.611</translate>
+				<translate>1.003815712745906 0.1783421560010622 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v14.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual15" name="object14" sid="visual15">
-				<translate>0.9410600112017151 0.3627792434949385 0.611</translate>
+				<translate>0.7232352571928696 0.05768383821321016 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v15.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual16" name="object15" sid="visual16">
-				<translate>0.7426295490474908 0.08857022115003338 0.611</translate>
+				<translate>0.6678766211507328 0.137578918977498 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v16.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual17" name="object16" sid="visual17">
-				<translate>1.172721622210733 0.04061478699651921 0.611</translate>
+				<translate>1.175613369682601 -0.2361051335331704 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v17.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual18" name="object17" sid="visual18">
-				<translate>0.6939616784391276 -0.10355715013456 0.611</translate>
+				<translate>1.192391339641822 0.2979552887883193 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v18.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual19" name="object18" sid="visual19">
-				<translate>0.7560487660905778 0.02597442785003234 0.611</translate>
+				<translate>1.101252651932567 0.0222870423404774 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v19.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual20" name="object19" sid="visual20">
-				<translate>1.13725654469875 0.2555322496136384 0.611</translate>
+				<translate>0.9341826124874331 0.366911536441929 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v20.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual21" name="object20" sid="visual21">
-				<translate>0.5599966037674138 -0.2582725184918028 0.611</translate>
+				<translate>0.5930708846347309 0.001633181013187268 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v21.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual22" name="object21" sid="visual22">
-				<translate>1.261522634236275 -0.0857034336407545 0.611</translate>
+				<translate>1.334473857971248 0.1575463650945615 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v22.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual23" name="object22" sid="visual23">
-				<translate>0.5542587693783861 -0.06662532636276436 0.611</translate>
+				<translate>1.275774193750293 -0.3083177666283413 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v23.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual24" name="object23" sid="visual24">
-				<translate>1.106607029339032 -0.3866676000554814 0.611</translate>
+				<translate>0.8633470875746102 0.2350534401475149 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v24.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual25" name="object24" sid="visual25">
-				<translate>1.054466240947032 -0.06205156262049394 0.611</translate>
+				<translate>1.211611434206591 0.03877103933825587 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v25.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual26" name="object25" sid="visual26">
-				<translate>0.6700310853779203 0.2149381867647894 0.611</translate>
+				<translate>0.6211753610635595 -0.1209092018686463 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v26.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual27" name="object26" sid="visual27">
-				<translate>1.328355270931568 -0.3964691352287213 0.611</translate>
+				<translate>1.104204577842901 -0.05510243509319235 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v27.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual28" name="object27" sid="visual28">
-				<translate>1.314506818561093 0.2388547316367017 0.611</translate>
+				<translate>1.23269739371435 -0.04975809990005986 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v28.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual29" name="object28" sid="visual29">
-				<translate>1.272796848792201 -0.2208531969160976 0.611</translate>
+				<translate>1.202341140910566 -0.3966636091672469 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v29.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual30" name="object29" sid="visual30">
-				<translate>1.053484900779232 0.331322642276925 0.611</translate>
+				<translate>1.122829000527181 0.2560727465599002 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v30.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual31" name="object30" sid="visual31">
-				<translate>0.7380658672848167 -0.197538687299222 0.611</translate>
+				<translate>0.9002448004588472 0.1690920586706282 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v31.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual32" name="object31" sid="visual32">
-				<translate>1.332329082218473 -0.1325174855794458 0.611</translate>
+				<translate>1.266648155173162 -0.3769153835668858 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v32.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual33" name="object32" sid="visual33">
-				<translate>0.6168239161898033 -0.1971141224469337 0.611</translate>
+				<translate>0.7471558200057551 0.3192307756652715 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v33.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual34" name="object33" sid="visual34">
-				<translate>0.7942792048537204 -0.3748711290396103 0.611</translate>
+				<translate>0.6386663413821672 0.04188080961827267 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v34.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual35" name="object34" sid="visual35">
-				<translate>0.8033774589656175 -0.1803312957135325 0.611</translate>
+				<translate>1.075391272544774 0.3326412426478312 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v35.node0" sid="node0" name="base"/>
 			</node>
 			<node id="visual36" name="object35" sid="visual36">
-				<translate>0.8153095410037945 0.1291747012032577 0.611</translate>
+				<translate>0.5602024379491504 -0.276535602789937 0.611</translate>
 				<rotate>1 0 0 0</rotate>
 				<instance_node url="#v36.node0" sid="node0" name="base"/>
 			</node>

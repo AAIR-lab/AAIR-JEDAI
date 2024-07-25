@@ -51,9 +51,10 @@ class BasePoseAroundTableGenerator(Generator):
         # l = [ [0,0,0] , translation_right_of_table[:2] + [3.14159], translation_behind_table[:2] + [4.71239], translation_front_of_table[:2] + [1.5708] ]
 
         l = [[0,0,0],
-             [distance_robot_table,-distance_robot_table,math.pi / 2.0],
-             [2 * distance_robot_table, 0, math.pi],
-             [distance_robot_table,distance_robot_table,3 * math.pi/2.0]]
+            #  [distance_robot_table,-distance_robot_table,math.pi / 2.0],
+            #  [2 * distance_robot_table, 0, math.pi],
+            #  [distance_robot_table,distance_robot_table,3 * math.pi/2.0]
+             ]
 
         current_x = current_transform[0,3]
         current_y = current_transform[1,3]

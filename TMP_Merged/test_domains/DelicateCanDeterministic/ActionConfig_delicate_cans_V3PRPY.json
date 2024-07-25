@@ -21,8 +21,11 @@
   },
   "config_map": {
     "grasp" : {
-      "HL_ARGS" : ["obj","robot","gripper","trajectory"],
+      "HL_ARGS" : ["obj","gripper","robot","trajectory"],
       "LL_ARGS" : {
+        "cbpose" : ["CurrentBasePoseGenerator","BasePose"],
+        "tbpose" : ["BasePoseAroundTableGenerator","BasePose"],
+        "base_traj" : ["BaseMotionPlanGeneratorPRPY", "BaseTrajectory"],
         "cpose" : ["CurrentManipPoseGenerator","ManipPose"],
         "gpose" : ["GraspPoseGenerator","ManipPose"],
         "gripper_close_traj" : ["GripperCloseStateGenerator","GripperCloseTrajectory"],
@@ -31,9 +34,13 @@
         "traj2" : ["MotionPlanGeneratorPRPY","ManipTrajectory"]
       },
       "precondition" : [
+        "IsValidBasePose(robot,cbpose)",
+        "IsValidBasePose(robot,tbpose)",
+        "IsValidBaseTrajectory(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
         "RobotPose(robot,cpose)",
         "IsValidGraspPose(obj,gpose,robot)",
         "IsValidMotionPlan(robot,pose_current:cpose,pose_end:gpose,traj1)",
+        "NotObstructs(t:traj1)",
         "RobotPose(robot,cpose)",
         "IsValidGripperCloseTraj(robot,gripper_close_traj)",
         "IsValidEndPose(robot,endpose,robot)",
@@ -41,13 +48,16 @@
         "NotObstructs(t:traj2)"
       ],
       "effect" : [],
-      "execution_sequence" : ["traj1","gripper_close_traj","traj2"],
+      "execution_sequence" : ["base_traj","traj1","gripper_close_traj","traj2"],
       "attach" : "obj"
     },
 
     "put": {
-      "HL_ARGS" : ["obj","robot","gripper","trajectory"],
+      "HL_ARGS" : ["obj","gripper","robot","trajectory"],
       "LL_ARGS" : {
+        "cbpose" : ["CurrentBasePoseGenerator","BasePose"],
+        "tbpose" : ["BasePoseAroundTableGenerator","BasePose"],
+        "base_traj" : ["BaseMotionPlanGeneratorPRPY", "BaseTrajectory"],
         "cpose": [
           "CurrentManipPoseGenerator",
           "ManipPose"
@@ -74,6 +84,9 @@
         ]
       },
       "precondition" : [
+        "IsValidBasePose(robot,cbpose)",
+        "IsValidBasePose(robot,tbpose)",
+        "IsValidBaseTrajectory(robot,pose_current:cbpose,pose_end:tbpose,base_traj)",
         "RobotPose(robot,cpose)",
         "IsValidPDPose(obj,pdpose,robot)",
         "IsValidMotionPlan(robot,pose_current:cpose,pose_end:pdpose,traj)",
@@ -84,7 +97,7 @@
         "NotPutdownObstructs(t:traj2)"
       ],
       "effect" : [],
-      "execution_sequence" : ["traj","gripper_open_trajectory","traj2"]
+      "execution_sequence" : ["base_traj","traj","gripper_open_trajectory","traj2"]
     }
 
   }

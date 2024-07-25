@@ -1,5 +1,5 @@
 (define (problem hanoi3)
-  (:domain hanoi)
+  (:domain HanoiDeterministic)
   (:objects loc1 loc2 loc3 box1 box2 box3 fetch - object)
   (:init
    (bigger loc1 box1)

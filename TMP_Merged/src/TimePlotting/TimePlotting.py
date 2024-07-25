@@ -12,13 +12,13 @@ class TimePlotter():
         self.prob_refined = [0]
         self.start_time = time.time()
         self.times = [0]
-        with open(Config.RESULTS_DIR + "nodes_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/nodes_" + Config.RESULTS_FILE, "a") as f:
             f.write("\n")
-        with open(Config.RESULTS_DIR + "prob_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/prob_" + Config.RESULTS_FILE, "a") as f:
             f.write("\n")
-        with open(Config.RESULTS_DIR + "time_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/time_" + Config.RESULTS_FILE, "a") as f:
             f.write("\n")
-        with open(Config.RESULTS_DIR + "action_fail_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR + "ICRA_Results/Keva/action_fail_" + Config.RESULTS_FILE, "a") as f:
             f.write("\n")
         self.init()
 
@@ -45,33 +45,26 @@ class TimePlotter():
         min_sequences = min_size_pr_node.lqueue.queue
         remaining_nodes = 0
         remaining_probs = 0
-        total_prob = 0
         for seq in min_sequences:
             hlas = seq[1]
             remaining_nodes += hlas.length
             # remaining_probs += hlas.action_list[-1].prob
-            last_edge = min_size_pr_node.hl_plan_tree.get_edge(hlas.action_list[-2], hlas.action_list[-1])
-            i = -1
-            while True:
-                edge = min_size_pr_node.hl_plan_tree.get_edge(hlas.action_list[i-1],hlas.action_list[i])
-                if edge.ll_action_spec is not None:
-                    break
-                i -= 1
+            edge = min_size_pr_node.hl_plan_tree.get_edge(hlas.action_list[-2], hlas.action_list[-1])
             if edge.ll_plan is None:
-                remaining_probs += last_edge.prob
+                remaining_probs += edge.prob
         percent_nodes_refined = ((self.no_total_nodes - remaining_nodes) / float(self.no_total_nodes)) * 100
         self.percent_nodes_refined.append(percent_nodes_refined)
-        self.prob_refined.append((total_prob - remaining_probs))
+        self.prob_refined.append((1 - remaining_probs))
         actions_exec = min_size_pr_node.action_execute
         failed_actions = min_size_pr_node.restart
         self.times.append(t - self.start_time)
-        with open(Config.RESULTS_DIR + "nodes_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/nodes_" + Config.RESULTS_FILE, "a") as f:
             f.write(str(percent_nodes_refined)+",")
-        with open(Config.RESULTS_DIR + "prob_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/prob_" + Config.RESULTS_FILE, "a") as f:
             f.write(str(1-remaining_probs) + ",")
-        with open(Config.RESULTS_DIR + "time_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR+"ICRA_Results/Keva/time_" + Config.RESULTS_FILE, "a") as f:
             f.write(str(t - self.start_time) + ",")
-        with open(Config.RESULTS_DIR + "action_fail_" + Config.RESULTS_FILE, "a") as f:
+        with open(Config.PROJ_DIR + "ICRA_Results/Keva/action_fail_" + Config.RESULTS_FILE, "a") as f:
             f.write(str(t - self.start_time)+","+str(actions_exec)+","+str(failed_actions)+";")
 
     def generate_plot(self):
@@ -86,7 +79,7 @@ class TimePlotter():
         #     writer.writerow(self.times)
         pass
         # f = plt.figure()
-        # plt.plot(self.percent_nocdes_refined,self.prob_refined)
+        # plt.plot(self.percent_nodes_refined,self.prob_refined)
         # plt.xlabel("Percentage of nodes refined")
         # plt.ylabel("Probability mass refined")
         # plt.savefig("result.png")

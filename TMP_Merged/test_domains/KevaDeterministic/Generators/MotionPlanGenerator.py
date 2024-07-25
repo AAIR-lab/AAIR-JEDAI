@@ -15,7 +15,6 @@ ROBOT_MANIP_DOF=7
 from prpy.planning.base import PlanningError
 from prpy.planning import ompl, CBiRRTPlanner, chomp
 from openravepy import planningutils
-import random
 
 class MotionPlanGenerator(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
@@ -28,7 +27,6 @@ class MotionPlanGenerator(Generator):
         '''low_level_environment is a mapping between object names and their transforms
             this can be used to construct a working environment model in most simulators'''
         self.ll_state = ll_state
-        self.assume_refinable = known_argument_values.get("assume_refinable", False)
         self.known_argument_values = known_argument_values
         self.robot_name = known_argument_values.get('robot')
         self.robot = self.ll_state.simulator.env.GetRobot(self.robot_name)
@@ -62,8 +60,7 @@ class MotionPlanGenerator(Generator):
         self.generate_function_state_err_free = self.generate_function_err_free()
         self.generate_function_state_err = self.generate_function_err()
     
-    def find_motion_plan_to_configuration(self, goal_configs):
-        
+    def planToConfigurations(self,goal_configs):
         # Motion Planning to reach joint state value(s)
         # Get trajectory from planner based on type of goal config passed
         # ( config a.k.a ik solutions a.k.a joint states )
@@ -75,38 +72,13 @@ class MotionPlanGenerator(Generator):
                 # If goal is a list of IK solutions, then call PlanToConfigurations
                 trajectory_object = self.planner.PlanToConfigurations(self.robot, goal_configs,timelimit=20.00)
             trajectory_object = self.simplifier.ShortcutPath(self.robot,trajectory_object)
-        except:
+        except Exception,e:
             print(__file__.split('/')[-1],": Could not find motion plan")
             return None
         # Retime and serialize the trajectory
         _ = planningutils.RetimeTrajectory(trajectory_object)
         trajectory_object = trajectory_object.serialize()
         return trajectory_object
-    
-    def assume_refinable_motion_plan_to_configuration(self, goal_configs):
-        
-        assert self.assume_refinable
-        
-        goal_config = random.choice(goal_configs)
-        
-        trajectory_object = RaveCreateTrajectory(self.ll_state.simulator.env, "")
-        cspec = self.robot.GetActiveConfigurationSpecification("linear")
-        trajectory_object.Init(cspec)
-        trajectory_object.Insert(0, goal_config)
-        
-        _ = planningutils.RetimeTrajectory(trajectory_object)
-        trajectory_object = trajectory_object.serialize()
-        return trajectory_object
-        
-    
-    def planToConfigurations(self,goal_configs):
-   
-        if self.assume_refinable:
-            
-            return self.assume_refinable_motion_plan_to_configuration(goal_configs)
-        else:
-            
-            return self.find_motion_plan_to_configuration(goal_configs)
 
 
     def get_motion_plan(self,remove_bodies=True):
@@ -122,7 +94,7 @@ class MotionPlanGenerator(Generator):
 
         # If goal is a single / list of configurations
         if hasattr(self, 'goal_configs'):
-            if self.planner.has_planning_method('PlanToConfigurations'):
+            if not  self.planner.has_planning_method('PlanToConfigurations'):
                 # Check if plan exists for any of the goal configs in one shot
                 i = 0
                 while i < 5:
@@ -168,7 +140,7 @@ class MotionPlanGenerator(Generator):
             for attempts in range(3):
                 trajectory_object = self.get_motion_plan( remove_bodies = False)
                 if trajectory_object is not None:
-                    break;
+                    break
             if trajectory_object is None:
                 raise StopIteration
             yield trajectory_object

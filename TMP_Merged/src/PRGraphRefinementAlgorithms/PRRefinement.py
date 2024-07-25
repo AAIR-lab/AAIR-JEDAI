@@ -14,13 +14,9 @@ from Queue import PriorityQueue
 import pickle
 import importlib
 import random
-
+import os
 class PRRefinement:
-    def __init__(self, plan_refinement_graph,problem_specification, assume_refinable=False,
-                 store_policy_tree=False, store_simulated_executions=False,
-                 output_dir=None, ll_file=None, policy_file=None,
-                 store_image=False):
-        
+    def __init__(self, plan_refinement_graph,problem_specification):
         self.plan_refinement_graph = plan_refinement_graph
         self.current_pr_refinement_node = None
         self.stack = []
@@ -28,34 +24,6 @@ class PRRefinement:
         self.get_parent = False
         self.issue = None
         self.plotter = None
-        self.assume_refinable = assume_refinable
-        self.store_policy_tree = store_policy_tree
-        self.store_simulated_executions = store_simulated_executions
-        self.output_dir = output_dir
-        
-        self.initial_ll_values = None
-        if ll_file is not None:
-            
-            try:
-                self.initial_ll_values = pickle.load(open(ll_file, "rb"))
-            except Exception:
-                
-                print("[WARN]: Pickling initial ll file failed.")
-                pass
-        
-        self.policy_file = policy_file
-        self.initialize_simulator()
-
-        self.store_image = store_image
-
-    def initialize_simulator(self):
-        
-        ll_state = self.problem_specification.ll_state_type()
-                
-        # If the values are None, then we use the initial state values if any are provided.
-        if self.initial_ll_values is not None:
-            ll_state.sync_simulator(self.initial_ll_values)
-
 
     def dfs(self):
         if self.current_pr_refinement_node is None:
@@ -91,7 +59,7 @@ class PRRefinement:
                 if self.issue == "timeout":
                     if self.current_pr_refinement_node.get_parent() is None:
                         return self.current_pr_refinement_node
-                return self.current_pr_refinement_node  #temp change
+                return self.current_pr_refinement_node.get_parent()
 
     def random(self):
         return None
@@ -132,8 +100,7 @@ class PRRefinement:
 
 
     def run(self):
-
-
+       
         while True:
             self.last_refined_pr_node = self.current_pr_refinement_node
             self.current_pr_refinement_node = self.select_pr_node_for_refinment()
@@ -144,13 +111,12 @@ class PRRefinement:
         # If we don't have a High Level plan in this pr node, create it
             if self.current_pr_refinement_node.hl_plan_tree is None:
 
-                hl_plan_graph = self.create_HL_plan_graph(self.current_pr_refinement_node.problem_specification,
-                                                          self.policy_file)
+                hl_plan_graph = self.create_HL_plan_graph(self.current_pr_refinement_node.problem_specification)
                 self.current_pr_refinement_node.hl_plan_tree = hl_plan_graph
             else:
                 self.update_ll_state(backtrack=False)
                 # pass
-
+           
             leafQueue = self.current_pr_refinement_node.prepare_queue(new = True)
             if Config.PLOT:
                 if self.plotter is None:
@@ -183,10 +149,8 @@ class PRRefinement:
                                 resource_limit=30,n_actions = Config.NACTIONS)
                             revisit = False
                             if success:
-                                p = self.current_pr_refinement_node.hl_plan_tree.get_edge(temp.action_list[-2], temp.action_list[-1]).prob
-                                self.current_pr_refinement_node.refined_mass += p
                                 totalSuccess = True
-                                if Config.ANYTIME and self.current_pr_refinement_node.refined_mass > Config.NACTIONS:
+                                if Config.ANYTIME:
                                     execute = True
                                 break
                             else:
@@ -355,12 +319,11 @@ class PRRefinement:
                                 ll_plan = action.ll_plan
                                 exec_seq = action.ll_action_spec.exec_sequence
                                 ll_state = current_node.ll_state
-                                if exec_seq is not None:
-                                    for arg in exec_seq:
-                                        exec_obj = getattr(importlib.import_module(
-                                            Config.TEST_DIR_NAME + '.' + Config.DOMAIN + '.Executor.' + ll_plan[arg]['type']),
-                                                           ll_plan[arg]['type'])(ll_plan[arg]['type'])
-                                        exec_obj.execute(ll_state, ll_plan[arg]['value'], action.generated_values)
+                                for arg in exec_seq:
+                                    exec_obj = getattr(importlib.import_module(
+                                        'test_domains.' + Config.DOMAIN + '.Executor.' + ll_plan[arg]['type']),
+                                                       ll_plan[arg]['type'])(ll_plan[arg]['type'])
+                                    exec_obj.execute(ll_state, ll_plan[arg]['value'], action.generated_values)
                                 for effect in action.ll_action_spec.effect.getPositivePredicates():
                                     ll_state.apply_effect(effect,action.generated_values)
                                 n+=1
@@ -377,20 +340,17 @@ class PRRefinement:
                                         current_node.remove_child(child)
                                         policy_tree.remove_node(child)
                                 totalSuccess = False
-                                policy_tree.readjust_probabilities()
                                 if n < Config.NACTIONS:
                                     self.current_pr_refinement_node.restart += 1
                                 break
                         else:
                             current_node = next_node
-                    issue = "continue"
-                    # flag_new_pr = True
+                    if Config.PLOT:
+                        if self.plotter is not None:
+                            self.plotter.update()
+
+                    self.issue = "continue"
                     break
-                if Config.PLOT:
-                    if self.plotter is not None:
-                        self.plotter.update()
-
-
 
 
 
@@ -411,23 +371,10 @@ class PRRefinement:
                 break
 
         if totalSuccess:
-            
-            policy_tree = self.successful_pr_node.store_refined_tree(False)
-            
-            if self.store_policy_tree:
-                _ = self.successful_pr_node.store_refined_tree(
-                    store=self.store_policy_tree,
-                    store_simulated_executions=self.store_simulated_executions,
-                    output_dir=self.output_dir,
-                    store_image=store_image)
-            
             if Config.PLOT:
                 if self.plotter is not None:
                     self.plotter.generate_plot()
             if Config.STORE_REFINED:
-                
-                # This option is superceded by the self.store_policy_tree variable
-                assert False
                 _ = self.successful_pr_node.store_refined_tree(True)
             if Config.RUN_TRAJ:
                 policy_tree = self.successful_pr_node.store_refined_tree(False)
@@ -440,11 +387,8 @@ class PRRefinement:
             # raw_input("Done..Exit?")
             print "Solved.."
         else:
-            
-            policy_tree = None
             print "Cant FInd solution"
-            
-        return totalSuccess, policy_tree
+        return totalSuccess
 
 
 
@@ -466,31 +410,30 @@ class PRRefinement:
                 queue.append(child)
         hlpg_ref_node.ll_state = copy.deepcopy(parent_ll_state_cpy)
 
-
-    def create_HL_plan_graph(self, problem_specification, policy_file=None):
-        hl_solution,state_list = self.get_HL_Solution(problem_specification, policy_file)
+    def create_HL_plan_graph(self, problem_specification):
+        print "cretaing plan for HL plan"
+        ll_state = problem_specification.ll_state_type()
+        file_dir=os.path.dirname(os.path.abspath(__file__))[:-42]+"media/documents/solution.txt"
+        print(file_dir)
+        while not os.path.exists(file_dir):
+            time.sleep(1)
+        hl_solution,state_list = self.get_HL_Solution(problem_specification)
+        print(hl_solution)
         if hl_solution is None:
             raise StandardError
 
         else:
 
-            hl_plan_graph = HighLevelPlanGraph(hl_solution, problem_specification,state_list,
-                                               assume_refinable=self.assume_refinable)
-            ll_state = problem_specification.ll_state_type()
+            hl_plan_graph = HighLevelPlanGraph(hl_solution, problem_specification,state_list)
+            # ll_state = problem_specification.ll_state_type()
             if self.current_pr_refinement_node.ll_state_values is None:
-                
-                # If the values are None, then we use the initial state values if any are provided.
-                if self.initial_ll_values is not None:
-                    ll_state.sync_simulator(self.initial_ll_values)
-                    ll_state.values = ll_state.get_values_from_env(None)
-                
                 self.current_pr_refinement_node.ll_state_values = ll_state.get_values_from_env(None)
             hl_plan_graph.get_root().set_ll_state(ll_state)
             return hl_plan_graph
 
-    def get_HL_Solution(self,problem_specification, policy_file=None):
+    def get_HL_Solution(self,problem_specification):
         hl_problem = HighLevelProblem(problem_specification.pddl_domain_file, problem_specification.pddl_problem_file)
-        planner = PlannerFactory.create(problem_specification.hl_planner_name, policy_file)
+        planner = PlannerFactory.create(problem_specification.hl_planner_name)
         hl_solution,state_list = planner.solve(hl_problem,problem_specification)
         return hl_solution,state_list
 

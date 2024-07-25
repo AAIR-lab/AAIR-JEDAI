@@ -17,9 +17,7 @@ class GripperOpenTrajectory(ArgExecutor):
         if value == "open":
             robot.ReleaseAllGrabbed()
 
-    def execute(self,low_level_state,value,other_generated_values,
-                sleep_interval_in_ms=1):
-        
+    def execute(self,low_level_state,value,other_generated_values):
         simulator = low_level_state.simulator
         robot = simulator.env.GetRobot(Config.ROBOT_NAME)
         taskmanip = interfaces.TaskManipulation(robot)
@@ -31,6 +29,4 @@ class GripperOpenTrajectory(ArgExecutor):
                 else:
                     taskmanip.ReleaseFingers()
                 robot.ReleaseAllGrabbed()
-
-        return self.wait_for_controller(robot, low_level_state,
-                                        sleep_interval_in_ms)
+            robot.WaitForController(0)

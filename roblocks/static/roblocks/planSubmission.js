@@ -339,7 +339,6 @@ var numSubmitStarts = 0;
 var numSubmitEnds= 0;
 
 var first_time = true;
-var is_random_problem = false;
 function submitPlan(plan,blob,get_hint=false,run_tmp=false){   
 
     if (!first_time && plan.length == 0 && !get_hint) {
@@ -452,15 +451,7 @@ function submitPlan(plan,blob,get_hint=false,run_tmp=false){
 
  
             let successCallMsg = "VALID: Plan correct! All the actions will be executed"
-
-            if (!is_random_problem) {
-
-                populateFixedGoalBar("Goal Satisfied:", "The plan will reach the goal. Press the 'Execute on Robot' button to execute it on the robot.", "", "good");
-            }
-            else {
-
-                populateFixedGoalBar("Goal Satisfied:", "The plan will reach the goal. Please generate a new problem using the 'Create Curriculum Problem' button.", "", "good");
-            }
+            populateFixedGoalBar("Goal Satisfied:", "The specified plan will reach the goal", "", "good");
 
             explainer_success = "pass";
         }

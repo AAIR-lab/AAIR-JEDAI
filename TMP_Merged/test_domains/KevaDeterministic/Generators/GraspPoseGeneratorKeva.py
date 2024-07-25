@@ -11,11 +11,10 @@ import Config
 
 class GraspPoseGeneratorKeva(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
-        required_values = ['robot', 'obj', 'region']
+        required_values = ['robot', 'obj']
 
         super(GraspPoseGeneratorKeva, self).__init__(known_argument_values, required_values)
         self.ll_state = ll_state
-        self.assume_refinable = known_argument_values.get("assume_refinable", False)
         self.simulator = ll_state.simulator
         self.known_argument_values = known_argument_values
         self.plank_name = known_argument_values.get('obj')

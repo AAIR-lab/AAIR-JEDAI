@@ -11,7 +11,7 @@ import Config
 
 class PostGraspPoseGeneratorKeva(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
-        required_values = ['robot', 'obj', 'region']
+        required_values = ['robot', 'obj']
 
         super(PostGraspPoseGeneratorKeva, self).__init__(known_argument_values, required_values)
         self.ll_state = ll_state

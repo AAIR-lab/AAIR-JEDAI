@@ -18,9 +18,7 @@ class GripperCloseTrajectory(ArgExecutor):
         if value == "close":
             robot.Grab(low_level_state.simulator.env.GetKinBody(other_generated_values["obj"]))
 
-    def execute(self,low_level_state,value,other_generated_values,
-                sleep_interval_in_ms=1):
-        
+    def execute(self,low_level_state,value,other_generated_values):
         robot = low_level_state.simulator.env.GetRobot(Config.ROBOT_NAME)
         taskmanip = interfaces.TaskManipulation(robot)
         state = value
@@ -31,6 +29,4 @@ class GripperCloseTrajectory(ArgExecutor):
                 else:
                     taskmanip.CloseFingers()
                 robot.Grab(low_level_state.simulator.env.GetKinBody(other_generated_values["obj"]))
-        
-        return self.wait_for_controller(robot, low_level_state,
-                                        sleep_interval_in_ms)
+            robot.WaitForController(0)

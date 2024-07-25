@@ -52,7 +52,21 @@ class OpenRaveSimulator(object):
             collision_checker.SetCollisionOptions(CollisionOptions.Contacts)
             self.env.SetCollisionChecker(collision_checker)
             OpenRaveSimulator.robots = self.robots
+            if Config.SHOW_VIEWER:
+                v = self.env.GetViewer()
+                v.SetCamera(np.load(Config.PROJ_DIR + "cp.npy"))
                 # TODO create initial body_name_transform_map so that we can roll back
+
+    def openGrippers(self):
+        if Config.ROBOT_NAME == "fetch" or Config.ROBOT_NAME == "yumi":
+            robot = self.env.GetRobot(Config.ROBOT_NAME)
+            taskmanip = interfaces.TaskManipulation(robot)
+            with robot:
+                if Config.ROBOT_NAME == 'yumi':
+                    taskmanip.ReleaseFingers(movingdir=[1])
+                else:
+                    taskmanip.ReleaseFingers()
+            robot.WaitForController(0)
 
     def load_robot(self,robots):
         for robot in robots:
@@ -80,6 +94,7 @@ class OpenRaveSimulator(object):
         return self.env.GetKinBody(object_name)
 
     def get_obj_name_box_extents(self, object_name):
+        print self.env.GetKinBody(object_name).GetLink('base')
         geom = self.env.GetKinBody(object_name).GetLink('base').GetGeometries()[0]
         o_x, o_y, o_z = geom.GetBoxExtents().tolist()
         return o_x, o_y, o_z
@@ -143,10 +158,7 @@ class OpenRaveSimulator(object):
                     if 'active_arm' in values['robots'][robot.GetName()]:
                         robot.SetActiveManipulator(values['robots'][robot.GetName()]['active_arm'])
                     if "active_joint_indices" in values['robots'][robot.GetName()]:
-                        if type(values['robots'][robot.GetName()]['active_joint_indices']) == type(-1):
-                            self.robots[robot.GetName()].activate_base_joints()
-                        else:
-                            robot.SetActiveDOFs(values['robots'][robot.GetName()]['active_joint_indices'])
+                        robot.SetActiveDOFs(values['robots'][robot.GetName()]['active_joint_indices'])
                     if 'grabbed_objects' in values['robots'][robot.GetName()]:
                         for obj_name in values['robots'][robot.GetName()]['grabbed_objects']:
                             robot.Grab(self.env.GetKinBody(obj_name))

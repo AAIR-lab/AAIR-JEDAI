@@ -17,7 +17,7 @@ class PutDownPoseGenerator(Generator):
         self.known_argument_values = known_argument_values
         self.robot_name = self.known_argument_values["robot"]
         self.generate_function_state = self.generate_function()
-        self.table_name = 'table6'
+        self.table_name = "table6"
         self.object_name = known_argument_values.get('obj')
 
     def reset(self):
@@ -39,19 +39,6 @@ class PutDownPoseGenerator(Generator):
         table_transform = self.simulator.get_transform_matrix(self.table_name)
         next_hl_state_true_prop = self.known_argument_values["current_hl_state"].getTrueProps()
 
-        flag = False
-        for prop in next_hl_state_true_prop:
-            if "crushed" in prop and self.object_name in prop:
-                flag = True
-
-        if flag:
-            dustbin_pose = self.simulator.env.GetKinBody("dustbin").GetTransform()
-            t1 =  self.simulator.get_matrix_from_pose(1, 0, 0, 0, 0, 0, 0)
-            r1 = self.simulator.get_matrix_from_axis_angle(math.pi/2.0, 0, 0)
-            t2 = self.simulator.get_matrix_from_pose(1,0,0,0,0,0,0.4)
-            t = t1.dot(t2).dot(r1)
-            pdp = dustbin_pose.dot(t)
-
 
         o_x, o_y, o_z = self.simulator.get_obj_name_box_extents(object_name=self.object_name)
         cylinder_radius = o_x
@@ -66,9 +53,9 @@ class PutDownPoseGenerator(Generator):
 
         i = 0
         j = 0
-        while i < 3 and j < 50:
+        while i < 5 and j < 50:
             obj_x = random.uniform(-x_limit, x_limit)
-            obj_y = random.uniform(-y_limit, 0)
+            obj_y = random.uniform(-y_limit, y_limit)
             obj_z = z + cylinder_height + 0.001
 
             obj_transform_wrt_origin = self.simulator.get_matrix_from_pose(1, 0, 0, 0, obj_x, obj_y, obj_z)
@@ -102,7 +89,7 @@ class PutDownPoseGenerator(Generator):
             # obj_transform_wrt_table_back = obj_transform_wrt_table.dot(back)
             # gripper_transform = self.simulator.env.GetRobot('fetch').GetLink('gripper_link').GetTransform()
             # final_transform = gripper_transform.dot(np.linalg.inv(obj_transform_wrt_table))
-            if self.simulator.robots[self.robot_name].get_ik_solutions(updated_pdp,True):
+            if len(self.simulator.robots[self.robot_name].get_ik_solutions(updated_pdp,True)) > 0:
 
                 generated_values_list.append(updated_pdp)
                 i+=1

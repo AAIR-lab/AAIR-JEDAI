@@ -14,8 +14,6 @@ from prpy.planning.base import PlanningError
 from prpy.planning import CBiRRTPlanner, mk
 from openravepy import planningutils
 
-import random
-
 class DeltaMotionPlanGenerator(Generator):
     def __init__(self, ll_state=None, known_argument_values=None):
         required_values = ['pose_current', 'pose_end']
@@ -31,7 +29,6 @@ class DeltaMotionPlanGenerator(Generator):
         '''low_level_environment is a mapping between object names and their transforms
             this can be used to construct a working environment model in most simulators'''
         self.ll_state = ll_state
-        self.assume_refinable = known_argument_values.get("assume_refinable", False)
         self.robot_name = known_argument_values.get('robot')
         self.robot = self.ll_state.simulator.env.GetRobot(self.robot_name)
         self.current_pose = known_argument_values.get('pose_current')
@@ -76,21 +73,7 @@ class DeltaMotionPlanGenerator(Generator):
         #     name_to_object_and_transform = {}
         #     name_to_object_and_transform = self.ll_state.simulator.remove_all_removable_bodies(self.ll_state.simulator.env)
         
-        if self.assume_refinable:
-            
-            ik_sols = self.ll_state.simulator.robots[self.robot_name].get_ik_solutions(self.generated_val, check_collisions=True)
-            if len(ik_sols) == 0:
-                return None
-            ik_sol = random.choice(ik_sols)
-            trajectory_object = RaveCreateTrajectory(self.ll_state.simulator.env, "")
-            cspec = self.robot.GetActiveConfigurationSpecification("linear")
-            trajectory_object.Init(cspec)
-            trajectory_object.Insert(0, ik_sol)
-            _ = planningutils.RetimeTrajectory(trajectory_object)
-            trajectory_object = trajectory_object.serialize()
-        else:
-            
-            trajectory_object = self.get_traj_from_planner()
+        trajectory_object = self.get_traj_from_planner()
 
         # Add bodies back if deleted previously
         # with self.ll_state.simulator.env:

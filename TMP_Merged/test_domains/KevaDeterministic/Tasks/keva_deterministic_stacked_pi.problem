@@ -4,6 +4,7 @@
     plank1 plank2 plank3 plank4 plank5 plank6 - plank
     horizontal vertical sideways - orientated
     region_1 region_2 region_3 - region
+    location1 location2 - location
     yumi - robot
 )
 

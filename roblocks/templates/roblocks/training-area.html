@@ -286,11 +286,6 @@
         if(setting!='random'){
             // document.querySelectorAll(".random_goals").forEach(el => el.remove());
             document.querySelectorAll(".random_goals").forEach(el => el.style.visibility = "hidden");
-            is_random_problem = false;
-        }
-        else {
-
-            is_random_problem = true;
         }
 
     }
@@ -576,9 +571,6 @@
 
     <xml id="toolbox" style="display: none">
         <category id="Actions" name="Actions" hidden="true">
-        <category id="Loops" name="Loops" hidden="true"></category>
-        <category id="Goals" name="Goals" hidden="true"></category>
-    
             <!-- Injected code -->
         </category>
     </xml>
@@ -632,8 +624,8 @@
 
             <div class="float-left row" style="width: 100%; height: 5%"> 
                 <div class="workspace-buttons">
-                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" disabled="true" onclick="saveWorkspace()">Save</button>
-                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" disabled="true" onclick="document.getElementById('file-input').click()">Load</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="saveWorkspace()">Save</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="document.getElementById('file-input').click()">Load</button>
                     <button id="resetBtn" type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-danger" onclick="clearWorkspace()">Reset</button>
                     <button type="button" style="margin-top:6px; margin-bottom:-6px; color:black" class="btn btn-warning" onclick="maximizeAllBlocks()">Maximize All Blocks</button>
                     <button type="button" style="margin-top:6px; margin-bottom:-6px; color:black" class="btn btn-warning" onclick="minimizeAllBlocks()">Minimize All Blocks</button>

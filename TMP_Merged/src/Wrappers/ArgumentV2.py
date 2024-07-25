@@ -1,5 +1,5 @@
 import copy
-from Config import DOMAIN, TEST_DIR_NAME
+from Config import DOMAIN
 import importlib
 from src.DataStructures.Generator import Generator
 
@@ -44,7 +44,7 @@ class ArgumentV2(object):
                 # import IPython
                 # IPython.embed()
                 try:
-                    gen_class  =  importlib.import_module( TEST_DIR_NAME + "." +DOMAIN+'.Generators.'+self.generator_class_name)
+                    gen_class  =  importlib.import_module('test_domains.'+DOMAIN+'.Generators.'+self.generator_class_name)
                     self.generator_object = getattr(gen_class, self.generator_class_name)(ll_state=low_level_state, known_argument_values=known_argument_values)
                 except Exception as e:
                     print ""

@@ -1,6 +1,6 @@
 (define (problem p01)
 
-	(:domain CafeworldDeterministic)
+	(:domain cafeWorld)
 	(:objects
 
 		gripper - manipulator

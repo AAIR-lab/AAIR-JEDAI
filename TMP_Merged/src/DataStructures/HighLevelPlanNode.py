@@ -17,7 +17,6 @@ class HighLevelPlanNode(GraphNode):
         self.other_children = []
         self.hlpg_node_ref = None
         self.init_ll_values = None
-        self.is_goal = False
 
     def __hash__(self):
         props = self.hl_state.getAllProps()

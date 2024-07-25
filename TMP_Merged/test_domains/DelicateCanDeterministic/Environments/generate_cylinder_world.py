@@ -11,6 +11,7 @@ import utils
 import time
 import getopt
 import object_models
+import sys
 
 TARGET_OBJECT = "object1"
 OBJECT_PREFIX = "object"
@@ -152,5 +153,11 @@ def create_env(num_objects, cylinder_dims, seed=int(time.time()), envFile=None, 
 
 
 if __name__ == "__main__":
-    create_env(36, (0.03, 0.2), viewer=True)
+    try:
+        seed = int(sys.argv[2])
+        cans = int(sys.argv[1])
+    except:
+        seed = int(time.time())
+        cans = 25
+    create_env(cans, (0.03, 0.2), seed = seed, viewer=False)
     # seed=1548030364

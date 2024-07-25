@@ -34,11 +34,12 @@ class GraspPoseGenerator(Generator):
         length, breadth, height = self.simulator.get_obj_name_box_extents(object_name=self.object_name)
         grasp_num = 10
         region_length = length/3.0
-        gripper_offset = 0.06
+        gripper_offset = 0.04
         rot_angle = math.pi / 2.0
 
         # _, region = self.grasp_region.split('_')
         offset_mean = (region_length * 2) - (2*region_length)
+        # offset_mean = 0.2
 
         # grasp_offsets = []
         # for i in range(grasp_num):
@@ -87,6 +88,8 @@ class GraspPoseGenerator(Generator):
         translated_pose = np.matmul(rotated_pose, offset_matrix)
         move_to_pose = np.matmul(translated_pose, wrist_pose_wrt_gripper)
         draw = misc.DrawAxes(env, move_to_pose)
+        print(rotated_pose)
+        print(move_to_pose)
 
         # with env:  # lock environment
         #     Tgoal = move_to_pose

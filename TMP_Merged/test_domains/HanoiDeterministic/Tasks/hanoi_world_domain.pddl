@@ -1,4 +1,4 @@
-(define (domain hanoi)
+(define (domain HanoiDeterministic)
   (:requirements :strips)
   (:types
     object
@@ -11,7 +11,7 @@
   )
 
   (:action move
-    :parameters (?robot ?box ?from ?to)
+    :parameters (?box - object ?from - object ?robot - object ?to - object)
     :precondition (and
                     (not (bigger ?box ?to))
                     (on ?box ?from)
