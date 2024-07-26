@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started with JEDAI &#8212; JEDAI  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Domains and Problems" href="domains.html" />
+    <link rel="prev" title="Welcome to JEDAI’s documentation!" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://127.0.0.1:8000">
+          JEDAI</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://aair-lab.github.io">AAIR Lab</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">JEDAI Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started with JEDAI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains.html">Domains and Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanations.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">Frequently Asked Questions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Getting Started with JEDAI</a><ul>
+<li><a class="reference internal" href="#step-1-start-the-system">Step 1: Start the System</a></li>
+<li><a class="reference internal" href="#step-2-choose-the-domain-and-problem">Step 2: Choose the domain and problem</a></li>
+<li><a class="reference internal" href="#step-3-learn-to-plan">Step 3: Learn to Plan</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Welcome to JEDAI’s documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome to JE...</span>
+    </a>
+  </li>
+  <li>
+    <a href="domains.html" title="Next Chapter: Domains and Problems"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Domains and Problems &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="getting-started-with-jedai">
+<h1>Getting Started with JEDAI<a class="headerlink" href="#getting-started-with-jedai" title="Permalink to this heading">¶</a></h1>
+<p>The goal of this system to introduce AI planning concepts using mobile manipulator robots. It uses a visual programming interface to make these concepts easier to grasp. Users can get the robot to accomplish desired tasks by connecting jigsaw-like blocks that encode the robot’s possible actions. This allows users to carry out navigation, planning and manipulation by dragging and dropping blocks instead of writing code.</p>
+<p>The following steps will help you get started:</p>
+<section id="step-1-start-the-system">
+<h2>Step 1: Start the System<a class="headerlink" href="#step-1-start-the-system" title="Permalink to this heading">¶</a></h2>
+<p>Open the home page using the following command in Terminal from the root directory of JEDAI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./start_jedai.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can stop the system anytime using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./stop-jedai.sh
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="step-2-choose-the-domain-and-problem">
+<h2>Step 2: Choose the domain and problem<a class="headerlink" href="#step-2-choose-the-domain-and-problem" title="Permalink to this heading">¶</a></h2>
+<p>You will need to choose a domain and a problem within that domain to use JEDAI.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can learn more about the domains <a class="reference external" href="./domains.html">here</a>.</p>
+</div>
+<p>Follow these steps to pick a domain and problem:</p>
+<ol class="arabic simple">
+<li><p>Choose a domain from the dropdown menu to play around with. There are six default options to choose from: <a class="reference external" href="./domains/cafe.html">Cafe World</a>, <a class="reference external" href="./domains/delicateCans.html">Delicate Cans</a>, <a class="reference external" href="./domains/domino.html">Dominos</a>, <a class="reference external" href="./domains/keva.html">Keva Planks</a>, <a class="reference external" href="./domains/towers.html">Stack of Towers</a>, and <a class="reference external" href="./domains/hanoi.html">Tower of Hanoi</a>.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/choose_domain.png"><img alt="Choosing the domain" src="_images/choose_domain.png" style="width: 300px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Choose a problem from the next dropdown. The problems shown will all correspond to the domain chosen in the previous step.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/choose_problem.png"><img alt="Choosing the problem" src="_images/choose_problem.png" style="width: 300px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="step-3-learn-to-plan">
+<h2>Step 3: Learn to Plan<a class="headerlink" href="#step-3-learn-to-plan" title="Permalink to this heading">¶</a></h2>
+<p>In the field of automated planning, a “plan” is defined as a sequence of actions, where an action represents something
+the robot can do to change the state of the world. In JEDAI, you will learn how these plans work and the kind of requirements
+that are imposed on you when dealing with a system that does not have its own common sense to guess at what you really mean.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple">
+<li><p>Once you have entered the JEDAI training area, you will see something like this:</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/plan_page.png"><img alt="Plan input page" src="_images/plan_page.png" style="width: 700px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The white space in the middle of your browser window (it has just the Start block for now) is the planning area,
+called the workspace. To start building a plan, simply click the Actions tab in the toolbox on the left of the workspace
+and drag actions out into the blank area. Actions snap together when you line them up vertically, and the first action
+must be attached to the Start block.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>A separate window with the 3D simulation environment will also appear as shown below.
+You can zoom in/zoom out, or move the camera angle to view the objects properly in this 3D environment.</p>
+<a class="reference internal image-reference" href="_images/openrave_example.png"><img alt="The 3D simulation environment window" src="_images/openrave_example.png" style="width: 400px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>You will also be presented with “Goal state” above the workspace and the goal image or goal
+condition on the right side of your screen as shown below.
+These tell you what you
+are trying to accomplish for the current domain and problem. For example, in the Keva Planks domain, the 3D environment
+window will show a table with planks neatly organized in rows. The goal image shows how the planks should be configured
+by the end of your plan.</p>
+<a class="reference internal image-reference" href="_images/plan_area.png"><img alt="Plan input page" src="_images/plan_area.png" style="width: 700px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>1. You must choose a sequence of actions that the YuMi robot should
+execute to reach the goal configuration using a drag-and-drop interface as shown below.</p>
+<a class="reference internal image-reference" href="_images/drag_drop_the_action.png"><img alt="Dragging and Dropping an Action to create a plan" src="_images/drag_drop_the_action.png" style="width: 700px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>If you are ever unsure about what an action does, just hover your mouse over the action block and a tooltip will appear
+with more information.</p>
+<a class="reference internal image-reference" href="_images/hover_action.png"><img alt="Hovering over an action to see what it does" src="_images/hover_action.png" style="width: 700px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>3. You must choose the correct parameters of the actions using one of the parameters from
+each of the dropdown menu available in each action.</p>
+<a class="reference internal image-reference" href="_images/choose_parameter.png"><img alt="Choosing an action parameter" src="_images/choose_parameter.png" style="width: 300px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Submit the plan using the <code class="docutils literal notranslate"><span class="pre">Submit</span> <span class="pre">Plan</span></code> button on the top left of your workspace.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>So get planning! Once you have a series of actions with selected parameters that you think should reach the goal state,
+go ahead and click the green Submit Plan button. If your plan doesn’t quite work, JEDAI will tell you <a class="reference external" href="./explanations.html">why</a>. If your plan
+successfully reaches the goal, then TMP (the system that turns a high-level plan into a series of low-level
+instructions that the robot uses to move its individual joints) starts working. Once you are alerted that TMP has finished
+computing the solution to the plan, you can open the 3D environment window to watch the robot follow the steps lined out
+in your plan!</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022, AAIR Lab, ASU.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
