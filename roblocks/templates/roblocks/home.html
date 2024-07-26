@@ -32,6 +32,12 @@
             figCaption.textContent = "You will be expected to build structures using planks"
             imgElement.style.display = ""
         }
+        else if (selectElement.value.search("Tower of Hanoi") != -1) {
+
+            imgElement.src = "/static/roblocks/images/hanoi_domain.png"
+            figCaption.textContent = "You will be expected to move blocks to build Tower of Hanoi"
+            imgElement.style.display = ""
+        }
         else {
             imgElement.src = ""
             figCaption.textContent = "No Domain Selected"

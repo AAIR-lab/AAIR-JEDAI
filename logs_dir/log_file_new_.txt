@@ -1081,3 +1081,157 @@ INFO: 07/24/2024 11:49:26 PM plan_Evaluation
 INFO: 07/24/2024 11:49:30 PM plan_evaluation_True
 INFO: 07/24/2024 11:49:30 PM err_code__
 INFO: 07/24/2024 11:49:44 PM home_page_loaded
+INFO: 07/26/2024 02:20:05 AM home_page_loaded
+INFO: 07/26/2024 02:22:01 AM home_page_loaded
+INFO: 07/26/2024 02:22:01 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/26/2024 02:22:02 AM curriculum_problem_generated
+INFO: 07/26/2024 02:22:02 AM plan_Evaluation
+INFO: 07/26/2024 02:22:02 AM block_added
+INFO: 07/26/2024 02:22:07 AM home_page_loaded
+INFO: 07/26/2024 03:27:38 AM home_page_loaded
+INFO: 07/26/2024 03:27:42 AM home_page_loaded
+INFO: 07/26/2024 03:27:42 AM training_area_problem_Hanoi problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 03:27:43 AM plan_Evaluation
+INFO: 07/26/2024 03:27:43 AM block_added
+INFO: 07/26/2024 03:27:56 AM block_added
+INFO: 07/26/2024 03:27:57 AM plan_Evaluation
+INFO: 07/26/2024 03:27:57 AM plan_evaluation_False
+INFO: 07/26/2024 03:27:57 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:28:10 AM block_changed
+INFO: 07/26/2024 03:28:10 AM plan_Evaluation
+INFO: 07/26/2024 03:28:10 AM plan_evaluation_False
+INFO: 07/26/2024 03:28:10 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:28:14 AM block_changed
+INFO: 07/26/2024 03:28:14 AM plan_Evaluation
+INFO: 07/26/2024 03:28:14 AM plan_evaluation_False
+INFO: 07/26/2024 03:28:14 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:28:27 AM block_added
+INFO: 07/26/2024 03:28:29 AM block_added
+INFO: 07/26/2024 03:28:50 AM block_changed
+INFO: 07/26/2024 03:28:52 AM block_changed
+INFO: 07/26/2024 03:28:55 AM block_changed
+INFO: 07/26/2024 03:28:58 AM block_changed
+INFO: 07/26/2024 03:29:01 AM block_changed
+INFO: 07/26/2024 03:29:29 AM block_changed
+INFO: 07/26/2024 03:29:31 AM block_changed
+INFO: 07/26/2024 03:29:33 AM block_added
+INFO: 07/26/2024 03:29:35 AM block_changed
+INFO: 07/26/2024 03:29:38 AM block_changed
+INFO: 07/26/2024 03:29:42 AM block_added
+INFO: 07/26/2024 03:29:46 AM block_changed
+INFO: 07/26/2024 03:29:49 AM plan_Evaluation
+INFO: 07/26/2024 03:29:49 AM plan_evaluation_False
+INFO: 07/26/2024 03:29:49 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:29:50 AM block_added
+INFO: 07/26/2024 03:29:57 AM block_changed
+INFO: 07/26/2024 03:29:59 AM block_changed
+INFO: 07/26/2024 03:30:01 AM block_changed
+INFO: 07/26/2024 03:30:06 AM block_added
+INFO: 07/26/2024 03:30:12 AM block_changed
+INFO: 07/26/2024 03:30:13 AM plan_Evaluation
+INFO: 07/26/2024 03:30:13 AM plan_evaluation_True
+INFO: 07/26/2024 03:30:13 AM err_code__
+INFO: 07/26/2024 03:30:16 AM plan_Evaluation
+INFO: 07/26/2024 03:30:16 AM plan_evaluation_True
+INFO: 07/26/2024 03:30:16 AM err_code__
+INFO: 07/26/2024 03:32:27 AM plan_Evaluation
+INFO: 07/26/2024 03:32:27 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:27 AM err_code__
+INFO: 07/26/2024 03:32:34 AM hinting
+INFO: 07/26/2024 03:32:34 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:34 AM err_code__
+INFO: 07/26/2024 03:32:42 AM plan_Evaluation
+INFO: 07/26/2024 03:32:42 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:42 AM err_code__
+INFO: 07/26/2024 03:32:43 AM hinting
+INFO: 07/26/2024 03:32:43 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:43 AM err_code__
+INFO: 07/26/2024 03:32:59 AM block_deleted
+INFO: 07/26/2024 03:32:59 AM plan_Evaluation
+INFO: 07/26/2024 03:33:00 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:00 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:33:00 AM hinting
+INFO: 07/26/2024 03:33:01 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:01 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:33:01 AM Full hint = Move<br>this box box_small<br>from atop location_iii<br>to the top of ?<br>with this robot fetch
+INFO: 07/26/2024 03:33:06 AM block_changed
+INFO: 07/26/2024 03:33:06 AM plan_Evaluation
+INFO: 07/26/2024 03:33:06 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:06 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:33:12 AM home_page_loaded
+INFO: 07/26/2024 03:57:10 AM home_page_loaded
+INFO: 07/26/2024 04:00:12 AM home_page_loaded
+INFO: 07/26/2024 04:00:45 AM home_page_loaded
+INFO: 07/26/2024 04:02:31 AM home_page_loaded
+INFO: 07/26/2024 04:02:31 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:02:32 AM curriculum_problem_generated
+INFO: 07/26/2024 04:02:32 AM plan_Evaluation
+INFO: 07/26/2024 04:02:32 AM block_added
+INFO: 07/26/2024 04:03:59 AM home_page_loaded
+INFO: 07/26/2024 04:04:30 AM hinting
+INFO: 07/26/2024 04:04:40 AM home_page_loaded
+INFO: 07/26/2024 04:04:45 AM home_page_loaded
+INFO: 07/26/2024 04:04:45 AM training_area_problem_Hanoi problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:04:45 AM plan_Evaluation
+INFO: 07/26/2024 04:04:45 AM block_added
+INFO: 07/26/2024 04:04:47 AM hinting
+INFO: 07/26/2024 04:04:47 AM Full hint = Move<br>this box ?<br>from atop box_medium<br>to the top of location_iii<br>with this robot fetch
+INFO: 07/26/2024 04:04:50 AM home_page_loaded
+INFO: 07/26/2024 04:04:53 AM home_page_loaded
+INFO: 07/26/2024 04:04:53 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:04:53 AM curriculum_problem_generated
+INFO: 07/26/2024 04:04:53 AM plan_Evaluation
+INFO: 07/26/2024 04:04:53 AM block_added
+INFO: 07/26/2024 04:05:02 AM hinting
+INFO: 07/26/2024 04:05:02 AM Full hint = Move<br>this box ?<br>from atop box_medium<br>to the top of ?<br>with this robot ?
+INFO: 07/26/2024 04:05:09 AM block_added
+INFO: 07/26/2024 04:05:09 AM plan_Evaluation
+INFO: 07/26/2024 04:05:10 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:10 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:12 AM block_changed
+INFO: 07/26/2024 04:05:12 AM plan_Evaluation
+INFO: 07/26/2024 04:05:13 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:13 AM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/26/2024 04:05:14 AM block_changed
+INFO: 07/26/2024 04:05:14 AM plan_Evaluation
+INFO: 07/26/2024 04:05:14 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:14 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 04:05:23 AM block_added
+INFO: 07/26/2024 04:05:24 AM plan_Evaluation
+INFO: 07/26/2024 04:05:24 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:24 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:27 AM block_changed
+INFO: 07/26/2024 04:05:27 AM plan_Evaluation
+INFO: 07/26/2024 04:05:27 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:27 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:33 AM block_changed
+INFO: 07/26/2024 04:05:33 AM plan_Evaluation
+INFO: 07/26/2024 04:05:33 AM plan_evaluation_True
+INFO: 07/26/2024 04:05:33 AM err_code__
+INFO: 07/26/2024 04:05:44 AM curriculum_problem_generated
+INFO: 07/26/2024 04:05:44 AM block_added
+INFO: 07/26/2024 04:05:44 AM block_deleted
+INFO: 07/26/2024 04:05:52 AM home_page_loaded
+INFO: 07/26/2024 04:06:04 AM home_page_loaded
+INFO: 07/26/2024 04:06:04 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:06:05 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:05 AM plan_Evaluation
+INFO: 07/26/2024 04:06:05 AM block_added
+INFO: 07/26/2024 04:06:08 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:08 AM block_deleted
+INFO: 07/26/2024 04:06:08 AM block_added
+INFO: 07/26/2024 04:06:12 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:12 AM block_added
+INFO: 07/26/2024 04:06:12 AM block_deleted
+INFO: 07/26/2024 04:06:19 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:19 AM block_deleted
+INFO: 07/26/2024 04:06:19 AM block_added
+INFO: 07/26/2024 04:06:32 AM home_page_loaded
+INFO: 07/26/2024 04:07:18 AM home_page_loaded
+INFO: 07/26/2024 04:07:19 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:07:19 AM curriculum_problem_generated
+INFO: 07/26/2024 04:07:19 AM plan_Evaluation
+INFO: 07/26/2024 04:07:19 AM block_added
+INFO: 07/26/2024 04:07:20 AM home_page_loaded
+INFO: 07/26/2024 04:09:34 AM home_page_loaded
+INFO: 07/26/2024 04:09:37 AM home_page_loaded

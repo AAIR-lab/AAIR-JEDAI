@@ -26,6 +26,7 @@ urlpatterns = [
     path("handle_random_goals/",views.handle_random_goals,name="handle_random_goals"),
     path("save_plan/",views.save_plan,name="save_plan"),
     path("cafe_world_tutorial/",views.cafe_world_tutorial,name="cafe_world_tutorial"),
+    path("hanoi_tutorial/",views.hanoi_tutorial,name="hanoi_tutorial"),
     path("handle_close/",views.handle_close,name="handle_close"),
     path("hello_msg/,",views.hello_msg,name='hello_msg'),
     path("inactivity/",views.inactivity,name='inactivity'),

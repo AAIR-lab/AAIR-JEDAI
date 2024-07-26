@@ -581,6 +581,10 @@ def cafe_world_tutorial(request):
 def keva_tutorial(request):
     return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/Keva.html', {
     })
+
+def hanoi_tutorial(request):
+    return render(request, '/root/git/JEDAI/roblocks/templates/roblocks/Hanoi.html', {
+    })
     
 
 # /

@@ -32,7 +32,7 @@ The recommended way of using JEDAI is to use the pre-configured docker image tha
 
 Once all the files are downloaded, run the following command to load docker images - [JEDAI](https://drive.google.com/drive/folders/1YqBA21d0TRN67YN0XYuYPEFnc2ObVlH6?usp=sharing)
 
-`docker load --input jedai_ed.tar` <br/>
+`docker load --input jedai_public.tar` <br/>
 `docker load --input novnc.tar`
 
 ## Running JEDAI

@@ -296,8 +296,13 @@
             .then(response=> response.text())
             .then(text=> document.getElementById('tutorial').innerHTML = text);    
         }
-        else{
+        else if(domain.includes("Keva")){
             fetch('keva_tutorial/')
+            .then(response=> response.text())
+            .then(text=> document.getElementById('tutorial').innerHTML = text);    
+        }
+        else if(domain.includes("Hanoi")){
+            fetch('hanoi_tutorial/')
             .then(response=> response.text())
             .then(text=> document.getElementById('tutorial').innerHTML = text);    
         }
