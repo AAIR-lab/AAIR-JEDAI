@@ -1,0 +1,412 @@
+{
+  "predicates": [
+    {
+      "name": "onTable",
+      "subjectIndex": 0,
+      "display": "on the table"
+    },
+    {
+      "name": "onSinglePlank",
+      "subjectIndex": 0,
+      "display": "on top of %%1%%"
+    },
+    {
+      "name": "onDoublePlank",
+      "subjectIndex": 0,
+      "display": "on top of %%1%% and %%2%%"
+    },
+    {
+      "name": "clearPlank",
+      "subjectIndex": 0,
+      "display": "clear"
+    },
+    {
+      "name": "empty_gripper",
+      "subjectIndex": 0,
+      "display": "empty"
+    },
+    {
+      "name": "inGripper",
+      "subjectIndex": 1,
+      "display": "held in %%0%%"
+    },
+    {
+      "name": "horizontal",
+      "subjectIndex": 0,
+      "display": "lying horizontally"
+    },
+    {
+      "name": "vertical",
+      "subjectIndex": 0,
+      "display": "standing vertically"
+    },
+    {
+      "name": "sideways",
+      "subjectIndex": 0,
+      "display": "lying on its side"
+    },
+    {
+      "name": "placed",
+      "subjectIndex": 0,
+      "display": "placed somewhere"
+    },
+    {
+      "name": "can_reach",
+      "subjectIndex": 1,
+      "display": "reachable by %%0%%"
+    }
+  ],
+  "actions": [
+    {
+      "category":"Pick Up",
+      "name": "pickUp_plank_from_table",
+      "display": "Pick up",
+      "tooltip": "Use this action to pick up the selected plank from the table with the selected gripper. A gripper can only hold one plank at a time!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place vertical",
+      "name": "putDown_plank_vertical_onTable",
+      "display": "Put on table vertically",
+      "tooltip": "Use this action to put the selected plank on the table, such that it stands vertically. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place edgewise ",
+      "name": "putDown_plank_sideways_onTable",
+      "display": "Put on table with the edge of the plank facing down",
+      "tooltip": "Use this action to put the selected plank on the table, such that it lies on its side. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place horizontal",
+      "name": "putDown_plank_horizontal_onPlank",
+      "display": "Stack horizontally",
+      "tooltip": "Use this action to put the selected plank on top of another plank, such that it lies horizontally. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place vertical",
+      "name": "putDown_plank_vertical_onPlank",
+      "display": "Stack vertically",
+      "tooltip": "Use this action to put the selected plank on top of another plank, such that it stands vertically. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place edgewise ",
+      "name": "putDown_plank_sideways_onPlank",
+      "display": "Stack edgewise ",
+      "tooltip": "Use this action to put the selected plank on top of another (single) plank, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place horizontal",
+      "name": "putDown_plank_horizontal_onDoublePlank_both_horizontal",
+      "display": "Stack horizontally on two horizontal planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are horizontal, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place edgewise ",
+      "name": "putDown_plank_sideways_onDoublePlank_both_horizontal",
+      "display": "Stack edgewise  on two horizontal planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are horizontal, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place horizontal",
+      "name": "putDown_plank_horizontal_onDoublePlank_both_vertical",
+      "display": "Stack horizontally on two vertical planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are vertical, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place edgewise ",
+      "name": "putDown_plank_sideways_onDoublePlank_both_vertical",
+      "display": "Stack edgewise  on two vertical planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are vertical, such that the placed plank lies on its side. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place horizontal",
+      "name": "putDown_plank_horizontal_onDoublePlank_both_sideways",
+      "display": "Stack horizontally on two sideways planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are sideways, such that the placed plank lies horizontally. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    },
+    {
+      "category":"Place edgewise ",
+      "name": "putDown_plank_sideways_onDoublePlank_both_sideways",
+      "display": "Stack edgewise  on two sideways planks",
+      "tooltip": "Use this action to put the selected plank on top of two other planks that are sideways, such that the placed plank lies on its side as well. The selected gripper has to be holding the plank before it can place it!",
+      "parameters": [
+        {
+          "index": 1,
+          "display": "this plank",
+          "sentenceDisplay": "plank"
+        },
+        {
+          "index": 2,
+          "display": "on this plank",
+          "sentenceDisplay": "on plank"
+        },
+        {
+          "index": 3,
+          "display": "and this plank",
+          "sentenceDisplay": "and plank"
+        },
+        {
+          "index": 4,
+          "display": "with this robot",
+          "sentenceDisplay": "with robot"
+        },
+        {
+          "index": 0,
+          "display": "using this gripper",
+          "sentenceDisplay": "using gripper"
+        }
+      ]
+    }
+  ]
+}

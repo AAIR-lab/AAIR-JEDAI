@@ -1,0 +1,19 @@
+diff --git a/src/Robots/Models.py b/src/Robots/Models.py
+index 3f064bb..5e479ba 100644
+--- a/src/Robots/Models.py
++++ b/src/Robots/Models.py
+@@ -140,13 +140,7 @@ class YuMiOpenRaveRobotModel:
+             self.robot.SetActiveDOFs([self.robot.GetJoint(name).GetDOFIndex() for name in self.yumi_config.jointnames])
+             self.robot.SetActiveManipulator(self.yumi_config.active_manipulators['left_arm_effector'])
+ 
+-            table = self.env.GetKinBody('table6')
+-            table_transform = table.GetTransform()
+-            table_surface_transform = copy.deepcopy(table_transform)
+-            table_surface_transform[0][3] += 0.35
+-            table_surface_transform[2][3] += 0.105
+-
+-            self.robot.SetTransform(table_surface_transform)
++            self.robot.SetTransform(np.eye(4))
+             self.set_right_arm()
+             self.set_left_arm()
+ 

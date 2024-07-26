@@ -1,0 +1,20 @@
+diff --git a/test/Keva/Predicates/Placed.py b/test/Keva/Predicates/Placed.py
+index c3c49c9..a784942 100644
+--- a/test/Keva/Predicates/Placed.py
++++ b/test/Keva/Predicates/Placed.py
+@@ -18,13 +18,13 @@ class Placed(Predicate):
+             if "human_placed" in prop and plank in prop and "location1" in prop:
+                 t = [[0.0,  0.0, -1.0,  0.4916909], \
+                      [1.0, 0.0, 0.0, 0.19588947], \
+-                     [0.0, -1.0, 0.0, 0.02186212], \
++                     [0.0, -1.0, 0.0, 0.02586212], \
+                      [0.0, 0.0, 0.0, 1.0]]  # change it to transform of location1
+                 break
+             elif "human_placed" in prop and plank in prop and "location2" in prop:
+                 t = [[0.0,  0.0, -1.0,  0.4916909], \
+                      [1.0, 0.0, 0.0, 0.34088948], \
+-                     [0.0, -1.0, 0.0, 0.02186212], \
++                     [0.0, -1.0, 0.0, 0.02586212], \
+                      [0.0, 0.0, 0.0, 1.0]]  # change it to transform of location1
+                 break
+         p = ll_state.simulator.env.GetKinBody(plank)

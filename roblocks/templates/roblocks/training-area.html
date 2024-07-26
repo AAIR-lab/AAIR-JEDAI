@@ -1,27 +1,181 @@
 {% extends "roblocks/header.html" %}
 {% load static %}
 {% block content %}
+<script src="{% static 'roblocks/trainingAreaUtilities.js' %}"></script>
 <script src="{% static 'roblocks/blockGeneration.js' %}"></script>
 <script src="{% static 'roblocks/blocklyCompressed.js' %}"></script>
 <script src="{% static 'roblocks/blocklyWorkspaceUtilities.js' %}"></script>
 <script src="{% static 'roblocks/blocksCompressed.js' %}"></script>
 <script src="{% static 'roblocks/planSubmission.js' %}"></script>
-<script src="{% static 'roblocks/blockDefinitions.js' %}"
+<script src="{% static 'roblocks/blockDefinitions.js' %}"></script>
+<script src="{% static 'roblocks/blockColors.js' %}"></script>
+<script src="{% static 'roblocks/randomGoals.js' %}"></script>
+<script src="{% static 'roblocks/hints.js' %}"></script>
+
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'roblocks/style.css' %}">
+
+
+<!-- Add the magnify JS library -->
+<link rel="stylesheet" href="{% static 'roblocks/magnify.css' %}">
+<script src="{% static 'roblocks/jquery.magnify.js' %}"></script>
+
 <style>
+
+
+    .collapsible {
+        background-color: #4062BB;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 18px;
+    }
+    .sim_fixed_collapsible{
+        color: black;
+        cursor: pointer;
+        padding: 4px;
+        width: 100%;
+        border: black 5px;
+        text-align: left;
+        outline: none;
+        font-size: 18px;
+        overflow-y:auto;
+        }
+
+    .fixed_collapsible{
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: black 5px;
+        text-align: left;
+        outline: none;
+        font-size: 18px;
+        overflow-y:scroll;
+        max-height: 25%;
+        }
+    .progress{
+        background-color:gray;
+    }
+    .bad_action{
+        background-color:firebrick;
+    }
+    .additional_info{
+        background-color:rgb(175, 208, 221);
+    }
+    .valid_plan{
+        background-color:#4062BB;
+    }
+      
+      .active, .collapsible:hover {
+        background-color: #555;
+      }
+      
+      .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+      
+      .active:after {
+        content: "\2212";
+      }
+      .content_new {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #F5F5F5;
+        border: #333 1px;
+      }
+            
+    .header {
+        padding: 18px;
+        background-color: #333;
+        color: white;
+        font-size: 20px;
+        text-align: left;
+      }
+
+    #popup-1 {
+        display: none;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+    }
+
+    #popup-2 {
+        display: none;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+        position: absolute;
+        height: 25vh;
+        width: 25%;
+    }
+
+    /* #close-popup-1{
+        position: relative;
+         bottom: 0.5rem;
+        right: 0.5rem;
+    } */
+    .popup-content2 {
+        z-index: 1000;
+        overflow-y:auto;
+        position: relative;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: rgb(233, 232, 241);
+        height: 25vh;
+        width: 25vw;
+        top: 5vh;
+        border:2px solid black;
+    }
+
+
+    .popup-content {
+        z-index: 1000;
+        overflow-y:auto;
+        position: relative;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: rgb(233, 232, 241);
+        height: 75%;
+        width: 75%;
+        top: 5vh;
+        border:2px solid black;
+    }
+
     .float-child {
         width: 50%;
         float: left;
-        padding: 20px;
+        /* padding: 20px; */
+    }
+    .float-right {
+        width: 65%;
+        float: left;
+        margin: auto;
+    }
+    .float-left {
+        display:flex.
+        width: 50%;
+        float: left;
+        background-color: rgb(60, 60, 60);
+        border-radius: 10px;
     }
     .fig-pos {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: auto;
         max-height: fit-content;
     }
     figcaption {
@@ -29,10 +183,271 @@
         /* padding: 2px; */
         text-align: center;
     }
+    .sim-window{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        align-items: center;
+        max-height: fit-content;
+    }
+    .text-in-the-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        max-height: fit-content;
+    }
+    .workspace-buttons{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .collapsible-container {
+        position: relative;
+        z-index: 999;
+        max-width: 100%
+    }
+    .collapsible-container2 {
+        position: relative;
+        z-index: 999;
+        max-width: 100%
+    }
+
+    .dark-blue {
+        background-color: #4062BB; /* Dark Blue */
+      }
+      
+      .light-blue {
+        background-color: #072f48; /* Light Blue */
+      }
+    .collapsible-content {
+        max-height: 90%; /* Adjust height as needed */
+        overflow-y: auto; /* Make it scrollable */
+        padding: 10px;
+        margin-top: 20px; /* Make space for the toggle button */
+    }
+    
+    .toggle-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        background-color: #f2e314bc; /* Light grey background */
+        border: none;
+        padding: 5px 10px;
+    }
+    
+    .myDiv {
+        background-color: #F0EDEE;
+    }
+    .goalStr {
+        background-color: #231F20;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 18px;
+        max-height: 100%;
+        overflow-y: scroll;
+
+    }
 </style>
+
 <script>
-    // TODO get rid of inline JS
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        function hideTopHeadingBanner() {
+            var banner = document.getElementById('top_heading_banner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
+        }
+    
+        hideTopHeadingBanner();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        function setGoalStr() {
+            var q = document.getElementById('question');
+            q.innerHTML = `{{goal_str}}`.replaceAll(".",'<br>')
+        }
+        setGoalStr();
+    });
+
+
+    function get_rand_val(){
+        return "abcd"
+    }
+
+    function checkRandom(){
+        let setting = `{{setting|safe}}`;
+        // console.log("PROBLEM NAME = ",problem_name)
+        if(setting!='random'){
+            // document.querySelectorAll(".random_goals").forEach(el => el.remove());
+            document.querySelectorAll(".random_goals").forEach(el => el.style.visibility = "hidden");
+        }
+
+    }
+
+    function loadHTML(){
+        if(domain.includes("Cafe")){
+            fetch('cafe_world_tutorial/')
+            .then(response=> response.text())
+            .then(text=> document.getElementById('tutorial').innerHTML = text);    
+        }
+        else if(domain.includes("Keva")){
+            fetch('keva_tutorial/')
+            .then(response=> response.text())
+            .then(text=> document.getElementById('tutorial').innerHTML = text);    
+        }
+        else if(domain.includes("Hanoi")){
+            fetch('hanoi_tutorial/')
+            .then(response=> response.text())
+            .then(text=> document.getElementById('tutorial').innerHTML = text);    
+        }
+    }
+
+    function load_home() {
+    
+        domain = document.getElementById('generate_random_goals').getAttribute("domain").split("/").splice(-1)[0].replace(" ","");
+    }
+
+    function popup_func(){
+//        var extern = document.getElementById("tutorial_link")
+//       console.log("extern = ",extern)
+//      document.getElementById("tutorial").innerHTML = extern
+
+        load_home()
+        var popup1 = document.getElementById("popup-1")
+        var openPopup1 = document.getElementById("open-popup-1")
+        var closePopup1 = document.getElementById('close-popup-1')
+
+        console.log("open = ",openPopup1);
+        console.log("close = ",closePopup1);
+        
+        openPopup1.addEventListener('click', () => {
+        popup1.style.display = "block";
+        })
+
+        closePopup1.addEventListener('click', () => {
+            popup1.style.display = "none";
+        })
+
+        let domain = `{{domain}}`
+        loadHTML(domain);        
+    }
+
+   function updateCode2(event) {
+
+        if (event.type == Blockly.Events.UI && event.element == "click") {
+
+            maximizeBlock(event);
+        } else if (event.type == Blockly.Events.BLOCK_CHANGE && event.element == 'field') {
+            sendPlan();
+            console.log('A block was modified:', event);
+            var block = workspace.getBlockById(event.blockId);
+            console.log('Modified block type:', block.type);
+
+            event_code = 'block_changed'
+            $.ajax({
+                url: "log_workspace",
+                type: "GET",
+                data:{event_code: event_code}
+            }).done(function(data) { 
+                console.log("Worskpace change succesfully logged");
+            })
+
+
+        }
+        else if((event.type == Blockly.Events.BLOCK_CREATE)){
+            console.log("START BLOCK ADDED!!");
+            sendPlan();
+
+            event_code = 'block_added'
+            $.ajax({
+                url: "log_workspace",
+                type: "GET",
+                data:{event_code: event_code}
+            }).done(function(data) { 
+                console.log("Worskpace change succesfully logged");
+            })
+
+        }
+        else if(event.type == Blockly.Events.BLOCK_DELETE){
+            event_code = 'block_deleted'
+            $.ajax({
+                url: "log_workspace",
+                type: "GET",
+                data:{event_code: event_code}
+            }).done(function(data) { 
+                console.log("Worskpace change succesfully logged");
+            })
+            sendPlan();
+        }
+        else if (event.type == Blockly.Events.BLOCK_MOVE) {
+            var block = workspace.getBlockById(event.blockId);
+            if (block) {
+                // Check if the block has a parent, meaning it's connected to another block
+                if (block.getParent()) {
+                    console.log('A block was connected:', event);
+                    // Trigger custom function for block connection
+                    sendPlan();
+                }
+            }
+        }
+
+        // TODO: Optimization: Check if just calling this on block connect events (like the one in BLOCK_MOVE)
+        //  is sufficient.
+        has_transparent = setUnconnectedBlocksAsTransparent()
+        if (has_transparent) {
+
+            disable_submit_button();
+            clearMsg('status'); // only clear the tmp status. Leave the explainer status intact.
+            clearMsg('explainer_status'); // only clear the tmp status. Leave the explainer status intact.
+            clearMsg('explainer_status2'); // only clear the tmp status. Leave the explainer status intact.
+            clearMsg('additional_explanation_status'); // only clear the tmp status. Leave the explainer status intact.
+
+            clearCollapsibles('accordion',true);
+            clearCollapsibles('accordion_status');
+            clearFixedGoalBar();
+
+            sendPlan();
+        }
+    }
+
+    function onBlockCreate(event) {
+        if (event.type == Blockly.Events.BLOCK_CREATE) {
+            console.log('A new block was added:', event);
+            
+            // You can also access the block itself using the event.blockId
+            var block = workspace.getBlockById(event.blockId);
+            console.log('Block type:', block.type);
+        }
+    }        
+
+
+
     function getBlocks(){
+
+        let setting = `{{setting|safe}}`;
+        console.log("setting = ",setting);
+        if(setting=='random'){
+            var divsToHide = document.getElementsByClassName("fig-pos"); //divsToHide is an array
+            for(var i = 0; i < divsToHide.length; i++){
+                divsToHide[i].style.visibility = "hidden"; // or
+            }            
+
+            document.getElementById("sendPlanBtn").style.visibility = "hidden";
+            document.getElementById('generate_random_goals').click();
+        }
+
+        var get_a_hint = document.getElementById('get_a_hint');
+        get_a_hint.addEventListener('click', () => {
+            document.getElementById("centerDiv").style.display = "block";
+        })
+
+        popup_func();
         initializeBlocks();
         const problemObjectsJson = `{{problem_objects|safe}}`.replace(/'/g, '"');
         const problemObjects = JSON.parse(problemObjectsJson);
@@ -46,61 +461,276 @@
         const semanticsJson = `{{semantics|safe}}`;
         const semantics = semanticsJson ? JSON.parse(semanticsJson) : null;
 
+        const predicatesJson = `{{predicates|safe}}`.replace(/'/g, '"');
+        const predicates = JSON.parse(predicatesJson);
+
+        console.log("semantics = ",semantics)
+        console.log("predicates = ",predicates)
+
     	generateActionBlocks(problemActions, problemObjects, semantics, typesToSupertypes);
     	workspace.updateToolbox(document.getElementById('toolbox'));
+        workspace.addChangeListener(updateCode2);
+
+        checkRandom();
     }
 
-    function sendPlan(){
-        const plan = generateCode();
+    function sendRandomGoal(){
+
+        prob = document.getElementById('generate_random_goals').getAttribute("problem") 
+        domain = document.getElementById('generate_random_goals').getAttribute("domain") 
+        diff = document.getElementById('diff').value
+        resetBtn = document.getElementById("resetBtn")
+
+        problemGenerationButton = document.getElementById("generate_random_goals")
+        start_loader_spinning("problem")
+        problemGenerationButton.disabled = true;
+        resetBtn.click();
+        
+        $.ajax({
+        url: "handle_random_goals",
+        type: 'GET',
+        data : {"problem":prob, "domain":domain,"diff":diff}
+        }).done(function(data){
+            console.log(data)
+            document.getElementById('question').innerHTML = data['problem_info']['goal_str']
+            stop_loader_spinning("problem")
+            problemGenerationButton.disabled = false;
+            return data
+        });    
+    }
+        function sendPlan(get_hint=false, run_tmp = false){
+        var x = generateCode();
+
+        if (x == null) {
+            populateFixedGoalBar("Goal not satisfied:", "Please connect all the blocks and try again", "", "bad");
+            populateHint("Please connect all the blocks and try again");
+            return;
+        }
+ 
+        const plan = x[0];
+        lastPlan = plan;
+        const blob = x[1];
+
+        console.log("PLAN FROM sendPLan = ",plan)
+        console.log("BLOB FROM sendPLan = ",blob)
 
         if (plan !== null && plan.length > 0) {
-            submitPlan(plan);
+            submitPlan(plan,blob,get_hint,run_tmp);
         }
-   	}
+        
+        else {
+            if (get_hint==false) {
+
+                let tmpErrorAlert = "Please use at least one action and submit the plan again";
+                populateFixedGoalBar("Goal not satisfied:", "Please submit a plan with at least one valid action", "","bad");
+                submitPlan(plan,blob,get_hint,run_tmp); 
+            }
+            else {
+
+                submitPlan(plan,blob,get_hint,run_tmp);                
+            }
+        }
+   	}    
+
+    function generateRandomGoal(domain, problem, csrf_token){
+
+        return getRandGoal(domain, problem, csrf_token)        
+    }
+    
+    function get_host() {
+
+        console.log("GET HOST!!")
+
+        jedai_base_port = 8000;
+        sim_base_port = 8200;
+        port = window.location.port;
+        port = sim_base_port + (port-jedai_base_port);
+        hostname = window.location.hostname;
+
+        // If this element is not rendering, check the comments at the first line of
+        // roblocks/templates/roblocks/jedai_vnc.html
+        document.getElementById("window").src= "http://"+hostname+":"+port+"/jedai_vnc.html?autoconnect=1&view_only=1";
+    }
 </script>
-<body onload="getBlocks()" >
-   <xml id="toolbox" style="display: none">
-    <category id="Actions" name="Actions" hidden="true"></category>
-	</xml>
-    <div class="playGround container" style="min-width: 1150px;">
-        <div class="row questionBlock" style="min-width: 100%;">
-            <div class="col-sm-3">
-                 <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan()" style="margin-bottom:20px;">Submit Plan</button>
-             </div>
-            <div class="col-sm-6">
-                <p id="question">Goal State: {{goal_str}}</p>
-            </div>
-            <div class="col-sm-3" style="justify-content: flex-end; display: flex;">
-                <button type="button" id="stopExecBtn" style="margin-top:5px; margin-bottom:5px;" class="btn btn-danger" onclick="terminateExec()" style="margin-bottom:20px;" disabled>Stop Execution</button>
-             </div>
-        </div>
-        <div id="explainer_status" class="row statusBlock" style="min-width: 100%;">
-        </div>
-        <div id="status" class="row statusBlock" style="min-width: 100%;">
-        </div>
-        <div class="float-container" style="height: 600px; min-width: 1400px;">
-            <div id="blocklyDiv" class="float-child" style="height: 100%; min-width:700px;">
-            </div>
-            <div class="float-child" style="height: 100%; position: relative; width: 30%;">
-                <figcaption class="fig-pos" style="max-width: 70%;">Start state configuration</figcaption>
-                <figure class="fig-pos" style="max-width: 75%;">
-                <img src="{% static "roblocks/images/init.png" %}"  alt="Initial state image" >
-                </figure>
-                <figcaption class="fig-pos" style="max-width: 70%;">Expected goal state configuration</figcaption>
-                <figure class="fig-pos" style="max-width: 75%;">
-                <img src="{% static "roblocks/images/goal.png" %}"  alt="Goal state image" >
-            </figure>
+
+<body onload="getBlocks()" style="width: 100%; height: 100%">
+
+    <link id ="tutorial_link" href="/root/git/JEDAI/{{domain}}/help_popup.html" rel="import" />
+
+    <div id="popup-1" class="float-container">
+        <div class="popup-content" >
+            
+            <button id="close-popup-1">Close</button>    
+            <div id = "tutorial" style="width:100%; height:100%">
+
             </div>
         </div>
-        <div class="row submit" style="min-width: 100%;">
-                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-primary" onclick="saveWorkspace()" style="margin-bottom:20px;">Save Workspace</button>
-                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-primary" onclick="document.getElementById('file-input').click()" style="margin-bottom:20px;">Load Workspace</button>
-                <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-danger" onclick="clearWorkspace()" style="margin-bottom:20px;">Clear Workspace</button>
-                <input id="file-input" type="file" name="name" style="visibility: hidden;" />
-        </div>
-        <div class="loader" id="submission-loader">
-        </div>
-        <br/><br/><br/>
     </div>
-  </body>
-  {% endblock %}
+
+    <div id="centerDiv" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; width: 300px; height: 200px; background-color: #f8f9fa; border: 1px solid #000; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
+        <p id="hint_text" style="text-align: left">
+            Please wait....
+        </p>
+        <button onclick="document.getElementById('hint_text').innerHTML = 'Please wait....';document.getElementById('centerDiv').style.display='none';">Hide</button>
+    </div>
+
+    <xml id="toolbox" style="display: none">
+        <category id="Actions" name="Actions" hidden="true">
+            <!-- Injected code -->
+        </category>
+    </xml>
+
+    <div id="mainDiv" class="playGround float-container row" style="margin-top: 15px; width:100%; height: 88vh">
+
+        <div id="controlPanelAndBlocklyDiv" class="col-sm-3 myDiv" style="width: 40%; height: 100%;">
+
+            <div id="controlPanelDiv" class="float-left row myDiv questionBlock" style="width: 100%; height: 5%"> 
+                <div class="col-sm-3" style="width:50%">
+                    <button type="button" id="sendPlanBtn" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan(get_hint=false,run_tmp=true)">Execute on Robot                                                                                                                                          </button>
+                    <button id="open-popup-1" style="margin-top:5px; margin-bottom:5px;" class="btn btn-primary">Help</button>
+                    <button id="get_a_hint" type="button" class="btn btn-primary" style="background-color:red;margin-top:5px; margin-bottom:5px;"  onclick="sendPlan(true)">Get A Hint</button>
+                </div>
+
+                <div class="col-sm-3" style="width:40%">
+                    {% csrf_token %}
+                    <input type="hidden" name="domain" value="{{domain}}" />
+                    <input type="hidden" name="problem" value="{{problem}}" />   
+                    <input type="hidden" name="goal_setting" value='random' />
+                    <input type="hidden" name="rand_val" value= get_rand_val() />
+
+                    <button id = "generate_random_goals"  type="submit" class="btn btn-primary random_goals" domain = '{{domain}}' problem = '{{problem}}' 
+                        style="margin-top:5px; margin-bottom:5px;" onclick= "sendRandomGoal()">Create Curriculum Problem</button>
+
+                    <div visibility hidden>
+                        <select class="btn btn-primary random_goals" name="diff" id="diff">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>    
+                        </select>
+                    </div>                
+                    
+                    <div class="row submit">
+                        <input id="file-input" type="file" name="name" style="visibility: hidden;" />
+                    </div>
+                </div>
+
+                <div class="col-sm-3"  style="width:10%">
+                    <div class="loader" id="submission-loader" class="float-right">
+                        <!-- Injected code -->
+                    </div>    
+                </div>
+            </div>
+
+            <div class="float-left row myDiv" style="margin-left: 1px; width: 100%; height: 90%"> 
+                <div id="blocklyDiv" class="row float-left" style="height: 100%; width: 100%;">
+                    <!-- Injected code -->
+                </div>
+            </div>
+
+            <div class="float-left row" style="width: 100%; height: 5%"> 
+                <div class="workspace-buttons">
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="saveWorkspace()">Save</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="document.getElementById('file-input').click()">Load</button>
+                    <button id="resetBtn" type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-danger" onclick="clearWorkspace()">Reset</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px; color:black" class="btn btn-warning" onclick="maximizeAllBlocks()">Maximize All Blocks</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px; color:black" class="btn btn-warning" onclick="minimizeAllBlocks()">Minimize All Blocks</button>
+                </div>
+            </div>
+        </div>
+      
+        <div id="simAndStatusAreaDiv" class="col-sm-3 float-left myDiv" style="width: 60%; height: 100%">
+      
+            <div id="simulatorDiv" class="row float-left myDiv" style="width: 100%; height: 50%"> 
+
+                <div id="simInfoDiv" class="col-sm-3 float-left myDiv" style="width: 55%; height: 100%;">
+
+                    <div id="simWindowDiv" class="float-left row myDiv" style="width: 100%">
+                        <iframe id="window" height="416" width ="576" src="" class="sim-window"></iframe>
+                        <script>
+                            get_host();
+                        </script>
+                    </div>
+
+                    <div id="simStatusDiv" class="overflow-y: auto; float-left row myDiv" style="width: 100%; overflow-y:auto">
+                        <div  class = 'sim_fixed_collapsible' style="overflow-y: auto; width:100%" id="simStatusFixed"></div>
+                    </div>
+                </div>
+
+                <div id="simStateAnnotationDiv" class="col-sm-3 float-left myDiv" style="overflow-y: auto; width: 45%; height: 100%;">
+
+                    <div class='collapsible-container'>
+                        <div id="accordion"></div>
+                    </div>
+                </div>
+            </div>
+      
+            <div id="statusAreaDiv" class="row float-left myDiv" style="padding: 10px; overflow-y: auto; width: 100%; height: 30%"> 
+    
+                <div  class = 'fixed_collapsible' style="overflow-y: auto; width:100%" id="fixed_goal_heading">
+                    <!-- Injected code -->
+                </div>
+                <div  class = 'fixed_collapsible' style="overflow-y: auto; width:100%" id="fixed_goal_content">
+                    <!-- Injected code -->
+                </div>
+
+                <div class = 'collapsible-container2'>
+                    <div id="accordion_status"></div>
+                </div>
+
+                <div id="explainer_status" class="row statusBlock" style="overflow-y: scroll; width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                    <!-- Injected code -->
+                </div>
+                
+                <div id="explainer_status2" class="row statusBlock" style="overflow-y: scroll; min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                    <!-- Injected code -->
+                </div>
+                
+                <div id="hint_status" class="row statusBlock" style="overflow-y: scroll; min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                    <!-- Injected code -->
+                </div>
+                <div id="additional_explanation_status" class="row statusBlock" style="overflow-y: scroll; min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                </div>
+
+                <div id="status" class="row statusBlock" style="overflow-y: scroll; min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                    <!-- Injected code -->
+                </div>
+            </div>
+      
+            <div id="goalInfoDiv" class="row float-left myDiv" style="width: 100%; height: 20%"> 
+      
+                <div id="goalDescriptionDiv" class="col-sm-3 float-left myDiv goalStr" style="overflow-y: auto; width: 70%; height: 100%;">
+                    <h3 style="text-align: center">Goal State</h3>
+                    <p id="question" class="float-container" style="text-align: left; overflow-y: auto; color:white; font-size: 20px;">{{goal_str}}</p>
+                </div>
+
+                <div id="goalImageDiv" class="col-sm-3 float-left myDiv" style="width: 30%; height: 100%;">
+            
+                    <figure class="fig-pos" style="max-height: 90%;">
+                        <img id="goal_image" src="{% static "roblocks/images/goal.png" %}" data-magnify-src="{% static "roblocks/images/goal.png" %}" class="zoom" alt="Goal state image" style="max-height: 180px" >
+                    </figure>
+
+                    <figcaption class="fig-pos" style="margin-top: -3px;">Expected goal state configuration</figcaption>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+    
+    <script>
+
+    $(document).ready(function() {
+
+      // Initiating plugin...
+      $('#goal_image').magnify({
+        speed: 300,
+        limitBounds: false,
+        afterLoad: function() {
+          console.log('Magnification powers activated!');
+        }
+      });
+    });
+    </script>
+    
+</body>
+
+{% endblock %}

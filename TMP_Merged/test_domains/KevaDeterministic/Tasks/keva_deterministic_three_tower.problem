@@ -1,0 +1,86 @@
+(define (problem keva)
+(:domain keva)
+(:objects
+ plank1 plank2 plank3 plank4 plank5 plank6 plank7 plank8 plank9 plank10 plank11 plank12 - plank
+ plank13 plank14 plank15 plank16 plank17 plank18 plank19 plank20 plank21 plank22 plank23 plank24 - plank
+ sideways horizontal vertical - orientated
+ region_3 - region
+ location1 location2 - location
+ yumi - robot
+)
+
+
+
+(:init (handempty)
+       (free location2)
+       ;(free location1)
+
+)
+
+(:goal (and
+    (onTable plank1)
+    (onTable plank2)
+    (orientation plank1 sideways)
+    (orientation plank2 sideways)
+
+    (onTable plank3)
+    (onTable plank4)
+    (orientation plank3 sideways)
+    (orientation plank4 sideways)
+
+  (onDoublePlank plank5 plank3 plank4)
+  (onDoublePlank plank6 plank3 plank4)
+  (orientation plank5 sideways)
+   (orientation plank6 sideways)
+
+  (onDoublePlank plank7 plank1 plank2)
+  (onDoublePlank plank8 plank1 plank2)
+  (orientation plank7 sideways)
+   (orientation plank8 sideways)
+
+  (onDoublePlank plank9 plank5 plank6)
+  (onDoublePlank plank10 plank5 plank6)
+  (orientation plank9 sideways)
+   (orientation plank10 sideways)
+
+
+   (onDoublePlank plank11 plank7 plank8)
+  (onDoublePlank plank12 plank7 plank8)
+  (orientation plank11 sideways)
+   (orientation plank12 sideways)
+
+  (onDoublePlank plank13 plank9 plank10)
+  (onDoublePlank plank14 plank9 plank10)
+  (orientation plank13 sideways)
+   (orientation plank14 sideways)
+
+  (onDoublePlank plank15 plank11 plank12)
+  (onDoublePlank plank16 plank11 plank12)
+  (orientation plank15 sideways)
+   (orientation plank16 sideways)
+
+  (onDoublePlank plank17 plank15 plank16)
+  (onDoublePlank plank18 plank13 plank14)
+  (orientation plank17 sideways)
+   (orientation plank18 sideways)
+
+  (onDoublePlank plank19 plank17 plank18)
+  (onDoublePlank plank20 plank17 plank18)
+  (orientation plank19 sideways)
+   (orientation plank20 sideways)
+
+  (onDoublePlank plank21 plank19 plank20)
+  (onDoublePlank plank22 plank19 plank20)
+  (orientation plank21 sideways)
+   (orientation plank22 sideways)
+
+  (onDoublePlank plank23 plank21 plank22)
+  (onDoublePlank plank24 plank21 plank22)
+  (orientation plank23 sideways)
+   (orientation plank24 sideways)
+
+
+
+    )
+)
+)

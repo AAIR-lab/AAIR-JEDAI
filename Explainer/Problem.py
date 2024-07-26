@@ -6,7 +6,11 @@ import copy
 import config
 
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+# from Search import *
+
 from Search import *
+
+
 from natural_language import natural_language_generator as nlg
 
 TEMP_DOM_FILE = FILE_DIR + '/temp/dom.pddl'
@@ -41,12 +45,15 @@ class Problem:
             self.prob_template_str = p_fd.read().strip()
         self.semantics = semantics
 
+        print("Init state = ",self.orig_start,"\n goal state = ",self.goal_state)
+        print("VAL COMMAND = ",VAL_COMMAND)
+
     def write_plan_sol(self, foil, plan_file):
         with open(plan_file, 'w') as p_fd:
             plan_str_list = []
             for act_ind in range(len(foil)):
                 plan_str_list.append(str(act_ind + 1) + ": " + foil[act_ind])
-
+            # print("plan_str_list from write_plan_sol = ",plan_str_list)
             p_fd.write("\n".join(plan_str_list))
 
     def convert_prop_tuple_list(self, orig_prop_list, para_type=None):
@@ -117,22 +124,39 @@ class Problem:
         return True
 
     def assign_cost_to_pred_at_node(self, pred, node):
+        # cost delta increases by one for each occurence in preconditions and effects
+        #doubt why are we updating costs for each invocation of set_model_for_node
+        #  --> make_problem_domain_file --> test_foil_condition_neg --find_most_abstract_models ????
+        #doubt - is Cp the cost of removing the predicate entirely from the most concrete model??
+        #doubt - earlier - test_foil_condition_neg was being called only once, for the most concrete state,
+        #now i call it for more abstract states also, multiple upates to Cp
+        #doubt why are we including occurrences in the goal and initial state also in the cost, shouldnt we only have predicate
+        #occurences in preconditions and effects??
         cost_delta = 0
         for ky in self.node_map[node]:
             if ky != "current_cost":
                 for k2 in self.node_map[node][ky]:
                     for p in self.orig_dom_map[ky][k2]:
                         if pred.lower() == p.split(' ')[0].lower() and p in self.node_map[node][ky][k2]:
-                            self.node_map[node][ky][k2].remove(p)
+                            self.node_map[node][ky][k2].remove(p) #this removes the predicate from the domain
                             cost_delta += 1
         if pred not in self.concret_costs.keys():
             self.concret_costs[pred] = cost_delta
 
     def find_most_abstract_models(self):
+        q = [self.sup_node]
+
+        # while q:
+        #     minimial_abstract = list(set([model for model in q if self.test_foil_condition_neg(model)]))
+        #     if(len(minimial_abstract)>0):
+        #         return minimial_abstract
+        #     q = list(set([new_model for model in q for new_model in self.inverse_edges[model].values()]))
+        # return []
+    
         model = self.sup_node
         if self.test_foil_condition_neg(model):
             return [model]
-        else:
+        else:# doubt why aren't we checking other models here??    
             return []
 
     def find_operator_name(self, action):
@@ -171,8 +195,10 @@ class Problem:
         # also include checks for other restrictions
         # TODO what does that comment mean ^
         self.start_state_belief_space = set(self.find_most_abstract_models())
+        print("START STATE = ",self.start_state_belief_space)
 
     def make_problem_domain_file(self, curr_model, dom_file, prob_file):
+        #where is the non determinism in action effects if the pred is dropped?? 
         self.set_model_for_node(curr_model)
         action_strings = []
         for act in self.node_map[curr_model].keys():
@@ -189,6 +215,8 @@ class Problem:
         init_state_str_list = ['(' + i + ')' for i in self.node_map[curr_model]['problem']['init']]
         prob_str = self.prob_template_str.format("\n".join(init_state_str_list), "\n".join(goal_state_str_list))
 
+        # print("prob_str from make_problem_domain_file = ",prob_str)
+
         with open(dom_file, 'w') as d_fd:
             d_fd.write(dom_str)
 
@@ -198,17 +226,20 @@ class Problem:
     # TODO give this and the other one a more descriptive name
     def test_foil_condition_neg(self, curr_model):
         # return true if goal is empty here
+        #if all foils are reachable, returns true
         self.make_problem_domain_file(curr_model, TEMP_DOM_FILE, TEMP_PROB_FILE)
         for i in range(len(self.foil)):
             self.write_plan_sol(self.foil[i], TEMP_PLAN_FILE)
             output = [i.strip() for i in
                       os.popen(VAL_COMMAND.format(TEMP_DOM_FILE, TEMP_PROB_FILE, TEMP_PLAN_FILE)).read().strip().split('\n')]
+            print(output)
             if not eval(output[0]):
                 return False
         return True
 
     def test_foil_condition_pos(self, curr_model):
         # return true if goal is empty here
+        # if all foils are unreachable, returns true
         self.make_problem_domain_file(curr_model, TEMP_DOM_FILE, TEMP_PROB_FILE)
         for i in range(len(self.foil)):
             self.write_plan_sol(self.foil[i], TEMP_PLAN_FILE)
@@ -219,34 +250,50 @@ class Problem:
         return True
 
     def find_unresolved_foils(self, curr_model, current_foils):
+        # unresolved foil = that foil which reaches the goal given current model
+        # resolves a foil (i.e., make the foil no longer valid)
+
         unreslv_foils = set()
+        # print("IN FIND UNRESOLVED FOILS")
+        # print("CURR MODEL = ",curr_model)
+        # print("CURR FOILS = ",current_foils)
+
         self.make_problem_domain_file(curr_model, TEMP_DOM_FILE, TEMP_PROB_FILE)
         for f in current_foils:
             self.write_plan_sol(f.split('@'), TEMP_PLAN_FILE)
             output = [i.strip() for i in
                       os.popen(VAL_COMMAND.format(TEMP_DOM_FILE, TEMP_PROB_FILE, TEMP_PLAN_FILE)).read().strip().split('\n')]
-
             if eval(output[0]):
                 unreslv_foils.add(copy.deepcopy(f))
+
+        # print("UNRESOLVED FOILS = ",unreslv_foils)
         return unreslv_foils
 
     def run_blind_conformant(self):
+        # print("STARTING GREEDY")
         # Run a pretest to see if the foil is executable in the most concrete model
         unres_fls = self.find_unresolved_foils(self.init_node, set('@'.join(i) for i in self.foil))
         if len(unres_fls) == len(self.foil):
             log.debug("All foils are valid as given")
-            return {"failed": False}
+            print("RETURNING WITHOUT SEARCH")
+            return {"failed": False},{"failed": False},{"failed": False},{"failed": False}
+            
 
         # Make a node for start state
         start_node = AbsNode(self, self.start_state_belief_space, [], set('@'.join(i) for i in self.foil))
 
         # Start search
+        print(self.node_map)
+
         exp_node = greedy_search(start_node)
 
         # TODO: Assuming there is a single node
+        #doubt why only one node in the plan?? ie one predicate as the explanation
         explanation_map = {}
         explanation_map["pred_to_be_explained"] = exp_node.get_plan()[0]
+        # print("Node plan of node returned from greedy = ",exp_node.get_plan())
         # TODO: Find model information
+
         model_info = {}
         curr_model = list(exp_node.get_state())[0]
         for act in self.node_map[curr_model].keys():
@@ -264,16 +311,31 @@ class Problem:
         # Key, Value == Action no, Explanation
         error_trace = dict()
         self.make_problem_domain_file(curr_model, TEMP_DOM_FILE, TEMP_PROB_FILE)
+
+
+
+
         for f in self.foil:
+
             log.debug(f"Putting together explanation for foil: {f}")
             self.write_plan_sol(f, TEMP_PLAN_FILE)
 
+            # for file in [TEMP_PLAN_FILE,TEMP_DOM_FILE,TEMP_PROB_FILE]:
+            #     with open(file,'r') as data:
+            #         print("FILES !!!!============")
+            #         print(data.read())
+            #         print("FILES !!!!============")
+
             output = [i.strip() for i in
                       os.popen(VAL_INFO_COMMAND.format(TEMP_DOM_FILE, TEMP_PROB_FILE, TEMP_PLAN_FILE)).read().strip().split('\n')]
+            log.debug(f"value output in Problem.py = {output}")
+
             fail_info = [o.strip() for o in output[0].split("@")]
             log.debug("fail_info:{}".format(fail_info))
+
             failure_type = fail_info[0]
             if failure_type == "precondition" or failure_type == "negated-precondition":
+                explanation_map['bad_action_step_helm'] = int(fail_info[1])-1    
                 failed_step_str = fail_info[1]
                 failed_step = int(failed_step_str)
                 failed_action = fail_info[-2]
@@ -287,8 +349,8 @@ class Problem:
                     negated
                 )
                 failed_prop = set([failed_precondition.replace('(', '').replace(')', '')])
-                failure_cause = 'The action at step ' + failed_step_str + ' (' + failed_action_display +\
-                                ') could not be performed because ' + failed_precondition_display + "."
+                failure_cause = 'The action at step ' + failed_step_str + '\n(' + failed_action_display +\
+                                ')\n could not be performed because \n' + failed_precondition_display + "."
                 explanation_map["failure_cause"] = failure_cause
                 error_trace[failed_step - 1] = failure_cause
                 explanation_map["failed_precondition"] = failed_precondition
@@ -304,7 +366,7 @@ class Problem:
                     [True for _ in failed_goals]
                 )
                 failed_prop = set([p.replace('(', '').replace(')', '') for p in failed_goals])
-                failure_cause = "The goal state is not achieved! " + failed_goals_display
+                failure_cause = "The following conditions were not satisfied after executing the plan.\n" + failed_goals_display
 
                 explanation_map["failure_cause"] = failure_cause
                 error_trace[failed_step - 1] = failure_cause
@@ -312,10 +374,12 @@ class Problem:
             else:
                 raise Exception(f"The VAL script did not give the expected output! Specifically, the first bit of output was '{failure_type}', but was expected to be the failure type of 'precondition', 'negated-precondition', or 'goal'.")
 
+
         """if failed_prop in self.node_list[curr_model]["problem"]["init"]:
             error_trace[-1] = "The proposition {} is true in the initial state".format(failed_prop)
         else:
             error_trace[-1] = "The proposition {} is false in the initial state".format(failed_prop)"""
+            
         # Last action that negated the pre-condition for the failed action
         last_negating_action = None
         for plan in self.foil:
@@ -340,10 +404,137 @@ class Problem:
             error_trace[failed_step - 1] += " was false in the initial state."
         explanation_map["error_trace"] = error_trace
         explanation_map["failed"] = True
-        log.debug(f"explanation_map:{explanation_map}")
-        return explanation_map
+        log.debug(f"explanation_map :{explanation_map}")
+        # print("explanation_map from problem.explain = ",explanation_map)
+
+    
+        #For val output of  plan in concrete state
+
+        explanation_map_non_helm, val_output_non_helm = self.non_helm_explanation()
+
+        val_info = [o.strip() for o in output[0].split("@")]
+
+
+        return explanation_map, val_info, explanation_map_non_helm, val_output_non_helm
+    
+
+
+    def non_helm_explanation(self):
+        curr_model = 'c0'
+        explanation_map = {}
+        error_trace = dict()
+        for f in self.foil:
+
+            log.debug(f"Putting together explanation for foil: {f}")
+            self.write_plan_sol(f, TEMP_PLAN_FILE)
+
+            # for file in [TEMP_PLAN_FILE,TEMP_DOM_FILE,TEMP_PROB_FILE]:
+            #     with open(file,'r') as data:
+            #         print("FILES !!!!============")
+            #         print(data.read())
+            #         print("FILES !!!!============")
+
+            output = [i.strip() for i in
+              os.popen(VAL_INFO_COMMAND.format(config.DOMAIN_DOCUMENT_FILE, config.PROBLEM_DOCUMENT_FILE, TEMP_PLAN_FILE)).read().strip().split('\n')]
+            log.debug(f"value output in Problem.py = {output}")
+
+            fail_info = [o.strip() for o in output[0].split("@")]
+            
+
+
+            log.debug("fail_info:{}".format(fail_info))
+            failure_type = fail_info[0]
+            if failure_type == "precondition" or failure_type == "negated-precondition":
+                explanation_map['bad_action_step_non_helm'] = int(fail_info[1])-1 
+                failed_step_str = fail_info[1]
+                failed_step = int(failed_step_str)
+                failed_action = fail_info[-2]
+                failed_action_display = nlg.get_natural_language_action(self.semantics, failed_action)
+                failed_precondition = fail_info[-1]
+                # reversed due to the fact that the precondition was not met
+                negated = False if failure_type == "negated-precondition" else True
+                failed_precondition_display = nlg.get_natural_language_single_predicate(
+                    self.semantics,
+                    failed_precondition,
+                    negated
+                )
+                failed_prop = set([failed_precondition.replace('(', '').replace(')', '')])
+                failure_cause = 'The action at step ' + failed_step_str + '\n(' + failed_action_display +\
+                                ')\n could not be performed because \n' + failed_precondition_display + "."
+                explanation_map["failure_cause"] = failure_cause
+                error_trace[failed_step - 1] = failure_cause
+                explanation_map["failed_precondition"] = failed_precondition
+            elif failure_type == "goal":
+                failed_step = len(self.foil[0])
+                failed_goals = [f.strip() for f in fail_info[-1].split('#') if f != ""]
+                failed_goals = [(f[3:].strip() if f.startswith("and") else f) for f in failed_goals]
+                failed_goals_display = nlg.get_natural_language_multiple_predicates(
+                    self.semantics,
+                    failed_goals,
+                    # TODO assuming all goals are positive because negative goals are not parsed correctly
+                    #  (a positive goal must be negated here because it wasn't reached)
+                    [True for _ in failed_goals]
+                )
+                failed_prop = set([p.replace('(', '').replace(')', '') for p in failed_goals])
+                failure_cause = "The following conditions were not satisfied after executing the plan.\n" + failed_goals_display
+
+                explanation_map["failure_cause"] = failure_cause
+                error_trace[failed_step - 1] = failure_cause
+                explanation_map["failed_precondition"] = "N/A"
+            else:
+                raise Exception(f"The VAL script did not give the expected output! Specifically, the first bit of output was '{failure_type}', but was expected to be the failure type of 'precondition', 'negated-precondition', or 'goal'.")
+
+
+        """if failed_prop in self.node_list[curr_model]["problem"]["init"]:
+            error_trace[-1] = "The proposition {} is true in the initial state".format(failed_prop)
+        else:
+            error_trace[-1] = "The proposition {} is false in the initial state".format(failed_prop)"""
+            
+        # Last action that negated the pre-condition for the failed action
+        last_negating_action = None
+        for plan in self.foil:
+            for ac_ind in range(len(plan)):
+                ac = plan[ac_ind]
+                if ac_ind < (failed_step - 1):
+                    curr_operator = self.find_operator_name(ac)
+                    lifted_defn = copy.deepcopy(self.node_map[curr_model][curr_operator])
+                    grounded_defn = self.ground_operator_defn(lifted_defn, ac)
+                    for add_fl in grounded_defn["effect_pos"]:
+                        if add_fl in failed_prop:
+                            error_trace[ac_ind] = "Action {} sets the fluent {} true".format(ac, add_fl)
+                    for add_fl in grounded_defn["effect_neg"]:
+                        if add_fl in failed_prop:
+                            last_negating_action = ac
+                            error_trace[ac_ind] = "Action {} sets the fluent {} false".format(ac, add_fl)
+
+        # Checking if we have an action that negated the pre-condition
+        if last_negating_action:
+            error_trace[failed_step - 1] += " got negated by the last action {}.".format(last_negating_action)
+        else:
+            error_trace[failed_step - 1] += " was false in the initial state."
+        explanation_map["error_trace"] = error_trace
+        explanation_map["failed"] = True
+        log.debug(f"explanation_map non helm:{explanation_map}")
+        # print("explanation_map from problem.explain = ",explanation_map)
+
+    
+        #For val output of  plan in concrete state
+
+        val_info = [o.strip() for o in output[0].split("@")]
+
+
+        return explanation_map, val_info
+
+
+
+
+
+
 
     def explain(self):
+        # print("IN PROBLEM!!!1")
         self.find_start_state()
         # there will be options here
-        return self.run_blind_conformant()
+        # print("IN PROBLEM!!!2")
+        explanation_map, val_output_helm,  explanation_map_non_helm, val_output_non_helm = self.run_blind_conformant()
+        return explanation_map, val_output_helm, explanation_map_non_helm, val_output_non_helm

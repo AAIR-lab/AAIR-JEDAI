@@ -1,0 +1,67 @@
+INFO: 02/22/2024 12:45:16 AM home_page_loaded
+INFO: 02/22/2024 12:46:11 AM home_page_loaded
+INFO: 02/22/2024 12:46:11 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 12:46:11 AM plan_Evaluation
+INFO: 02/22/2024 12:46:11 AM block_added
+INFO: 02/22/2024 12:47:45 AM home_page_loaded
+INFO: 02/22/2024 12:47:51 AM home_page_loaded
+INFO: 02/22/2024 12:47:51 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 12:47:51 AM plan_Evaluation
+INFO: 02/22/2024 12:47:51 AM block_added
+INFO: 02/22/2024 01:07:37 AM home_page_loaded
+INFO: 02/22/2024 01:07:41 AM home_page_loaded
+INFO: 02/22/2024 01:07:41 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 01:07:41 AM block_added
+INFO: 02/22/2024 01:07:41 AM plan_Evaluation
+INFO: 02/22/2024 01:07:49 AM block_deleted
+INFO: 02/22/2024 01:07:49 AM plan_Evaluation
+INFO: 02/22/2024 01:07:49 AM block_added
+INFO: 02/22/2024 01:07:50 AM plan_Evaluation
+INFO: 02/22/2024 01:09:02 AM home_page_loaded
+INFO: 02/22/2024 01:09:09 AM home_page_loaded
+INFO: 02/22/2024 01:09:09 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 01:09:09 AM block_added
+INFO: 02/22/2024 01:09:09 AM plan_Evaluation
+INFO: 02/22/2024 01:09:36 AM home_page_loaded
+INFO: 02/22/2024 01:09:41 AM home_page_loaded
+INFO: 02/22/2024 01:09:41 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 01:09:41 AM plan_Evaluation
+INFO: 02/22/2024 01:09:41 AM block_added
+INFO: 02/22/2024 01:09:47 AM block_deleted
+INFO: 02/22/2024 01:09:47 AM block_added
+INFO: 02/22/2024 01:09:47 AM plan_Evaluation
+INFO: 02/22/2024 01:09:48 AM plan_evaluation_True
+INFO: 02/22/2024 01:09:48 AM err_code_
+INFO: 02/22/2024 01:09:48 AM plan_Evaluation
+INFO: 02/22/2024 01:09:48 AM plan_evaluation_True
+INFO: 02/22/2024 01:09:48 AM err_code_
+INFO: 02/22/2024 01:10:10 AM home_page_loaded
+INFO: 02/22/2024 01:10:16 AM home_page_loaded
+INFO: 02/22/2024 01:10:16 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 01:10:16 AM block_added
+INFO: 02/22/2024 01:10:16 AM plan_Evaluation
+INFO: 02/22/2024 01:11:04 AM block_deleted
+INFO: 02/22/2024 01:11:04 AM block_added
+INFO: 02/22/2024 01:11:04 AM plan_Evaluation
+INFO: 02/22/2024 01:11:04 AM plan_evaluation_True
+INFO: 02/22/2024 01:11:04 AM err_code_
+INFO: 02/22/2024 01:11:04 AM plan_Evaluation
+INFO: 02/22/2024 01:11:04 AM plan_evaluation_True
+INFO: 02/22/2024 01:11:04 AM err_code_
+INFO: 02/22/2024 01:11:09 AM plan_Evaluation
+INFO: 02/22/2024 01:11:09 AM plan_evaluation_False
+INFO: 02/22/2024 01:11:09 AM err_code_GOAL ERROR
+INFO: 02/22/2024 01:11:18 AM block_deleted
+INFO: 02/22/2024 01:11:18 AM plan_Evaluation
+INFO: 02/22/2024 01:11:19 AM plan_evaluation_False
+INFO: 02/22/2024 01:11:19 AM err_code_GOAL ERROR
+INFO: 02/22/2024 01:11:26 AM home_page_loaded
+INFO: 02/22/2024 01:11:36 AM home_page_loaded
+INFO: 02/22/2024 01:11:36 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 02/22/2024 01:11:37 AM block_added
+INFO: 02/22/2024 01:11:37 AM plan_Evaluation
+INFO: 02/22/2024 01:20:53 AM home_page_loaded
+INFO: 02/22/2024 01:20:59 AM home_page_loaded
+INFO: 02/22/2024 01:20:59 AM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 02/22/2024 01:20:59 AM block_added
+INFO: 02/22/2024 01:20:59 AM plan_Evaluation

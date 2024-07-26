@@ -1,0 +1,12 @@
+DEBUG asyncio: Using selector: EpollSelector
+DEBUG asyncio: Using selector: EpollSelector
+INFO django.utils.autoreload: Watching for file changes with StatReloader
+Performing system checks...
+
+File Dir =  /root/git/JEDAI/
+ABCD
+NAME  =  /root/git/JEDAI/logs_dir/log_file_new_.txt
+July 26, 2024 - 04:10:49
+Django version 3.2.18, using settings 'web_project.settings'
+Starting development server at http://172.18.0.3:8000/
+Quit the server with CONTROL-C.

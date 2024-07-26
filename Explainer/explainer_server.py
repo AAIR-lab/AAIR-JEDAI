@@ -39,28 +39,33 @@ def find_precondition_explanation(unmet_precondition: str) -> str:
 def get_val_info():
     output = [i.strip() for i in
               os.popen(VAL_INFO_COMMAND.format(config.DOMAIN_DOCUMENT_FILE, config.PROBLEM_DOCUMENT_FILE, PLAN_FILE)).read().strip().split('\n')]
-    log.debug(f"Output from VAL: {output}")
+    # log.debug(f"Output from VAL: {output}")
     val_info = [o.strip() for o in output[0].split("@")]
+    # print("Val info from get_val_info = ",val_info)
     return val_info
 
 
-def generate_plan_string_from_explanation(plan, explanation_map,val_output):
+def generate_plan_string_from_explanation(plan, explanation_map,explanation_map_non_helm, val_output_helm, val_output_non_helm):
     ''' 
     On precondition failure, return partial plan
     On goal failure or full success, return the entire plan as-is
     Check if HELM returns an error and then prune the output based on VAL's output
     '''
-
     plan_length = len(plan.split(','))
     explanation_map['total_actions'] = plan_length
     explanation_map['exec_actions'] = plan_length
 
+    explanation_map_non_helm['total_actions'] = plan_length
+    explanation_map_non_helm['exec_actions'] = plan_length
+
+    plan_non_helm = plan
+
     if 'failed_precondition' in explanation_map.keys():        
 
-        if val_output[0] != 'goal':
+        if val_output_helm[0] != 'goal':
             plan = plan.split(',')
-            badActionStep = int(val_output[1])-1
-            log.debug(f"badActionStep:{badActionStep}")
+            badActionStep = int(val_output_helm[1])-1
+            # log.debug(f"badActionStep:{badActionStep}")
             plan = (',').join(plan[:badActionStep])
             exec_length = len(plan[:badActionStep])
             log.debug(f"plan:{plan}")
@@ -70,10 +75,27 @@ def generate_plan_string_from_explanation(plan, explanation_map,val_output):
         else:
             explanation_map['err_code'] = "GOAL ERROR"
 
+    if 'failed_precondition' in explanation_map_non_helm.keys():        
 
-    return explanation_map, plan
+        if val_output_non_helm[0] != 'goal':
+            plan_non_helm = plan_non_helm.split(',')
+            badActionStep = int(val_output_non_helm[1])-1
+            log.debug(f"badActionStep:{badActionStep}")
+            plan_non_helm = (',').join(plan_non_helm[:badActionStep])
+            exec_length = len(plan_non_helm[:badActionStep])
+            explanation_map_non_helm['badStep'] = badActionStep
+            explanation_map_non_helm['exec_actions'] = exec_length
+            explanation_map_non_helm['err_code'] = "BAD ACTION"
+        else:
+            explanation_map_non_helm['err_code'] = "GOAL ERROR"
+
+    # log.debug(f"explanation_map:{explanation_map}")
+    # log.debug(f"val_output:{val_output}")
+
+    return explanation_map, plan, explanation_map_non_helm, plan_non_helm
 
 def call_server(plan, semantics=None):
+    print("FROM CALL_SERVER semantics = ",semantics)
     actions = plan.split(",")
     f = open(config.DOCUMENTS_PATH + "/foil1", "w")
     for action in actions:
@@ -92,8 +114,15 @@ def call_server(plan, semantics=None):
         config.PROBLEM_TEMPL_DOCUMENT_FILE,
         semantics
     )
-    explanation_map, exec_plan = generate_plan_string_from_explanation(plan=plan, explanation_map=problem.explain(), val_output=get_val_info())
-    return explanation_map, exec_plan
+
+    explanation_map, val_output_helm,  explanation_map_non_helm, val_output_non_helm =  problem.explain()
+    log.debug(f"explanation_map_non_helm returned in explanation server.py {explanation_map_non_helm}")
+
+    explanation_map, exec_plan,explanation_map_non_helm, exec_plan_non_helm  = generate_plan_string_from_explanation(plan, explanation_map, explanation_map_non_helm,val_output_helm, val_output_non_helm)
+    # return explanation_map, exec_plan
+    log.debug(f"explanation_map_non_helm returned in explanation server.py {explanation_map_non_helm}")
+
+    return explanation_map, exec_plan, explanation_map_non_helm, exec_plan_non_helm
 
 
 if __name__ == "__main__":

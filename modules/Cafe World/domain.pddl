@@ -1,11 +1,12 @@
 (define (domain cafeWorld)
-    (:requirements :typing :strips :adl :equality)
+    (:requirements :typing :strips)
     (:types
         can
         manipulator
         robot
         location
     )
+
     (:predicates
         (empty ?gripper - manipulator)
         (ingripper ?obj - can ?gripper - manipulator)
@@ -13,23 +14,32 @@
         (order ?obj - can ?loc - location)
     )
 
+
     (:action move
-        :parameters(?loc - location ?r - robot)
-        :precondition(
+        :parameters(?fromLoc - location  ?r - robot ?toLoc - location)
+        :precondition(and
+            (at ?fromLoc ?r)
+            (not (at ?toLoc ?r))
         )
+
         :effect(and
-            (at ?loc ?r)
+            (at ?toLoc ?r)
+            (not (at ?fromLoc ?r))
         )
     )
+
     (:action grasp
         :parameters(?g - manipulator ?loc - location ?obj - can ?r - robot)
         :precondition(and
             (empty ?g)
+            (order ?obj ?loc)
             (at ?loc ?r)
         )
         :effect(and
             (not (empty ?g))
             (ingripper ?obj ?g)
+            (not (order ?obj ?loc))
+
         )
     )
     (:action put

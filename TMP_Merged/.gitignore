@@ -1,0 +1,15 @@
+*.pyc
+.idea/*
+*.csv
+*.p
+*.pddl_*
+*.txt
+*.soln
+current_env
+.vscode
+*.ipynb_checkpoints/*
+planners/mdp-lib/
+test_domains/Manufacture/Environments/
+test_domains/TorsenLSD/Environments/
+cmovetraj.txt
+misc/RobotModels/

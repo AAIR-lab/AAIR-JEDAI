@@ -1,0 +1,205 @@
+{% extends "roblocks/header.html" %}
+{% load static %}
+{% block content %}
+<script src="{% static 'roblocks/blockGeneration.js' %}"></script>
+<script src="{% static 'roblocks/blocklyCompressed.js' %}"></script>
+<script src="{% static 'roblocks/blocklyWorkspaceUtilities.js' %}"></script>
+<script src="{% static 'roblocks/blocksCompressed.js' %}"></script>
+<script src="{% static 'roblocks/planSubmission.js' %}"></script>
+<script src="{% static 'roblocks/blockDefinitions.js' %}"></script>
+<script src="{% static 'roblocks/randomGoals.js' %}"></script>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'roblocks/style.css' %}">
+<style>
+    .float-child {
+        width: 50%;
+        float: left;
+        /* padding: 20px; */
+    }
+    .float-right {
+        width: 65%;
+        float: left;
+        margin: auto;
+    }
+    .float-left {
+        width: 50%;
+        float: left;
+        background-color: rgb(60, 60, 60);
+        border-radius: 10px;
+    }
+    .fig-pos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        max-height: fit-content;
+    }
+    figcaption {
+        font-style: italic;
+        /* padding: 2px; */
+        text-align: center;
+    }
+    .sim-window{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        align-items: center;
+        max-height: fit-content;
+    }
+    .text-in-the-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        max-height: fit-content;
+    }
+    .workspace-buttons{
+        display:flex;
+        justify-content: space-evenly;
+    }
+
+</style>
+<script>
+    // TODO get rid of inline JS
+    function getBlocks(){
+        initializeBlocks();
+        const problemObjectsJson = `{{problem_objects|safe}}`.replace(/'/g, '"');
+        const problemObjects = JSON.parse(problemObjectsJson);
+
+        const problemActionsJson = `{{problem_actions|safe}}`.replace(/'/g, '"');
+        const problemActions = JSON.parse(problemActionsJson);
+
+        const typesToSupertypesJson = `{{types_to_supertypes|safe}}`.replace(/'/g, '"');
+        const typesToSupertypes = JSON.parse(typesToSupertypesJson);
+
+        const semanticsJson = `{{semantics|safe}}`;
+        const semantics = semanticsJson ? JSON.parse(semanticsJson) : null;
+
+        const predicatesJson = `{{predicates|safe}}`.replace(/'/g, '"');
+        const predicates = JSON.parse(predicatesJson);
+
+    	// generateActionBlocks(problemActions, problemObjects, semantics, typesToSupertypes);
+    	// workspace.updateToolbox(document.getElementById('toolbox'));
+
+    	generateActionBlocks_predicates(predicates, problemObjects, semantics, typesToSupertypes);
+    	workspace.updateToolbox(document.getElementById('toolbox2'));
+
+        
+
+    }
+
+    function sendPlan(){
+        const plan = generateCode();
+
+        console.log("PLAN FROM sendPLan = ")
+        console.log(plan)
+
+        if (plan !== null && plan.length > 0) {
+            submitPlan(plan);
+        }
+   	}    
+
+    function generateRandomGoal(domain,problem,csrf_token){
+        // console.log("Domain = ",domain)
+        // console.log("Problem = ",problem)
+
+        return getRandGoal(domain,problem,csrf_token)
+        
+    }
+    
+    function get_host(){
+        jedai_base_port = 8000;
+        sim_base_port = 8080;
+        port = window.location.port;
+        port = sim_base_port + (port-jedai_base_port);
+        hostname = window.location.hostname;
+
+        document.getElementById("window").src= "http://"+hostname+":"+port+"/vnc.html";
+    }
+
+    function click_connect(){
+        parent = document.getElementById("window").contentWindow.document.getElementById("noVNC_connect_button");
+        // descendants = parent.getElementsByTagName("div");
+        // if ( descendants.length )
+        //     target = descendants[0];
+        //     target.click();
+        parent.click();
+    }
+</script>
+
+<body onload="getBlocks()" style="margin-top: -8px;" >
+    <xml id="toolbox2" style="display: none">
+        <category id="Predicates" name="Predicates" hidden="true"></category>
+        </xml>
+    <div class="playGround container" style="min-width: 1145px;max-width: 2000px;margin-top: -3px;">
+        <div class="row questionBlock" style="max-width: 100%;min-width: 1145px">
+            <div class="col-sm-3">
+                 <button type="button" style="margin-top:5px; margin-bottom:5px;" class="btn btn-success" onclick="sendPlan()">Submit Plan by Dak                                                                                                                                           </button>
+             </div>
+            <div class="justify-content-end" style="justify-content: flex-end; display: flex;margin-right: 10px;">
+                <button type="button" id="stopExecBtn" style="margin-top:5px; margin-bottom:5px;" class="btn btn-danger" onclick="terminateExec()" disabled>Stop Execution</button>
+             </div>
+        </div>
+        <div class="float-container" style="min-height: 600px; height:600px; min-width: 1145px;padding-top: 5px;display:flex; justify-content: space-evenly; ">
+            <div id="blocklyDiv2" class="float-child" style="height: 100%; min-width:500px;width: 40%;">
+            </div>
+            <div id="viz" class="float-right" style="height: 100%; position: relative; width: 50%;" >
+                <iframe id="window" height="416" width ="576" src="" class="sim-window" style="max-height: 100%;max-width: 100%;"></iframe>
+                <script>
+                    get_host();
+                    click_connect();
+                </script>
+                <div id="explainer_status" class="row statusBlock" style="min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                </div>
+                <div id="status" class="row statusBlock" style="min-width:100%;width: 100%;max-height: 120px;justify-content: center; align-items: center;margin: auto;font-size: 14px;">
+                </div>
+            </div>
+        </div>
+        <div class="float-container" style="min-height: 210px;height: 210px;min-width: 1145px;padding-top: 5px;display:flex; justify-content: space-evenly; ">
+            <div class="float-left" style="min-width:500px;max-width: 40%;height: 100%;">
+                <div class="workspace-buttons">
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="saveWorkspace()">Save Workspace</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" onclick="document.getElementById('file-input').click()">Load Workspace</button>
+                    <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-danger" onclick="clearWorkspace()">Clear Workspace</button>
+                </div>
+                <div>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="domain" value="{{domain}}" />
+                        <input type="hidden" name="problem" value="{{problem}}" />   
+                        <input type="hidden" name="goal_setting" value='random' />
+
+                        <!-- <input type="submit" name="upvote" value="Upvote" /> -->
+                    <button type="submit" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" domain = '{{domain}}' problem = '{{problem}}'>Generate Random Goals</button>
+                        
+                    </form>
+                    <!-- <button type="button" style="margin-top:6px; margin-bottom:-6px;" class="btn btn-primary" domain =  '{{domain}}' problem = '{{problem}}' onclick = "generateRandomGoal('{{domain}}','{{problem}}','{{ csrf_token }}')">Generate Random Goals</button> -->
+                </div>
+
+                <p id="question" class="text-in-the-box" style="font-size: 13.5px;">Goal State: {{goal_str}}</p>
+            </div>
+            <div id="viz" class="float-right" style="height: 100%; position: relative; width: 50%;">
+                <figure class="fig-pos" style="max-height: 90%;">
+                    <img src="{% static "roblocks/images/goal.png" %}"  alt="Goal state image" style="max-height: 180px" >
+                </figure>
+                <figcaption class="fig-pos" style="max-width: 70%;margin-top: -3px;">Expected goal state configuration</figcaption>
+            </div>
+        </div>
+        
+        <div class="row submit" style="min-width: 100%; min-width:500px;height: 0px;">
+            <input id="file-input" type="file" name="name" style="visibility: hidden;" />
+        </div>
+        <div class="loader" id="submission-loader">
+        </div>
+        <script>
+            click_connect();
+        </script>
+        <br/><br/><br/>
+    </div>
+  </body>
+  {% endblock %}
+

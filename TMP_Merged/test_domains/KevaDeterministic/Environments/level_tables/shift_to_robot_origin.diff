@@ -1,0 +1,12 @@
+diff --git a/test/Keva/Environments/table_origin_keva_dae/shift_to_robot_origin.py b/test/Keva/Environments/table_origin_keva_dae/shift_to_robot_origin.py
+index 6a7ddc4..60bcc7f 100644
+--- a/test/Keva/Environments/table_origin_keva_dae/shift_to_robot_origin.py
++++ b/test/Keva/Environments/table_origin_keva_dae/shift_to_robot_origin.py
+@@ -7,6 +7,6 @@ for i in env.GetBodies():
+     t = i.GetTransform()
+     t[0,3] -= 0.29777083
+     t[1,3] -= -0.00088151
+-    t[2,3] -= 0.60500429
++    t[2,3] -= 0.60100429
+     i.SetTransform(t)
+ env.Save('../'+env_name)

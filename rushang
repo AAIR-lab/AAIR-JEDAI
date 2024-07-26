@@ -1,0 +1,37 @@
+INFO: 02/22/2024 01:38:35 AM home_page_loaded
+INFO: 02/22/2024 01:38:54 AM home_page_loaded
+INFO: 02/22/2024 01:38:54 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 02/22/2024 01:38:54 AM block_added
+INFO: 02/22/2024 01:38:54 AM plan_Evaluation
+INFO: 02/22/2024 01:39:17 AM plan_Evaluation
+INFO: 02/22/2024 01:39:18 AM plan_evaluation_False
+INFO: 02/22/2024 01:39:18 AM err_code_BAD ACTION
+INFO: 02/22/2024 01:39:29 AM plan_Evaluation
+INFO: 02/22/2024 01:39:29 AM plan_evaluation_True
+INFO: 02/22/2024 01:39:29 AM err_code_
+INFO: 02/22/2024 01:40:03 AM plan_Evaluation
+INFO: 02/22/2024 01:40:04 AM plan_evaluation_False
+INFO: 02/22/2024 01:40:04 AM err_code_BAD ACTION
+INFO: 02/22/2024 01:40:19 AM plan_Evaluation
+INFO: 02/22/2024 01:40:19 AM plan_evaluation_False
+INFO: 02/22/2024 01:40:19 AM err_code_GOAL ERROR
+INFO: 02/22/2024 01:40:33 AM block_deleted
+INFO: 02/22/2024 01:40:33 AM plan_Evaluation
+INFO: 02/22/2024 01:40:36 AM block_added
+INFO: 02/22/2024 01:40:40 AM plan_Evaluation
+INFO: 02/22/2024 01:40:40 AM plan_evaluation_True
+INFO: 02/22/2024 01:40:40 AM err_code_
+INFO: 02/22/2024 01:40:55 AM block_added
+INFO: 02/22/2024 01:40:58 AM plan_Evaluation
+INFO: 02/22/2024 01:40:58 AM plan_evaluation_True
+INFO: 02/22/2024 01:40:58 AM err_code_
+INFO: 02/22/2024 01:41:24 AM plan_Evaluation
+INFO: 02/22/2024 01:41:25 AM plan_evaluation_True
+INFO: 02/22/2024 01:41:25 AM err_code_
+INFO: 02/22/2024 01:43:09 AM home_page_loaded
+INFO: 02/22/2024 01:43:13 AM home_page_loaded
+INFO: 02/22/2024 01:43:13 AM training_area_problem_Double Pi_domain_./modules/Keva Planks
+INFO: 02/22/2024 01:43:17 AM block_added
+INFO: 02/22/2024 01:43:17 AM plan_Evaluation
+INFO: 02/22/2024 01:44:01 AM block_added
+INFO: 02/22/2024 01:44:02 AM plan_Evaluation

@@ -25,7 +25,7 @@ SECRET_KEY = 'f2o1nuicixj#-&x@_rb^7g=cz@#02kl$-1efn)7^1qi9zcoa3+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 DOCS_URL = '/docs/'
-DOCS_ROOT = os.path.join('./docs/build')
+DOCS_ROOT = os.path.join('./docs/build/html')
 
 LOGGING = {
     'version': 1,

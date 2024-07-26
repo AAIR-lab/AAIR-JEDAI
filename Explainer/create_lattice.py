@@ -11,6 +11,8 @@ def create_lattice():
 
     with open(config.DOMAIN_DOCUMENT_FILE, 'r') as file:
         data = file.read().replace('\n', '')
+    
+    # print("LATTICE DATA = ",data)
 
     data = data.split("(:")[3].split("predicates")[1].replace(' ', '').split(")")
     preds = []
@@ -26,13 +28,24 @@ def create_lattice():
     size = len(preds)
     nodes = ["c" + str(i) for i in range(pow(2, size))]
 
-    lattice_dict = {'Init': 'c1', 'Nodes': nodes[1:], 'Edge_map': {}, 'Inv_edge_map': {}, 'Sup': "NAN", 'Node_map': {}}
+    # doubt shouldnt init node start with c0 - the most concrete node
+    # here c1 is being double counted and has a edge to itself
+    # lattice_dict = {'Init': 'c1', 'Nodes': nodes, 'Edge_map': {}, 'Inv_edge_map': {}, 'Sup': "NAN", 'Node_map': {}}
+    # lattice_dict = {'Init': 'c1', 'Nodes': nodes[1:], 'Edge_map': {}, 'Inv_edge_map': {}, 'Sup': "NAN", 'Node_map': {}}
+    lattice_dict = {'Init': 'c0', 'Nodes': nodes[0:], 'Edge_map': {}, 'Inv_edge_map': {}, 'Sup': "NAN", 'Node_map': {}}
 
-    node_map = {'c1': set(i for i in preds)}
+    # node_map = {'c1': set(i for i in preds)}
+    node_map = {'c0': set(i for i in preds)}
+
     tot_key = '_'.join(sorted(preds))
-    reverse_node_map = {tot_key: 'c1'}
+
+    # reverse_node_map = {tot_key: 'c1'}
+    reverse_node_map = {tot_key: 'c0'}
+
     unused_nodes = copy.deepcopy(nodes[1:])
-    last_level = ['c1']
+    # last_level = ['c1']
+    last_level = ['c0']
+
     edge_map = {}
     inv_edge_map = {}
     while unused_nodes:
@@ -66,6 +79,8 @@ def create_lattice():
     for nd in node_map:
         rev_node_map[nd] = set(preds) - node_map[nd]
     lattice_dict['Node_map'] = rev_node_map
+
+    print(lattice_dict)
 
     with open(dest, 'w') as t_fd:
         yaml.dump({'Lattice': lattice_dict}, t_fd)

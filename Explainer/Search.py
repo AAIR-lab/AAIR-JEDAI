@@ -60,12 +60,13 @@ class AbsNode(Node):
                     possible_concret.add(e)
             except:
                 pass
+        #doubt shouldnt this loop be inside other loop, processing for each model separately
         for prop in possible_concret:
             tmp_succ = set()
             for model in self.current_state:
                 try:
                     tmp_succ.add(self.problem.inverse_edges[model][prop])
-                except:
+                except:#doubt why are we doing this?
                     tmp_succ.add(model)
             tmp_model = AbsNode(self.problem, tmp_succ, self.plan + [prop], self.current_foils)
             tmp_model.current_cost = self.current_cost + self.problem.concret_costs[prop]
@@ -91,6 +92,7 @@ class AbsNode(Node):
     def expand_operations(self):
         foils = set()
         for m in self.current_state:
+            # line below means foils = foils union set(self.problem.find_unresolved_foils(m, self.current_foils))
             foils |= set(self.problem.find_unresolved_foils(m, self.current_foils))
         self.current_foils = copy.deepcopy(foils)
 
@@ -127,6 +129,7 @@ def greedy_search(start_state):
     while not fringe.empty():
         val, node = fringe.get()
         node.expand_operations()
+        # print("NODE = ",node)
         if node.goal_test():
             logging.debug("Goal found!")
             return node  # .get_plan()

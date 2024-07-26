@@ -1,0 +1,32 @@
+semantics = {'predicates': [{'name': 'empty', 'subjectIndex': 0, 'display': 'clear'}, {'name': 'ingripper', 'subjectIndex': 1, 'display': 'holding %%0%%'}, {'name': 'at', 'subjectIndex': 1, 'display': 'at location %%0%%'}, {'name': 'order', 'subjectIndex': 0, 'display': 'on %%1%%'}], 'actions': [{'category': 'Move robot', 'name': 'move', 'display': 'Move', 'tooltip': 'Use this action to move the robot to a specified location', 'parameters': [{'index': 1, 'display': 'the robot', 'sentenceDisplay': 'robot'}, {'index': 0, 'display': 'to this location', 'sentenceDisplay': 'to location'}]}, {'category': 'Pick Up', 'name': 'grasp', 'display': 'Pick up', 'tooltip': 'Use this action to pick up an object from a location using the gripper.', 'parameters': [{'index': 1, 'display': 'from this location', 'sentenceDisplay': 'from location'}, {'index': 2, 'display': 'this object', 'sentenceDisplay': 'object'}, {'index': 0, 'display': 'using this gripper', 'sentenceDisplay': 'using gripper'}, {'index': 3, 'display': 'of this robot', 'sentenceDisplay': 'this robot'}]}, {'category': 'Place', 'name': 'put', 'display': 'Place', 'tooltip': 'Use this action to place the object at a specified location using the gripper.', 'parameters': [{'index': 1, 'display': 'at this location', 'sentenceDisplay': 'at location'}, {'index': 2, 'display': 'this object', 'sentenceDisplay': 'object'}, {'index': 0, 'display': 'using this gripper', 'sentenceDisplay': 'using gripper'}, {'index': 3, 'display': 'of this robot', 'sentenceDisplay': 'this robot'}]}]}
+
+problem_info = {'goal_str': "'can_red' is on 'table_red'.", 'actions': [{'name': 'move', 'params': [{'name': '?loc', 'type': 'location'}, {'name': '?r', 'type': 'robot'}]}, {'name': 'grasp', 'params': [{'name': '?g', 'type': 'manipulator'}, {'name': '?loc', 'type': 'location'}, {'name': '?obj', 'type': 'can'}, {'name': '?r', 'type': 'robot'}]}, {'name': 'put', 'params': [{'name': '?g', 'type': 'manipulator'}, {'name': '?loc', 'type': 'location'}, {'name': '?obj', 'type': 'can'}, {'name': '?r', 'type': 'robot'}]}], 'objects': [{'name': 'gripper', 'type': 'manipulator'}, {'name': 'can_red', 'type': 'can'}, {'name': 'can_blue', 'type': 'can'}, {'name': 'can_green', 'type': 'can'}, {'name': 'can_brown', 'type': 'can'}, {'name': 'counter', 'type': 'location'}, {'name': 'table_red', 'type': 'location'}, {'name': 'table_blue', 'type': 'location'}, {'name': 'table_green', 'type': 'location'}, {'name': 'table_brown', 'type': 'location'}, {'name': 'fetch', 'type': 'robot'}], 'types_to_supertypes': {'object': None, 'can': 'object', 'manipulator': 'object', 'robot': 'object', 'location': 'object'}}
+
+plan = 'move counter fetch,grasp gripper counter can_red fetch,move table_red fetch'
+
+import Explainer.explainer_server as srv
+explanation_map, exec_plan, problem = srv.call_server(plan,semantics)
+
+
+srv.call_server(plan,semantics)
+
+
+plan = 'move counter fetch,grasp gripper counter can_red fetch,move table_red fetch,put gripper table_red can_red fetch'
+
+
+import Explainer.testRandomActions as rnd
+
+
+
+plan = rnd.run(semantics,problem_info,4)
+
+import Explainer.explainer_server as srv
+srv.call_server(plan,semantics)
+
+plan = rnd.run(semantics,problem_info,4); print(plan)
+
+while True:
+    plan = rnd.run(semantics,problem_info,6)
+    if("grasp" in plan and 'put' in plan):
+        print(plan)
+        break

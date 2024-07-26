@@ -1,0 +1,1237 @@
+INFO: 07/09/2024 08:56:51 PM home_page_loaded
+INFO: 07/09/2024 08:56:57 PM home_page_loaded
+INFO: 07/09/2024 08:56:57 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/09/2024 08:56:58 PM curriculum_problem_generated
+INFO: 07/09/2024 08:56:58 PM plan_Evaluation
+INFO: 07/09/2024 08:56:58 PM block_added
+INFO: 07/09/2024 08:58:09 PM home_page_loaded
+INFO: 07/09/2024 08:58:13 PM home_page_loaded
+INFO: 07/09/2024 08:58:13 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/09/2024 08:58:13 PM curriculum_problem_generated
+INFO: 07/09/2024 08:58:13 PM plan_Evaluation
+INFO: 07/09/2024 08:58:13 PM block_added
+INFO: 07/09/2024 08:58:19 PM block_added
+INFO: 07/09/2024 08:58:20 PM plan_Evaluation
+INFO: 07/09/2024 08:58:20 PM plan_evaluation_False
+INFO: 07/09/2024 08:58:20 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/09/2024 08:58:24 PM plan_Evaluation
+INFO: 07/09/2024 08:58:24 PM block_changed
+INFO: 07/09/2024 08:58:24 PM plan_evaluation_False
+INFO: 07/09/2024 08:58:24 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/09/2024 08:58:25 PM block_changed
+INFO: 07/09/2024 08:58:25 PM plan_Evaluation
+INFO: 07/09/2024 08:58:25 PM plan_evaluation_True
+INFO: 07/09/2024 08:58:25 PM err_code__
+INFO: 07/09/2024 08:58:28 PM home_page_loaded
+INFO: 07/09/2024 08:59:07 PM home_page_loaded
+INFO: 07/09/2024 08:59:16 PM home_page_loaded
+INFO: 07/09/2024 08:59:16 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/09/2024 08:59:17 PM curriculum_problem_generated
+INFO: 07/09/2024 08:59:17 PM block_added
+INFO: 07/09/2024 08:59:17 PM plan_Evaluation
+INFO: 07/10/2024 12:00:25 AM home_page_loaded
+INFO: 07/10/2024 12:00:31 AM home_page_loaded
+INFO: 07/10/2024 12:00:31 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:00:32 AM curriculum_problem_generated
+INFO: 07/10/2024 12:00:32 AM block_added
+INFO: 07/10/2024 12:00:32 AM plan_Evaluation
+INFO: 07/10/2024 12:04:32 AM home_page_loaded
+INFO: 07/10/2024 12:04:34 AM home_page_loaded
+INFO: 07/10/2024 12:04:40 AM home_page_loaded
+INFO: 07/10/2024 12:04:40 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:04:41 AM curriculum_problem_generated
+INFO: 07/10/2024 12:04:41 AM block_added
+INFO: 07/10/2024 12:04:41 AM plan_Evaluation
+INFO: 07/10/2024 12:09:00 AM home_page_loaded
+INFO: 07/10/2024 12:09:06 AM home_page_loaded
+INFO: 07/10/2024 12:09:06 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:09:06 AM curriculum_problem_generated
+INFO: 07/10/2024 12:09:06 AM plan_Evaluation
+INFO: 07/10/2024 12:09:06 AM block_added
+INFO: 07/10/2024 12:09:31 AM home_page_loaded
+INFO: 07/10/2024 12:09:35 AM home_page_loaded
+INFO: 07/10/2024 12:09:35 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:09:36 AM curriculum_problem_generated
+INFO: 07/10/2024 12:09:36 AM block_added
+INFO: 07/10/2024 12:09:36 AM plan_Evaluation
+INFO: 07/10/2024 12:11:46 AM home_page_loaded
+INFO: 07/10/2024 12:11:49 AM home_page_loaded
+INFO: 07/10/2024 12:11:49 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:11:50 AM curriculum_problem_generated
+INFO: 07/10/2024 12:11:50 AM block_added
+INFO: 07/10/2024 12:11:50 AM plan_Evaluation
+INFO: 07/10/2024 12:12:28 AM home_page_loaded
+INFO: 07/10/2024 12:12:28 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:12:29 AM curriculum_problem_generated
+INFO: 07/10/2024 12:12:29 AM block_added
+INFO: 07/10/2024 12:12:29 AM plan_Evaluation
+INFO: 07/10/2024 12:12:35 AM home_page_loaded
+INFO: 07/10/2024 12:12:35 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:12:36 AM curriculum_problem_generated
+INFO: 07/10/2024 12:12:36 AM plan_Evaluation
+INFO: 07/10/2024 12:12:36 AM block_added
+INFO: 07/10/2024 12:13:33 AM home_page_loaded
+INFO: 07/10/2024 12:13:33 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:13:33 AM curriculum_problem_generated
+INFO: 07/10/2024 12:13:33 AM block_added
+INFO: 07/10/2024 12:13:33 AM plan_Evaluation
+INFO: 07/10/2024 12:13:49 AM home_page_loaded
+INFO: 07/10/2024 12:13:49 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:13:49 AM curriculum_problem_generated
+INFO: 07/10/2024 12:13:49 AM plan_Evaluation
+INFO: 07/10/2024 12:13:49 AM block_added
+INFO: 07/10/2024 12:14:15 AM home_page_loaded
+INFO: 07/10/2024 12:14:15 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:14:15 AM curriculum_problem_generated
+INFO: 07/10/2024 12:14:15 AM block_added
+INFO: 07/10/2024 12:14:15 AM plan_Evaluation
+INFO: 07/10/2024 12:44:32 AM home_page_loaded
+INFO: 07/10/2024 12:44:35 AM home_page_loaded
+INFO: 07/10/2024 12:44:35 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 12:44:35 AM curriculum_problem_generated
+INFO: 07/10/2024 12:44:35 AM plan_Evaluation
+INFO: 07/10/2024 12:44:36 AM block_added
+INFO: 07/10/2024 07:53:04 PM home_page_loaded
+INFO: 07/10/2024 08:06:20 PM home_page_loaded
+INFO: 07/10/2024 08:06:26 PM home_page_loaded
+INFO: 07/10/2024 08:06:26 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:06:27 PM curriculum_problem_generated
+INFO: 07/10/2024 08:06:27 PM plan_Evaluation
+INFO: 07/10/2024 08:06:27 PM block_added
+INFO: 07/10/2024 08:07:24 PM block_added
+INFO: 07/10/2024 08:07:30 PM block_added
+INFO: 07/10/2024 08:07:33 PM block_added
+INFO: 07/10/2024 08:07:36 PM block_added
+INFO: 07/10/2024 08:07:42 PM block_added
+INFO: 07/10/2024 08:07:56 PM block_added
+INFO: 07/10/2024 08:08:07 PM plan_Evaluation
+INFO: 07/10/2024 08:08:07 PM plan_evaluation_False
+INFO: 07/10/2024 08:08:07 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 08:08:10 PM hinting
+INFO: 07/10/2024 08:08:10 PM plan_evaluation_False
+INFO: 07/10/2024 08:08:10 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 08:08:29 PM block_changed
+INFO: 07/10/2024 08:08:29 PM plan_Evaluation
+INFO: 07/10/2024 08:08:30 PM plan_evaluation_False
+INFO: 07/10/2024 08:08:30 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 08:08:37 PM block_changed
+INFO: 07/10/2024 08:08:37 PM plan_Evaluation
+INFO: 07/10/2024 08:08:37 PM plan_evaluation_False
+INFO: 07/10/2024 08:08:37 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 08:08:45 PM hinting
+INFO: 07/10/2024 08:08:45 PM plan_evaluation_False
+INFO: 07/10/2024 08:08:45 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 08:08:52 PM home_page_loaded
+INFO: 07/10/2024 08:08:56 PM home_page_loaded
+INFO: 07/10/2024 08:08:56 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:08:56 PM curriculum_problem_generated
+INFO: 07/10/2024 08:08:56 PM block_added
+INFO: 07/10/2024 08:08:56 PM plan_Evaluation
+INFO: 07/10/2024 08:09:11 PM hinting
+INFO: 07/10/2024 08:09:11 PM Full hint = Move<br>the robot fetch<br>from this location starting_point<br>to this location ?
+INFO: 07/10/2024 08:09:16 PM home_page_loaded
+INFO: 07/10/2024 08:09:21 PM home_page_loaded
+INFO: 07/10/2024 08:09:21 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:09:22 PM block_added
+INFO: 07/10/2024 08:09:22 PM plan_Evaluation
+INFO: 07/10/2024 08:09:28 PM hinting
+INFO: 07/10/2024 08:09:28 PM Full hint = Move<br>the robot ?<br>from this location ?<br>to this location ?
+INFO: 07/10/2024 08:09:33 PM block_added
+INFO: 07/10/2024 08:09:34 PM plan_Evaluation
+INFO: 07/10/2024 08:09:35 PM plan_evaluation_False
+INFO: 07/10/2024 08:09:35 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:09:37 PM hinting
+INFO: 07/10/2024 08:09:38 PM plan_evaluation_False
+INFO: 07/10/2024 08:09:38 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:09:46 PM block_changed
+INFO: 07/10/2024 08:09:46 PM plan_Evaluation
+INFO: 07/10/2024 08:09:46 PM plan_evaluation_False
+INFO: 07/10/2024 08:09:46 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:09:48 PM block_changed
+INFO: 07/10/2024 08:09:48 PM plan_Evaluation
+INFO: 07/10/2024 08:09:48 PM plan_evaluation_False
+INFO: 07/10/2024 08:09:48 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:09:53 PM hinting
+INFO: 07/10/2024 08:09:53 PM plan_evaluation_False
+INFO: 07/10/2024 08:09:53 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:09:53 PM Full hint = Pick up<br>from this location counter<br>this object ?<br>using this gripper ?<br>of this robot ?
+INFO: 07/10/2024 08:18:40 PM home_page_loaded
+INFO: 07/10/2024 08:18:40 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:18:40 PM plan_Evaluation
+INFO: 07/10/2024 08:18:40 PM block_added
+INFO: 07/10/2024 08:18:46 PM home_page_loaded
+INFO: 07/10/2024 08:19:15 PM home_page_loaded
+INFO: 07/10/2024 08:19:16 PM home_page_loaded
+INFO: 07/10/2024 08:19:17 PM home_page_loaded
+INFO: 07/10/2024 08:19:24 PM home_page_loaded
+INFO: 07/10/2024 08:19:28 PM home_page_loaded
+INFO: 07/10/2024 08:19:28 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:19:29 PM curriculum_problem_generated
+INFO: 07/10/2024 08:19:29 PM block_added
+INFO: 07/10/2024 08:19:29 PM plan_Evaluation
+INFO: 07/10/2024 08:19:38 PM hinting
+INFO: 07/10/2024 08:19:38 PM Full hint = Move<br>the robot ?<br>from this location ?<br>to this location ?
+INFO: 07/10/2024 08:27:10 PM hinting
+INFO: 07/10/2024 08:27:10 PM Full hint = Move<br>the robot ?<br>from this location starting_point<br>to this location ?
+INFO: 07/10/2024 08:27:12 PM home_page_loaded
+INFO: 07/10/2024 08:27:19 PM home_page_loaded
+INFO: 07/10/2024 08:27:19 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:27:19 PM plan_Evaluation
+INFO: 07/10/2024 08:27:19 PM block_added
+INFO: 07/10/2024 08:29:45 PM home_page_loaded
+INFO: 07/10/2024 08:29:48 PM home_page_loaded
+INFO: 07/10/2024 08:29:48 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:29:49 PM curriculum_problem_generated
+INFO: 07/10/2024 08:29:49 PM block_added
+INFO: 07/10/2024 08:29:49 PM plan_Evaluation
+INFO: 07/10/2024 08:29:50 PM home_page_loaded
+INFO: 07/10/2024 08:29:58 PM home_page_loaded
+INFO: 07/10/2024 08:30:03 PM home_page_loaded
+INFO: 07/10/2024 08:30:03 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:30:03 PM curriculum_problem_generated
+INFO: 07/10/2024 08:30:04 PM block_added
+INFO: 07/10/2024 08:30:04 PM plan_Evaluation
+INFO: 07/10/2024 08:30:06 PM home_page_loaded
+INFO: 07/10/2024 08:30:11 PM home_page_loaded
+INFO: 07/10/2024 08:30:11 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:30:11 PM plan_Evaluation
+INFO: 07/10/2024 08:30:11 PM block_added
+INFO: 07/10/2024 08:30:15 PM block_added
+INFO: 07/10/2024 08:30:15 PM plan_Evaluation
+INFO: 07/10/2024 08:30:16 PM plan_evaluation_False
+INFO: 07/10/2024 08:30:16 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:30:18 PM block_changed
+INFO: 07/10/2024 08:30:18 PM plan_Evaluation
+INFO: 07/10/2024 08:30:18 PM plan_evaluation_False
+INFO: 07/10/2024 08:30:18 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:30:20 PM hinting
+INFO: 07/10/2024 08:30:20 PM plan_evaluation_False
+INFO: 07/10/2024 08:30:20 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:30:20 PM Full hint = Pick up<br>from this location counter<br>this object can_red<br>using this gripper ?<br>of this robot fetch
+INFO: 07/10/2024 08:33:17 PM home_page_loaded
+INFO: 07/10/2024 08:42:40 PM home_page_loaded
+INFO: 07/10/2024 08:42:50 PM home_page_loaded
+INFO: 07/10/2024 08:42:50 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:42:50 PM curriculum_problem_generated
+INFO: 07/10/2024 08:42:50 PM plan_Evaluation
+INFO: 07/10/2024 08:42:50 PM block_added
+INFO: 07/10/2024 08:43:00 PM home_page_loaded
+INFO: 07/10/2024 08:43:06 PM home_page_loaded
+INFO: 07/10/2024 08:43:06 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:43:07 PM block_added
+INFO: 07/10/2024 08:43:07 PM plan_Evaluation
+INFO: 07/10/2024 08:44:12 PM home_page_loaded
+INFO: 07/10/2024 08:44:16 PM home_page_loaded
+INFO: 07/10/2024 08:44:16 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:44:17 PM block_added
+INFO: 07/10/2024 08:44:17 PM plan_Evaluation
+INFO: 07/10/2024 08:44:21 PM block_added
+INFO: 07/10/2024 08:44:21 PM plan_Evaluation
+INFO: 07/10/2024 08:44:21 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:21 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:44:24 PM hinting
+INFO: 07/10/2024 08:44:24 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:24 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:44:27 PM block_changed
+INFO: 07/10/2024 08:44:27 PM plan_Evaluation
+INFO: 07/10/2024 08:44:27 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:27 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:44:27 PM hinting
+INFO: 07/10/2024 08:44:28 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:28 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:44:28 PM Full hint = Pick up<br>from this location ?<br>this object can_red<br>using this gripper gripper<br>of this robot ?
+INFO: 07/10/2024 08:44:32 PM block_added
+INFO: 07/10/2024 08:44:32 PM plan_Evaluation
+INFO: 07/10/2024 08:44:32 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:32 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:44:35 PM block_added
+INFO: 07/10/2024 08:44:36 PM plan_Evaluation
+INFO: 07/10/2024 08:44:36 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:36 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:44:39 PM block_changed
+INFO: 07/10/2024 08:44:39 PM plan_Evaluation
+INFO: 07/10/2024 08:44:39 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:39 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:44:40 PM block_added
+INFO: 07/10/2024 08:44:41 PM plan_Evaluation
+INFO: 07/10/2024 08:44:41 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:41 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:44:43 PM block_changed
+INFO: 07/10/2024 08:44:43 PM plan_Evaluation
+INFO: 07/10/2024 08:44:43 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:43 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:44:45 PM block_changed
+INFO: 07/10/2024 08:44:45 PM plan_Evaluation
+INFO: 07/10/2024 08:44:45 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:45 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:44:47 PM block_changed
+INFO: 07/10/2024 08:44:47 PM plan_Evaluation
+INFO: 07/10/2024 08:44:47 PM plan_evaluation_False
+INFO: 07/10/2024 08:44:47 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:47:44 PM block_changed
+INFO: 07/10/2024 08:47:44 PM plan_Evaluation
+INFO: 07/10/2024 08:47:44 PM plan_evaluation_False
+INFO: 07/10/2024 08:47:44 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:47:46 PM block_added
+INFO: 07/10/2024 08:47:47 PM plan_Evaluation
+INFO: 07/10/2024 08:47:47 PM plan_evaluation_False
+INFO: 07/10/2024 08:47:47 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:47:49 PM block_changed
+INFO: 07/10/2024 08:47:49 PM plan_Evaluation
+INFO: 07/10/2024 08:47:49 PM plan_evaluation_False
+INFO: 07/10/2024 08:47:49 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:47:50 PM block_added
+INFO: 07/10/2024 08:47:51 PM plan_Evaluation
+INFO: 07/10/2024 08:47:51 PM plan_evaluation_False
+INFO: 07/10/2024 08:47:51 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:47:58 PM block_changed
+INFO: 07/10/2024 08:47:58 PM plan_Evaluation
+INFO: 07/10/2024 08:47:58 PM plan_evaluation_False
+INFO: 07/10/2024 08:47:58 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:48:01 PM block_changed
+INFO: 07/10/2024 08:48:01 PM plan_Evaluation
+INFO: 07/10/2024 08:48:01 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:01 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:48:02 PM block_added
+INFO: 07/10/2024 08:48:03 PM plan_Evaluation
+INFO: 07/10/2024 08:48:03 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:03 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:05 PM block_changed
+INFO: 07/10/2024 08:48:05 PM plan_Evaluation
+INFO: 07/10/2024 08:48:05 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:05 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:48:07 PM block_added
+INFO: 07/10/2024 08:48:08 PM plan_Evaluation
+INFO: 07/10/2024 08:48:08 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:08 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:09 PM block_changed
+INFO: 07/10/2024 08:48:09 PM plan_Evaluation
+INFO: 07/10/2024 08:48:09 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:09 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:11 PM block_changed
+INFO: 07/10/2024 08:48:11 PM plan_Evaluation
+INFO: 07/10/2024 08:48:11 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:11 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:48:12 PM block_added
+INFO: 07/10/2024 08:48:13 PM plan_Evaluation
+INFO: 07/10/2024 08:48:13 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:13 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:15 PM block_changed
+INFO: 07/10/2024 08:48:15 PM plan_Evaluation
+INFO: 07/10/2024 08:48:15 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:15 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:18 PM block_changed
+INFO: 07/10/2024 08:48:18 PM plan_Evaluation
+INFO: 07/10/2024 08:48:18 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:18 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:20 PM block_changed
+INFO: 07/10/2024 08:48:20 PM plan_Evaluation
+INFO: 07/10/2024 08:48:21 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:21 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:48:22 PM block_added
+INFO: 07/10/2024 08:48:23 PM plan_Evaluation
+INFO: 07/10/2024 08:48:23 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:23 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:48:27 PM block_changed
+INFO: 07/10/2024 08:48:27 PM plan_Evaluation
+INFO: 07/10/2024 08:48:27 PM plan_evaluation_False
+INFO: 07/10/2024 08:48:27 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:50:13 PM block_changed
+INFO: 07/10/2024 08:50:13 PM plan_Evaluation
+INFO: 07/10/2024 08:50:16 PM block_changed
+INFO: 07/10/2024 08:50:16 PM plan_Evaluation
+INFO: 07/10/2024 08:50:24 PM home_page_loaded
+INFO: 07/10/2024 08:50:34 PM home_page_loaded
+INFO: 07/10/2024 08:50:34 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:50:34 PM block_added
+INFO: 07/10/2024 08:50:34 PM plan_Evaluation
+INFO: 07/10/2024 08:50:37 PM block_added
+INFO: 07/10/2024 08:50:38 PM plan_Evaluation
+INFO: 07/10/2024 08:50:38 PM plan_evaluation_False
+INFO: 07/10/2024 08:50:38 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:51:07 PM block_deleted
+INFO: 07/10/2024 08:51:07 PM block_added
+INFO: 07/10/2024 08:51:07 PM plan_Evaluation
+INFO: 07/10/2024 08:51:07 PM plan_Evaluation
+INFO: 07/10/2024 08:51:07 PM plan_evaluation_True
+INFO: 07/10/2024 08:51:07 PM err_code__
+INFO: 07/10/2024 08:51:07 PM plan_evaluation_True
+INFO: 07/10/2024 08:51:07 PM err_code__
+INFO: 07/10/2024 08:52:30 PM home_page_loaded
+INFO: 07/10/2024 08:52:36 PM home_page_loaded
+INFO: 07/10/2024 08:52:36 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:52:36 PM plan_Evaluation
+INFO: 07/10/2024 08:52:36 PM block_added
+INFO: 07/10/2024 08:52:42 PM block_added
+INFO: 07/10/2024 08:52:42 PM block_deleted
+INFO: 07/10/2024 08:52:42 PM plan_Evaluation
+INFO: 07/10/2024 08:52:42 PM plan_Evaluation
+INFO: 07/10/2024 08:52:42 PM plan_evaluation_True
+INFO: 07/10/2024 08:52:42 PM err_code__
+INFO: 07/10/2024 08:53:14 PM home_page_loaded
+INFO: 07/10/2024 08:53:19 PM home_page_loaded
+INFO: 07/10/2024 08:53:39 PM home_page_loaded
+INFO: 07/10/2024 08:53:39 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:53:39 PM plan_Evaluation
+INFO: 07/10/2024 08:53:39 PM block_added
+INFO: 07/10/2024 08:53:45 PM block_added
+INFO: 07/10/2024 08:53:46 PM plan_Evaluation
+INFO: 07/10/2024 08:53:46 PM plan_evaluation_False
+INFO: 07/10/2024 08:53:46 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:53:51 PM block_changed
+INFO: 07/10/2024 08:53:51 PM plan_Evaluation
+INFO: 07/10/2024 08:53:51 PM plan_evaluation_False
+INFO: 07/10/2024 08:53:51 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:53:55 PM block_changed
+INFO: 07/10/2024 08:53:55 PM plan_Evaluation
+INFO: 07/10/2024 08:53:55 PM plan_evaluation_False
+INFO: 07/10/2024 08:53:55 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:54:10 PM block_changed
+INFO: 07/10/2024 08:54:10 PM plan_Evaluation
+INFO: 07/10/2024 08:54:10 PM plan_evaluation_False
+INFO: 07/10/2024 08:54:10 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 08:54:13 PM block_changed
+INFO: 07/10/2024 08:54:13 PM plan_Evaluation
+INFO: 07/10/2024 08:54:14 PM plan_evaluation_False
+INFO: 07/10/2024 08:54:14 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 08:57:46 PM home_page_loaded
+INFO: 07/10/2024 08:57:54 PM home_page_loaded
+INFO: 07/10/2024 08:57:54 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 08:57:55 PM curriculum_problem_generated
+INFO: 07/10/2024 08:57:55 PM plan_Evaluation
+INFO: 07/10/2024 08:57:55 PM block_added
+INFO: 07/10/2024 08:58:06 PM home_page_loaded
+INFO: 07/10/2024 08:59:24 PM home_page_loaded
+INFO: 07/10/2024 09:00:17 PM home_page_loaded
+INFO: 07/10/2024 09:00:17 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 09:00:18 PM curriculum_problem_generated
+INFO: 07/10/2024 09:00:18 PM plan_Evaluation
+INFO: 07/10/2024 09:00:18 PM block_added
+INFO: 07/10/2024 09:00:20 PM home_page_loaded
+INFO: 07/10/2024 09:03:38 PM home_page_loaded
+INFO: 07/10/2024 09:03:47 PM home_page_loaded
+INFO: 07/10/2024 09:03:47 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 09:03:47 PM curriculum_problem_generated
+INFO: 07/10/2024 09:03:47 PM block_added
+INFO: 07/10/2024 09:03:47 PM plan_Evaluation
+INFO: 07/10/2024 09:03:59 PM hinting
+INFO: 07/10/2024 09:03:59 PM Full hint = Move<br>the robot fetch<br>from this location ?<br>to this location counter
+INFO: 07/10/2024 09:04:13 PM block_added
+INFO: 07/10/2024 09:04:14 PM plan_Evaluation
+INFO: 07/10/2024 09:04:14 PM plan_evaluation_False
+INFO: 07/10/2024 09:04:14 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 09:04:15 PM plan_Evaluation
+INFO: 07/10/2024 09:04:15 PM plan_evaluation_False
+INFO: 07/10/2024 09:04:15 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 09:04:19 PM block_changed
+INFO: 07/10/2024 09:04:19 PM plan_Evaluation
+INFO: 07/10/2024 09:04:19 PM plan_evaluation_True
+INFO: 07/10/2024 09:04:19 PM err_code__
+INFO: 07/10/2024 09:04:46 PM home_page_loaded
+INFO: 07/10/2024 09:23:00 PM home_page_loaded
+INFO: 07/10/2024 09:23:00 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 09:23:01 PM curriculum_problem_generated
+INFO: 07/10/2024 09:23:01 PM plan_Evaluation
+INFO: 07/10/2024 09:23:01 PM block_added
+INFO: 07/10/2024 09:23:06 PM home_page_loaded
+INFO: 07/10/2024 09:52:07 PM home_page_loaded
+INFO: 07/10/2024 09:52:07 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 09:52:07 PM curriculum_problem_generated
+INFO: 07/10/2024 09:52:07 PM plan_Evaluation
+INFO: 07/10/2024 09:52:07 PM block_added
+INFO: 07/10/2024 09:53:13 PM block_added
+INFO: 07/10/2024 09:54:19 PM plan_Evaluation
+INFO: 07/10/2024 09:54:19 PM plan_evaluation_False
+INFO: 07/10/2024 09:54:19 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 09:54:56 PM block_changed
+INFO: 07/10/2024 09:54:56 PM plan_Evaluation
+INFO: 07/10/2024 09:54:56 PM plan_evaluation_False
+INFO: 07/10/2024 09:54:56 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 09:55:58 PM block_added
+INFO: 07/10/2024 09:55:59 PM plan_Evaluation
+INFO: 07/10/2024 09:56:00 PM plan_evaluation_False
+INFO: 07/10/2024 09:56:00 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 09:56:03 PM block_changed
+INFO: 07/10/2024 09:56:03 PM plan_Evaluation
+INFO: 07/10/2024 09:56:03 PM plan_evaluation_True
+INFO: 07/10/2024 09:56:03 PM err_code__
+INFO: 07/10/2024 09:57:23 PM block_changed
+INFO: 07/10/2024 09:57:25 PM block_changed
+INFO: 07/10/2024 09:57:53 PM plan_Evaluation
+INFO: 07/10/2024 09:57:53 PM plan_evaluation_False
+INFO: 07/10/2024 09:57:53 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 09:58:17 PM block_changed
+INFO: 07/10/2024 09:58:17 PM plan_Evaluation
+INFO: 07/10/2024 09:58:17 PM plan_evaluation_True
+INFO: 07/10/2024 09:58:17 PM err_code__
+INFO: 07/10/2024 09:58:56 PM curriculum_problem_generated
+INFO: 07/10/2024 09:58:56 PM block_added
+INFO: 07/10/2024 09:58:56 PM block_deleted
+INFO: 07/10/2024 09:59:38 PM block_added
+INFO: 07/10/2024 09:59:39 PM plan_Evaluation
+INFO: 07/10/2024 09:59:39 PM plan_evaluation_False
+INFO: 07/10/2024 09:59:39 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/10/2024 10:00:04 PM home_page_loaded
+INFO: 07/10/2024 10:00:33 PM home_page_loaded
+INFO: 07/10/2024 10:00:33 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/10/2024 10:00:34 PM block_added
+INFO: 07/10/2024 10:00:34 PM plan_Evaluation
+INFO: 07/10/2024 10:00:57 PM block_deleted
+INFO: 07/10/2024 10:00:57 PM plan_Evaluation
+INFO: 07/10/2024 10:00:57 PM plan_Evaluation
+INFO: 07/10/2024 10:00:57 PM block_added
+INFO: 07/10/2024 10:00:57 PM plan_evaluation_True
+INFO: 07/10/2024 10:00:57 PM err_code__
+INFO: 07/10/2024 10:01:22 PM block_deleted
+INFO: 07/10/2024 10:01:22 PM plan_Evaluation
+INFO: 07/10/2024 10:01:22 PM plan_evaluation_False
+INFO: 07/10/2024 10:01:22 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:02:02 PM plan_Evaluation
+INFO: 07/10/2024 10:02:03 PM plan_evaluation_False
+INFO: 07/10/2024 10:02:03 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:03:03 PM plan_Evaluation
+INFO: 07/10/2024 10:03:03 PM plan_evaluation_False
+INFO: 07/10/2024 10:03:03 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:03:04 PM hinting
+INFO: 07/10/2024 10:03:05 PM plan_evaluation_False
+INFO: 07/10/2024 10:03:05 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:03:05 PM Full hint = Place<br>at this location ?<br>this object can_green<br>using this gripper ?<br>of this robot fetch
+INFO: 07/10/2024 10:03:19 PM hinting
+INFO: 07/10/2024 10:03:20 PM plan_evaluation_False
+INFO: 07/10/2024 10:03:20 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:03:20 PM Full hint = Place<br>at this location ?<br>this object can_green<br>using this gripper ?<br>of this robot fetch
+INFO: 07/10/2024 10:04:59 PM block_added
+INFO: 07/10/2024 10:05:02 PM block_deleted
+INFO: 07/10/2024 10:05:02 PM plan_Evaluation
+INFO: 07/10/2024 10:05:02 PM plan_evaluation_False
+INFO: 07/10/2024 10:05:02 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:05:05 PM hinting
+INFO: 07/10/2024 10:05:05 PM plan_evaluation_False
+INFO: 07/10/2024 10:05:05 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:05:05 PM Full hint = Place<br>at this location table_green<br>this object ?<br>using this gripper gripper<br>of this robot fetch
+INFO: 07/10/2024 10:05:37 PM block_added
+INFO: 07/10/2024 10:05:40 PM plan_Evaluation
+INFO: 07/10/2024 10:05:40 PM plan_evaluation_False
+INFO: 07/10/2024 10:05:40 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 10:05:48 PM block_changed
+INFO: 07/10/2024 10:05:48 PM plan_Evaluation
+INFO: 07/10/2024 10:05:48 PM plan_evaluation_False
+INFO: 07/10/2024 10:05:48 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 10:05:52 PM block_deleted
+INFO: 07/10/2024 10:05:52 PM plan_Evaluation
+INFO: 07/10/2024 10:05:52 PM plan_evaluation_False
+INFO: 07/10/2024 10:05:52 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/10/2024 10:15:23 PM block_deleted
+INFO: 07/10/2024 10:15:23 PM block_added
+INFO: 07/10/2024 10:17:10 PM block_added
+INFO: 07/10/2024 10:17:11 PM plan_Evaluation
+INFO: 07/10/2024 10:17:11 PM plan_evaluation_False
+INFO: 07/10/2024 10:17:11 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/10/2024 10:56:38 PM home_page_loaded
+INFO: 07/12/2024 10:15:30 PM home_page_loaded
+INFO: 07/12/2024 10:15:34 PM home_page_loaded
+INFO: 07/12/2024 10:15:34 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/12/2024 10:15:34 PM curriculum_problem_generated
+INFO: 07/12/2024 10:15:34 PM block_added
+INFO: 07/12/2024 10:15:34 PM plan_Evaluation
+INFO: 07/12/2024 10:15:36 PM home_page_loaded
+INFO: 07/12/2024 10:15:43 PM home_page_loaded
+INFO: 07/12/2024 10:15:48 PM home_page_loaded
+INFO: 07/12/2024 10:15:48 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/12/2024 10:15:48 PM block_added
+INFO: 07/12/2024 10:15:48 PM plan_Evaluation
+INFO: 07/12/2024 10:29:40 PM home_page_loaded
+INFO: 07/12/2024 10:33:25 PM hinting
+INFO: 07/12/2024 10:33:29 PM home_page_loaded
+INFO: 07/12/2024 10:33:35 PM home_page_loaded
+INFO: 07/12/2024 10:33:35 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/12/2024 10:33:35 PM curriculum_problem_generated
+INFO: 07/12/2024 10:33:35 PM block_added
+INFO: 07/12/2024 10:33:35 PM plan_Evaluation
+INFO: 07/12/2024 10:33:39 PM hinting
+INFO: 07/12/2024 10:33:39 PM Full hint = Move<br>the robot fetch<br>from this location ?<br>to this location table_brown
+INFO: 07/12/2024 10:33:57 PM block_added
+INFO: 07/12/2024 10:34:00 PM plan_Evaluation
+INFO: 07/12/2024 10:34:00 PM plan_evaluation_False
+INFO: 07/12/2024 10:34:00 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/12/2024 10:34:03 PM block_changed
+INFO: 07/12/2024 10:34:03 PM plan_Evaluation
+INFO: 07/12/2024 10:34:03 PM plan_evaluation_False
+INFO: 07/12/2024 10:34:03 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/12/2024 10:34:11 PM plan_Evaluation
+INFO: 07/12/2024 10:34:11 PM plan_evaluation_False
+INFO: 07/12/2024 10:34:11 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/12/2024 10:34:16 PM block_deleted
+INFO: 07/12/2024 10:34:17 PM hinting
+INFO: 07/12/2024 10:34:17 PM Full hint = Move<br>the robot ?<br>from this location ?<br>to this location table_brown
+INFO: 07/12/2024 10:35:22 PM hinting
+INFO: 07/12/2024 10:35:22 PM Full hint = Move<br>the robot fetch<br>from this location ?<br>to this location ?
+INFO: 07/12/2024 10:35:27 PM hinting
+INFO: 07/12/2024 10:35:27 PM Full hint = Move<br>the robot fetch<br>from this location ?<br>to this location table_brown
+INFO: 07/12/2024 10:35:52 PM block_added
+INFO: 07/12/2024 10:36:02 PM block_deleted
+INFO: 07/12/2024 10:36:06 PM hinting
+INFO: 07/12/2024 10:36:06 PM Full hint = Move<br>the robot fetch<br>from this location ?<br>to this location ?
+INFO: 07/12/2024 10:36:13 PM hinting
+INFO: 07/12/2024 10:36:13 PM Full hint = Move<br>the robot fetch<br>from this location starting_point<br>to this location table_brown
+INFO: 07/12/2024 10:36:30 PM home_page_loaded
+INFO: 07/12/2024 10:36:35 PM home_page_loaded
+INFO: 07/12/2024 10:36:35 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/12/2024 10:36:35 PM block_added
+INFO: 07/12/2024 10:36:35 PM plan_Evaluation
+INFO: 07/16/2024 12:03:08 AM home_page_loaded
+INFO: 07/16/2024 12:03:16 AM home_page_loaded
+INFO: 07/16/2024 12:03:16 AM training_area_problem_Random Problem_domain_./modules/Cafe World
+INFO: 07/16/2024 12:03:16 AM block_added
+INFO: 07/16/2024 12:28:46 AM home_page_loaded
+INFO: 07/16/2024 12:28:47 AM home_page_loaded
+INFO: 07/24/2024 01:30:00 AM home_page_loaded
+INFO: 07/24/2024 01:30:11 AM home_page_loaded
+INFO: 07/24/2024 01:30:11 AM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 01:30:12 AM block_added
+INFO: 07/24/2024 01:30:12 AM plan_Evaluation
+INFO: 07/24/2024 01:31:43 AM block_deleted
+INFO: 07/24/2024 01:31:43 AM block_added
+INFO: 07/24/2024 01:31:43 AM plan_Evaluation
+INFO: 07/24/2024 01:31:43 AM plan_Evaluation
+INFO: 07/24/2024 01:31:43 AM plan_evaluation_True
+INFO: 07/24/2024 01:31:43 AM err_code__
+INFO: 07/24/2024 01:32:05 AM home_page_loaded
+INFO: 07/24/2024 10:40:45 PM home_page_loaded
+INFO: 07/24/2024 10:43:32 PM home_page_loaded
+INFO: 07/24/2024 10:43:37 PM home_page_loaded
+INFO: 07/24/2024 10:43:37 PM training_area_problem_Curriculum Problem_domain_./modules/Keva Pi
+INFO: 07/24/2024 10:43:39 PM curriculum_problem_generated
+INFO: 07/24/2024 10:43:39 PM plan_Evaluation
+INFO: 07/24/2024 10:43:39 PM block_added
+INFO: 07/24/2024 10:43:48 PM home_page_loaded
+INFO: 07/24/2024 10:43:52 PM home_page_loaded
+INFO: 07/24/2024 10:43:52 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 10:43:53 PM curriculum_problem_generated
+INFO: 07/24/2024 10:43:53 PM plan_Evaluation
+INFO: 07/24/2024 10:43:53 PM block_added
+INFO: 07/24/2024 10:44:01 PM home_page_loaded
+INFO: 07/24/2024 10:44:12 PM home_page_loaded
+INFO: 07/24/2024 10:44:55 PM home_page_loaded
+INFO: 07/24/2024 10:44:55 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 10:44:55 PM block_added
+INFO: 07/24/2024 10:44:55 PM plan_Evaluation
+INFO: 07/24/2024 10:52:07 PM home_page_loaded
+INFO: 07/24/2024 10:52:10 PM home_page_loaded
+INFO: 07/24/2024 10:52:10 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 10:52:11 PM curriculum_problem_generated
+INFO: 07/24/2024 10:52:11 PM plan_Evaluation
+INFO: 07/24/2024 10:52:11 PM block_added
+INFO: 07/24/2024 10:52:27 PM home_page_loaded
+INFO: 07/24/2024 10:52:28 PM plan_Evaluation
+INFO: 07/24/2024 10:52:28 PM block_added
+INFO: 07/24/2024 10:59:34 PM home_page_loaded
+INFO: 07/24/2024 10:59:41 PM home_page_loaded
+INFO: 07/24/2024 10:59:41 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 10:59:42 PM curriculum_problem_generated
+INFO: 07/24/2024 10:59:42 PM plan_Evaluation
+INFO: 07/24/2024 10:59:42 PM block_added
+INFO: 07/24/2024 11:01:25 PM home_page_loaded
+INFO: 07/24/2024 11:01:28 PM home_page_loaded
+INFO: 07/24/2024 11:01:28 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 11:01:29 PM curriculum_problem_generated
+INFO: 07/24/2024 11:01:29 PM plan_Evaluation
+INFO: 07/24/2024 11:01:29 PM block_added
+INFO: 07/24/2024 11:02:33 PM home_page_loaded
+INFO: 07/24/2024 11:02:38 PM home_page_loaded
+INFO: 07/24/2024 11:02:38 PM training_area_problem_Curriculum Problem_domain_./modules/Keva Pi
+INFO: 07/24/2024 11:02:40 PM curriculum_problem_generated
+INFO: 07/24/2024 11:02:40 PM plan_Evaluation
+INFO: 07/24/2024 11:02:40 PM block_added
+INFO: 07/24/2024 11:02:45 PM home_page_loaded
+INFO: 07/24/2024 11:02:52 PM home_page_loaded
+INFO: 07/24/2024 11:02:52 PM training_area_problem_Test Problem_domain_./modules/Keva Pi
+INFO: 07/24/2024 11:02:55 PM plan_Evaluation
+INFO: 07/24/2024 11:02:55 PM block_added
+INFO: 07/24/2024 11:03:09 PM home_page_loaded
+INFO: 07/24/2024 11:07:12 PM home_page_loaded
+INFO: 07/24/2024 11:07:12 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:07:13 PM plan_Evaluation
+INFO: 07/24/2024 11:07:13 PM block_added
+INFO: 07/24/2024 11:11:29 PM home_page_loaded
+INFO: 07/24/2024 11:11:36 PM home_page_loaded
+INFO: 07/24/2024 11:11:36 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:11:37 PM plan_Evaluation
+INFO: 07/24/2024 11:11:37 PM block_added
+INFO: 07/24/2024 11:11:41 PM plan_Evaluation
+INFO: 07/24/2024 11:11:41 PM block_added
+INFO: 07/24/2024 11:11:41 PM plan_Evaluation
+INFO: 07/24/2024 11:11:41 PM block_deleted
+INFO: 07/24/2024 11:11:41 PM plan_evaluation_True
+INFO: 07/24/2024 11:11:41 PM err_code__
+INFO: 07/24/2024 11:11:47 PM block_deleted
+INFO: 07/24/2024 11:11:47 PM plan_Evaluation
+INFO: 07/24/2024 11:11:47 PM plan_evaluation_True
+INFO: 07/24/2024 11:11:47 PM err_code__
+INFO: 07/24/2024 11:11:50 PM plan_Evaluation
+INFO: 07/24/2024 11:11:50 PM plan_evaluation_True
+INFO: 07/24/2024 11:11:50 PM err_code__
+INFO: 07/24/2024 11:12:28 PM plan_Evaluation
+INFO: 07/24/2024 11:12:28 PM plan_evaluation_True
+INFO: 07/24/2024 11:12:28 PM err_code__
+INFO: 07/24/2024 11:13:54 PM home_page_loaded
+INFO: 07/24/2024 11:14:06 PM home_page_loaded
+INFO: 07/24/2024 11:14:06 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:14:07 PM plan_Evaluation
+INFO: 07/24/2024 11:14:07 PM block_added
+INFO: 07/24/2024 11:14:32 PM block_deleted
+INFO: 07/24/2024 11:14:32 PM block_added
+INFO: 07/24/2024 11:14:32 PM plan_Evaluation
+INFO: 07/24/2024 11:14:32 PM plan_Evaluation
+INFO: 07/24/2024 11:14:32 PM plan_evaluation_True
+INFO: 07/24/2024 11:14:32 PM err_code__
+INFO: 07/24/2024 11:14:36 PM block_deleted
+INFO: 07/24/2024 11:14:37 PM plan_Evaluation
+INFO: 07/24/2024 11:14:37 PM plan_evaluation_True
+INFO: 07/24/2024 11:14:37 PM err_code__
+INFO: 07/24/2024 11:14:46 PM plan_Evaluation
+INFO: 07/24/2024 11:14:46 PM plan_evaluation_True
+INFO: 07/24/2024 11:14:46 PM err_code__
+INFO: 07/24/2024 11:15:05 PM home_page_loaded
+INFO: 07/24/2024 11:15:12 PM home_page_loaded
+INFO: 07/24/2024 11:15:12 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:15:13 PM block_added
+INFO: 07/24/2024 11:15:13 PM plan_Evaluation
+INFO: 07/24/2024 11:15:17 PM block_deleted
+INFO: 07/24/2024 11:15:17 PM block_added
+INFO: 07/24/2024 11:15:17 PM plan_Evaluation
+INFO: 07/24/2024 11:15:17 PM plan_Evaluation
+INFO: 07/24/2024 11:15:17 PM plan_evaluation_True
+INFO: 07/24/2024 11:15:17 PM err_code__
+INFO: 07/24/2024 11:15:38 PM home_page_loaded
+INFO: 07/24/2024 11:16:03 PM home_page_loaded
+INFO: 07/24/2024 11:16:03 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:16:04 PM plan_Evaluation
+INFO: 07/24/2024 11:16:04 PM block_added
+INFO: 07/24/2024 11:16:18 PM block_deleted
+INFO: 07/24/2024 11:16:18 PM block_added
+INFO: 07/24/2024 11:16:18 PM plan_Evaluation
+INFO: 07/24/2024 11:16:18 PM plan_Evaluation
+INFO: 07/24/2024 11:16:18 PM plan_evaluation_True
+INFO: 07/24/2024 11:16:18 PM err_code__
+INFO: 07/24/2024 11:16:20 PM block_deleted
+INFO: 07/24/2024 11:16:20 PM plan_Evaluation
+INFO: 07/24/2024 11:16:21 PM plan_evaluation_True
+INFO: 07/24/2024 11:16:21 PM err_code__
+INFO: 07/24/2024 11:16:34 PM plan_Evaluation
+INFO: 07/24/2024 11:16:34 PM plan_evaluation_True
+INFO: 07/24/2024 11:16:34 PM err_code__
+INFO: 07/24/2024 11:17:57 PM home_page_loaded
+INFO: 07/24/2024 11:18:34 PM home_page_loaded
+INFO: 07/24/2024 11:18:34 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 11:18:35 PM block_added
+INFO: 07/24/2024 11:18:35 PM plan_Evaluation
+INFO: 07/24/2024 11:18:40 PM block_deleted
+INFO: 07/24/2024 11:18:40 PM block_added
+INFO: 07/24/2024 11:18:40 PM plan_Evaluation
+INFO: 07/24/2024 11:18:40 PM plan_Evaluation
+INFO: 07/24/2024 11:18:40 PM plan_evaluation_True
+INFO: 07/24/2024 11:18:40 PM err_code__
+INFO: 07/24/2024 11:19:00 PM plan_Evaluation
+INFO: 07/24/2024 11:19:00 PM plan_evaluation_True
+INFO: 07/24/2024 11:19:00 PM err_code__
+INFO: 07/24/2024 11:19:02 PM plan_Evaluation
+INFO: 07/24/2024 11:19:02 PM plan_evaluation_True
+INFO: 07/24/2024 11:19:02 PM err_code__
+INFO: 07/24/2024 11:19:12 PM plan_Evaluation
+INFO: 07/24/2024 11:19:12 PM plan_evaluation_True
+INFO: 07/24/2024 11:19:12 PM err_code__
+INFO: 07/24/2024 11:20:39 PM plan_Evaluation
+INFO: 07/24/2024 11:20:39 PM plan_evaluation_True
+INFO: 07/24/2024 11:20:39 PM err_code__
+INFO: 07/24/2024 11:22:06 PM home_page_loaded
+INFO: 07/24/2024 11:26:13 PM home_page_loaded
+INFO: 07/24/2024 11:26:13 PM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 11:26:14 PM curriculum_problem_generated
+INFO: 07/24/2024 11:26:14 PM plan_Evaluation
+INFO: 07/24/2024 11:26:14 PM block_added
+INFO: 07/24/2024 11:26:34 PM home_page_loaded
+INFO: 07/24/2024 11:26:43 PM home_page_loaded
+INFO: 07/24/2024 11:26:43 PM training_area_problem_Test Problem_domain_./modules/Cafe World
+INFO: 07/24/2024 11:26:43 PM block_added
+INFO: 07/24/2024 11:26:43 PM plan_Evaluation
+INFO: 07/24/2024 11:26:48 PM block_deleted
+INFO: 07/24/2024 11:26:48 PM plan_Evaluation
+INFO: 07/24/2024 11:26:48 PM block_added
+INFO: 07/24/2024 11:26:48 PM plan_Evaluation
+INFO: 07/24/2024 11:26:48 PM plan_evaluation_True
+INFO: 07/24/2024 11:26:48 PM err_code__
+INFO: 07/24/2024 11:26:50 PM plan_Evaluation
+INFO: 07/24/2024 11:26:50 PM plan_evaluation_True
+INFO: 07/24/2024 11:26:50 PM err_code__
+INFO: 07/24/2024 11:28:02 PM home_page_loaded
+INFO: 07/24/2024 11:29:37 PM home_page_loaded
+INFO: 07/24/2024 11:29:37 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:29:38 PM plan_Evaluation
+INFO: 07/24/2024 11:29:38 PM block_added
+INFO: 07/24/2024 11:29:48 PM block_deleted
+INFO: 07/24/2024 11:29:48 PM plan_Evaluation
+INFO: 07/24/2024 11:29:48 PM block_added
+INFO: 07/24/2024 11:29:48 PM plan_Evaluation
+INFO: 07/24/2024 11:29:48 PM plan_evaluation_True
+INFO: 07/24/2024 11:29:48 PM err_code__
+INFO: 07/24/2024 11:29:48 PM plan_evaluation_True
+INFO: 07/24/2024 11:29:48 PM err_code__
+INFO: 07/24/2024 11:29:51 PM block_deleted
+INFO: 07/24/2024 11:29:51 PM plan_Evaluation
+INFO: 07/24/2024 11:29:51 PM plan_evaluation_True
+INFO: 07/24/2024 11:29:51 PM err_code__
+INFO: 07/24/2024 11:29:55 PM plan_Evaluation
+INFO: 07/24/2024 11:29:55 PM plan_evaluation_True
+INFO: 07/24/2024 11:29:55 PM err_code__
+INFO: 07/24/2024 11:31:39 PM home_page_loaded
+INFO: 07/24/2024 11:34:53 PM home_page_loaded
+INFO: 07/24/2024 11:35:05 PM home_page_loaded
+INFO: 07/24/2024 11:35:10 PM home_page_loaded
+INFO: 07/24/2024 11:35:10 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:35:10 PM plan_Evaluation
+INFO: 07/24/2024 11:35:10 PM block_added
+INFO: 07/24/2024 11:35:14 PM block_deleted
+INFO: 07/24/2024 11:35:14 PM block_added
+INFO: 07/24/2024 11:35:14 PM plan_Evaluation
+INFO: 07/24/2024 11:35:14 PM plan_Evaluation
+INFO: 07/24/2024 11:35:14 PM plan_evaluation_True
+INFO: 07/24/2024 11:35:14 PM err_code__
+INFO: 07/24/2024 11:35:16 PM block_deleted
+INFO: 07/24/2024 11:35:16 PM plan_Evaluation
+INFO: 07/24/2024 11:35:16 PM plan_evaluation_True
+INFO: 07/24/2024 11:35:16 PM err_code__
+INFO: 07/24/2024 11:35:17 PM plan_Evaluation
+INFO: 07/24/2024 11:35:17 PM plan_evaluation_True
+INFO: 07/24/2024 11:35:17 PM err_code__
+INFO: 07/24/2024 11:36:51 PM plan_Evaluation
+INFO: 07/24/2024 11:36:52 PM plan_evaluation_True
+INFO: 07/24/2024 11:36:52 PM err_code__
+INFO: 07/24/2024 11:36:58 PM home_page_loaded
+INFO: 07/24/2024 11:37:02 PM home_page_loaded
+INFO: 07/24/2024 11:37:02 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:37:02 PM plan_Evaluation
+INFO: 07/24/2024 11:37:02 PM block_added
+INFO: 07/24/2024 11:37:07 PM block_deleted
+INFO: 07/24/2024 11:37:07 PM block_added
+INFO: 07/24/2024 11:37:07 PM plan_Evaluation
+INFO: 07/24/2024 11:37:07 PM plan_Evaluation
+INFO: 07/24/2024 11:37:07 PM plan_evaluation_True
+INFO: 07/24/2024 11:37:07 PM err_code__
+INFO: 07/24/2024 11:37:09 PM block_deleted
+INFO: 07/24/2024 11:37:09 PM plan_Evaluation
+INFO: 07/24/2024 11:37:09 PM plan_evaluation_True
+INFO: 07/24/2024 11:37:09 PM err_code__
+INFO: 07/24/2024 11:37:10 PM plan_Evaluation
+INFO: 07/24/2024 11:37:10 PM plan_evaluation_True
+INFO: 07/24/2024 11:37:10 PM err_code__
+INFO: 07/24/2024 11:37:13 PM home_page_loaded
+INFO: 07/24/2024 11:37:59 PM home_page_loaded
+INFO: 07/24/2024 11:38:19 PM home_page_loaded
+INFO: 07/24/2024 11:38:23 PM home_page_loaded
+INFO: 07/24/2024 11:38:23 PM training_area_problem_Simple_domain_./modules/Cafe World
+INFO: 07/24/2024 11:38:24 PM plan_Evaluation
+INFO: 07/24/2024 11:38:24 PM block_added
+INFO: 07/24/2024 11:38:27 PM block_deleted
+INFO: 07/24/2024 11:38:27 PM block_added
+INFO: 07/24/2024 11:38:27 PM plan_Evaluation
+INFO: 07/24/2024 11:38:27 PM plan_Evaluation
+INFO: 07/24/2024 11:38:27 PM plan_evaluation_True
+INFO: 07/24/2024 11:38:27 PM err_code__
+INFO: 07/24/2024 11:38:29 PM block_deleted
+INFO: 07/24/2024 11:38:29 PM plan_Evaluation
+INFO: 07/24/2024 11:38:30 PM plan_evaluation_True
+INFO: 07/24/2024 11:38:30 PM err_code__
+INFO: 07/24/2024 11:38:31 PM plan_Evaluation
+INFO: 07/24/2024 11:38:31 PM plan_evaluation_True
+INFO: 07/24/2024 11:38:31 PM err_code__
+INFO: 07/24/2024 11:38:36 PM plan_Evaluation
+INFO: 07/24/2024 11:38:36 PM plan_evaluation_True
+INFO: 07/24/2024 11:38:36 PM err_code__
+INFO: 07/24/2024 11:38:40 PM home_page_loaded
+INFO: 07/24/2024 11:38:47 PM home_page_loaded
+INFO: 07/24/2024 11:38:47 PM training_area_problem_Test Problem_domain_./modules/Keva Pi
+INFO: 07/24/2024 11:38:49 PM plan_Evaluation
+INFO: 07/24/2024 11:38:49 PM block_added
+INFO: 07/24/2024 11:39:00 PM block_added
+INFO: 07/24/2024 11:39:01 PM plan_Evaluation
+INFO: 07/24/2024 11:39:04 PM block_added
+INFO: 07/24/2024 11:39:05 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:05 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:05 PM plan_Evaluation
+INFO: 07/24/2024 11:39:07 PM block_added
+INFO: 07/24/2024 11:39:07 PM plan_Evaluation
+INFO: 07/24/2024 11:39:09 PM plan_Evaluation
+INFO: 07/24/2024 11:39:10 PM block_changed
+INFO: 07/24/2024 11:39:11 PM block_added
+INFO: 07/24/2024 11:39:12 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:12 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:12 PM plan_Evaluation
+INFO: 07/24/2024 11:39:14 PM block_changed
+INFO: 07/24/2024 11:39:14 PM plan_Evaluation
+INFO: 07/24/2024 11:39:16 PM block_added
+INFO: 07/24/2024 11:39:17 PM plan_Evaluation
+INFO: 07/24/2024 11:39:18 PM block_changed
+INFO: 07/24/2024 11:39:19 PM plan_Evaluation
+INFO: 07/24/2024 11:39:20 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:20 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:20 PM block_added
+INFO: 07/24/2024 11:39:26 PM plan_Evaluation
+INFO: 07/24/2024 11:39:26 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:26 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:30 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:30 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:30 PM block_changed
+INFO: 07/24/2024 11:39:30 PM plan_Evaluation
+INFO: 07/24/2024 11:39:32 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:32 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:39:50 PM block_changed
+INFO: 07/24/2024 11:39:50 PM plan_Evaluation
+INFO: 07/24/2024 11:39:54 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:54 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:39:54 PM block_added
+INFO: 07/24/2024 11:39:55 PM plan_Evaluation
+INFO: 07/24/2024 11:39:59 PM plan_evaluation_False
+INFO: 07/24/2024 11:39:59 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:39:59 PM block_changed
+INFO: 07/24/2024 11:39:59 PM plan_Evaluation
+INFO: 07/24/2024 11:40:03 PM block_added
+INFO: 07/24/2024 11:40:04 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:04 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:40:04 PM plan_Evaluation
+INFO: 07/24/2024 11:40:08 PM block_changed
+INFO: 07/24/2024 11:40:08 PM plan_Evaluation
+INFO: 07/24/2024 11:40:09 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:09 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:40:11 PM block_changed
+INFO: 07/24/2024 11:40:11 PM plan_Evaluation
+INFO: 07/24/2024 11:40:20 PM block_changed
+INFO: 07/24/2024 11:40:20 PM plan_Evaluation
+INFO: 07/24/2024 11:40:21 PM block_added
+INFO: 07/24/2024 11:40:22 PM plan_Evaluation
+INFO: 07/24/2024 11:40:23 PM plan_Evaluation
+INFO: 07/24/2024 11:40:24 PM block_changed
+INFO: 07/24/2024 11:40:25 PM block_added
+INFO: 07/24/2024 11:40:26 PM plan_Evaluation
+INFO: 07/24/2024 11:40:26 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:26 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:40:28 PM block_changed
+INFO: 07/24/2024 11:40:28 PM plan_Evaluation
+INFO: 07/24/2024 11:40:30 PM block_changed
+INFO: 07/24/2024 11:40:30 PM plan_Evaluation
+INFO: 07/24/2024 11:40:32 PM block_changed
+INFO: 07/24/2024 11:40:32 PM plan_Evaluation
+INFO: 07/24/2024 11:40:38 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:38 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:40:39 PM block_changed
+INFO: 07/24/2024 11:40:39 PM block_added
+INFO: 07/24/2024 11:40:40 PM plan_Evaluation
+INFO: 07/24/2024 11:40:41 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:41 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:40:41 PM plan_Evaluation
+INFO: 07/24/2024 11:40:43 PM block_changed
+INFO: 07/24/2024 11:40:43 PM plan_Evaluation
+INFO: 07/24/2024 11:40:49 PM block_changed
+INFO: 07/24/2024 11:40:50 PM plan_Evaluation
+INFO: 07/24/2024 11:40:51 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:51 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:40:52 PM block_added
+INFO: 07/24/2024 11:40:53 PM plan_Evaluation
+INFO: 07/24/2024 11:40:56 PM plan_evaluation_False
+INFO: 07/24/2024 11:40:56 PM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/24/2024 11:40:57 PM block_changed
+INFO: 07/24/2024 11:40:57 PM plan_Evaluation
+INFO: 07/24/2024 11:41:01 PM block_changed
+INFO: 07/24/2024 11:41:02 PM plan_evaluation_False
+INFO: 07/24/2024 11:41:02 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:41:02 PM plan_Evaluation
+INFO: 07/24/2024 11:41:02 PM block_changed
+INFO: 07/24/2024 11:41:02 PM plan_Evaluation
+INFO: 07/24/2024 11:41:05 PM plan_evaluation_False
+INFO: 07/24/2024 11:41:05 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:41:13 PM plan_Evaluation
+INFO: 07/24/2024 11:41:19 PM plan_evaluation_False
+INFO: 07/24/2024 11:41:19 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/24/2024 11:41:20 PM plan_evaluation_True
+INFO: 07/24/2024 11:41:20 PM err_code__
+INFO: 07/24/2024 11:41:22 PM plan_evaluation_False
+INFO: 07/24/2024 11:41:22 PM err_code_BAD ACTION_BAD ACTION
+INFO: 07/24/2024 11:41:28 PM block_changed
+INFO: 07/24/2024 11:41:28 PM plan_Evaluation
+INFO: 07/24/2024 11:41:32 PM plan_evaluation_True
+INFO: 07/24/2024 11:41:32 PM err_code__
+INFO: 07/24/2024 11:41:34 PM plan_Evaluation
+INFO: 07/24/2024 11:41:38 PM plan_evaluation_True
+INFO: 07/24/2024 11:41:38 PM err_code__
+INFO: 07/24/2024 11:41:52 PM home_page_loaded
+INFO: 07/24/2024 11:43:15 PM home_page_loaded
+INFO: 07/24/2024 11:43:27 PM home_page_loaded
+INFO: 07/24/2024 11:43:27 PM training_area_problem_Three Pi_domain_./modules/Keva Pi
+INFO: 07/24/2024 11:43:29 PM plan_Evaluation
+INFO: 07/24/2024 11:43:29 PM block_added
+INFO: 07/24/2024 11:43:45 PM block_deleted
+INFO: 07/24/2024 11:43:45 PM plan_Evaluation
+INFO: 07/24/2024 11:43:45 PM plan_Evaluation
+INFO: 07/24/2024 11:43:45 PM block_added
+INFO: 07/24/2024 11:43:50 PM block_added
+INFO: 07/24/2024 11:44:17 PM plan_Evaluation
+INFO: 07/24/2024 11:44:21 PM block_added
+INFO: 07/24/2024 11:44:21 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:21 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:22 PM plan_Evaluation
+INFO: 07/24/2024 11:44:24 PM block_changed
+INFO: 07/24/2024 11:44:24 PM plan_Evaluation
+INFO: 07/24/2024 11:44:26 PM block_added
+INFO: 07/24/2024 11:44:27 PM plan_Evaluation
+INFO: 07/24/2024 11:44:29 PM block_added
+INFO: 07/24/2024 11:44:29 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:29 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:30 PM plan_Evaluation
+INFO: 07/24/2024 11:44:32 PM block_added
+INFO: 07/24/2024 11:44:33 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:33 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:35 PM block_added
+INFO: 07/24/2024 11:44:37 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:37 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:37 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:37 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:39 PM plan_Evaluation
+INFO: 07/24/2024 11:44:43 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:43 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:44 PM block_changed
+INFO: 07/24/2024 11:44:44 PM plan_Evaluation
+INFO: 07/24/2024 11:44:46 PM block_changed
+INFO: 07/24/2024 11:44:47 PM plan_Evaluation
+INFO: 07/24/2024 11:44:49 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:49 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:50 PM block_changed
+INFO: 07/24/2024 11:44:50 PM plan_Evaluation
+INFO: 07/24/2024 11:44:54 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:54 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:55 PM plan_evaluation_False
+INFO: 07/24/2024 11:44:55 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:44:56 PM block_changed
+INFO: 07/24/2024 11:44:56 PM plan_Evaluation
+INFO: 07/24/2024 11:44:58 PM block_changed
+INFO: 07/24/2024 11:44:58 PM plan_Evaluation
+INFO: 07/24/2024 11:45:00 PM block_changed
+INFO: 07/24/2024 11:45:01 PM plan_Evaluation
+INFO: 07/24/2024 11:45:04 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:04 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:04 PM block_changed
+INFO: 07/24/2024 11:45:04 PM plan_Evaluation
+INFO: 07/24/2024 11:45:08 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:08 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:08 PM block_changed
+INFO: 07/24/2024 11:45:08 PM plan_Evaluation
+INFO: 07/24/2024 11:45:11 PM block_changed
+INFO: 07/24/2024 11:45:11 PM plan_Evaluation
+INFO: 07/24/2024 11:45:12 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:12 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:14 PM block_changed
+INFO: 07/24/2024 11:45:14 PM plan_Evaluation
+INFO: 07/24/2024 11:45:17 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:17 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:19 PM block_changed
+INFO: 07/24/2024 11:45:20 PM plan_Evaluation
+INFO: 07/24/2024 11:45:21 PM block_changed
+INFO: 07/24/2024 11:45:21 PM plan_Evaluation
+INFO: 07/24/2024 11:45:22 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:22 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:24 PM block_changed
+INFO: 07/24/2024 11:45:24 PM plan_Evaluation
+INFO: 07/24/2024 11:45:25 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:25 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:28 PM block_changed
+INFO: 07/24/2024 11:45:28 PM plan_Evaluation
+INFO: 07/24/2024 11:45:28 PM plan_evaluation_False
+INFO: 07/24/2024 11:45:28 PM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/24/2024 11:45:30 PM block_changed
+INFO: 07/24/2024 11:45:30 PM plan_Evaluation
+INFO: 07/24/2024 11:45:32 PM block_changed
+INFO: 07/24/2024 11:45:33 PM plan_Evaluation
+INFO: 07/24/2024 11:45:37 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:37 PM err_code__
+INFO: 07/24/2024 11:45:39 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:39 PM err_code__
+INFO: 07/24/2024 11:45:41 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:41 PM err_code__
+INFO: 07/24/2024 11:45:45 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:45 PM err_code__
+INFO: 07/24/2024 11:45:46 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:46 PM err_code__
+INFO: 07/24/2024 11:45:46 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:46 PM err_code__
+INFO: 07/24/2024 11:45:48 PM plan_Evaluation
+INFO: 07/24/2024 11:45:52 PM plan_evaluation_True
+INFO: 07/24/2024 11:45:52 PM err_code__
+INFO: 07/24/2024 11:47:42 PM home_page_loaded
+INFO: 07/24/2024 11:47:51 PM home_page_loaded
+INFO: 07/24/2024 11:47:51 PM training_area_problem_Three Pi_domain_./modules/Keva Pi
+INFO: 07/24/2024 11:47:53 PM plan_Evaluation
+INFO: 07/24/2024 11:47:53 PM block_added
+INFO: 07/24/2024 11:48:00 PM block_deleted
+INFO: 07/24/2024 11:48:00 PM plan_Evaluation
+INFO: 07/24/2024 11:48:00 PM plan_Evaluation
+INFO: 07/24/2024 11:48:00 PM block_added
+INFO: 07/24/2024 11:49:17 PM plan_Evaluation
+INFO: 07/24/2024 11:49:21 PM plan_evaluation_True
+INFO: 07/24/2024 11:49:21 PM err_code__
+INFO: 07/24/2024 11:49:26 PM plan_Evaluation
+INFO: 07/24/2024 11:49:30 PM plan_evaluation_True
+INFO: 07/24/2024 11:49:30 PM err_code__
+INFO: 07/24/2024 11:49:44 PM home_page_loaded
+INFO: 07/26/2024 02:20:05 AM home_page_loaded
+INFO: 07/26/2024 02:22:01 AM home_page_loaded
+INFO: 07/26/2024 02:22:01 AM training_area_problem_Curriculum Problem_domain_./modules/Cafe World
+INFO: 07/26/2024 02:22:02 AM curriculum_problem_generated
+INFO: 07/26/2024 02:22:02 AM plan_Evaluation
+INFO: 07/26/2024 02:22:02 AM block_added
+INFO: 07/26/2024 02:22:07 AM home_page_loaded
+INFO: 07/26/2024 03:27:38 AM home_page_loaded
+INFO: 07/26/2024 03:27:42 AM home_page_loaded
+INFO: 07/26/2024 03:27:42 AM training_area_problem_Hanoi problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 03:27:43 AM plan_Evaluation
+INFO: 07/26/2024 03:27:43 AM block_added
+INFO: 07/26/2024 03:27:56 AM block_added
+INFO: 07/26/2024 03:27:57 AM plan_Evaluation
+INFO: 07/26/2024 03:27:57 AM plan_evaluation_False
+INFO: 07/26/2024 03:27:57 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:28:10 AM block_changed
+INFO: 07/26/2024 03:28:10 AM plan_Evaluation
+INFO: 07/26/2024 03:28:10 AM plan_evaluation_False
+INFO: 07/26/2024 03:28:10 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:28:14 AM block_changed
+INFO: 07/26/2024 03:28:14 AM plan_Evaluation
+INFO: 07/26/2024 03:28:14 AM plan_evaluation_False
+INFO: 07/26/2024 03:28:14 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:28:27 AM block_added
+INFO: 07/26/2024 03:28:29 AM block_added
+INFO: 07/26/2024 03:28:50 AM block_changed
+INFO: 07/26/2024 03:28:52 AM block_changed
+INFO: 07/26/2024 03:28:55 AM block_changed
+INFO: 07/26/2024 03:28:58 AM block_changed
+INFO: 07/26/2024 03:29:01 AM block_changed
+INFO: 07/26/2024 03:29:29 AM block_changed
+INFO: 07/26/2024 03:29:31 AM block_changed
+INFO: 07/26/2024 03:29:33 AM block_added
+INFO: 07/26/2024 03:29:35 AM block_changed
+INFO: 07/26/2024 03:29:38 AM block_changed
+INFO: 07/26/2024 03:29:42 AM block_added
+INFO: 07/26/2024 03:29:46 AM block_changed
+INFO: 07/26/2024 03:29:49 AM plan_Evaluation
+INFO: 07/26/2024 03:29:49 AM plan_evaluation_False
+INFO: 07/26/2024 03:29:49 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:29:50 AM block_added
+INFO: 07/26/2024 03:29:57 AM block_changed
+INFO: 07/26/2024 03:29:59 AM block_changed
+INFO: 07/26/2024 03:30:01 AM block_changed
+INFO: 07/26/2024 03:30:06 AM block_added
+INFO: 07/26/2024 03:30:12 AM block_changed
+INFO: 07/26/2024 03:30:13 AM plan_Evaluation
+INFO: 07/26/2024 03:30:13 AM plan_evaluation_True
+INFO: 07/26/2024 03:30:13 AM err_code__
+INFO: 07/26/2024 03:30:16 AM plan_Evaluation
+INFO: 07/26/2024 03:30:16 AM plan_evaluation_True
+INFO: 07/26/2024 03:30:16 AM err_code__
+INFO: 07/26/2024 03:32:27 AM plan_Evaluation
+INFO: 07/26/2024 03:32:27 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:27 AM err_code__
+INFO: 07/26/2024 03:32:34 AM hinting
+INFO: 07/26/2024 03:32:34 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:34 AM err_code__
+INFO: 07/26/2024 03:32:42 AM plan_Evaluation
+INFO: 07/26/2024 03:32:42 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:42 AM err_code__
+INFO: 07/26/2024 03:32:43 AM hinting
+INFO: 07/26/2024 03:32:43 AM plan_evaluation_True
+INFO: 07/26/2024 03:32:43 AM err_code__
+INFO: 07/26/2024 03:32:59 AM block_deleted
+INFO: 07/26/2024 03:32:59 AM plan_Evaluation
+INFO: 07/26/2024 03:33:00 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:00 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:33:00 AM hinting
+INFO: 07/26/2024 03:33:01 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:01 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 03:33:01 AM Full hint = Move<br>this box box_small<br>from atop location_iii<br>to the top of ?<br>with this robot fetch
+INFO: 07/26/2024 03:33:06 AM block_changed
+INFO: 07/26/2024 03:33:06 AM plan_Evaluation
+INFO: 07/26/2024 03:33:06 AM plan_evaluation_False
+INFO: 07/26/2024 03:33:06 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 03:33:12 AM home_page_loaded
+INFO: 07/26/2024 03:57:10 AM home_page_loaded
+INFO: 07/26/2024 04:00:12 AM home_page_loaded
+INFO: 07/26/2024 04:00:45 AM home_page_loaded
+INFO: 07/26/2024 04:02:31 AM home_page_loaded
+INFO: 07/26/2024 04:02:31 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:02:32 AM curriculum_problem_generated
+INFO: 07/26/2024 04:02:32 AM plan_Evaluation
+INFO: 07/26/2024 04:02:32 AM block_added
+INFO: 07/26/2024 04:03:59 AM home_page_loaded
+INFO: 07/26/2024 04:04:30 AM hinting
+INFO: 07/26/2024 04:04:40 AM home_page_loaded
+INFO: 07/26/2024 04:04:45 AM home_page_loaded
+INFO: 07/26/2024 04:04:45 AM training_area_problem_Hanoi problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:04:45 AM plan_Evaluation
+INFO: 07/26/2024 04:04:45 AM block_added
+INFO: 07/26/2024 04:04:47 AM hinting
+INFO: 07/26/2024 04:04:47 AM Full hint = Move<br>this box ?<br>from atop box_medium<br>to the top of location_iii<br>with this robot fetch
+INFO: 07/26/2024 04:04:50 AM home_page_loaded
+INFO: 07/26/2024 04:04:53 AM home_page_loaded
+INFO: 07/26/2024 04:04:53 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:04:53 AM curriculum_problem_generated
+INFO: 07/26/2024 04:04:53 AM plan_Evaluation
+INFO: 07/26/2024 04:04:53 AM block_added
+INFO: 07/26/2024 04:05:02 AM hinting
+INFO: 07/26/2024 04:05:02 AM Full hint = Move<br>this box ?<br>from atop box_medium<br>to the top of ?<br>with this robot ?
+INFO: 07/26/2024 04:05:09 AM block_added
+INFO: 07/26/2024 04:05:09 AM plan_Evaluation
+INFO: 07/26/2024 04:05:10 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:10 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:12 AM block_changed
+INFO: 07/26/2024 04:05:12 AM plan_Evaluation
+INFO: 07/26/2024 04:05:13 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:13 AM err_code_GOAL ERROR_BAD ACTION
+INFO: 07/26/2024 04:05:14 AM block_changed
+INFO: 07/26/2024 04:05:14 AM plan_Evaluation
+INFO: 07/26/2024 04:05:14 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:14 AM err_code_GOAL ERROR_GOAL ERROR
+INFO: 07/26/2024 04:05:23 AM block_added
+INFO: 07/26/2024 04:05:24 AM plan_Evaluation
+INFO: 07/26/2024 04:05:24 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:24 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:27 AM block_changed
+INFO: 07/26/2024 04:05:27 AM plan_Evaluation
+INFO: 07/26/2024 04:05:27 AM plan_evaluation_False
+INFO: 07/26/2024 04:05:27 AM err_code_BAD ACTION_BAD ACTION
+INFO: 07/26/2024 04:05:33 AM block_changed
+INFO: 07/26/2024 04:05:33 AM plan_Evaluation
+INFO: 07/26/2024 04:05:33 AM plan_evaluation_True
+INFO: 07/26/2024 04:05:33 AM err_code__
+INFO: 07/26/2024 04:05:44 AM curriculum_problem_generated
+INFO: 07/26/2024 04:05:44 AM block_added
+INFO: 07/26/2024 04:05:44 AM block_deleted
+INFO: 07/26/2024 04:05:52 AM home_page_loaded
+INFO: 07/26/2024 04:06:04 AM home_page_loaded
+INFO: 07/26/2024 04:06:04 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:06:05 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:05 AM plan_Evaluation
+INFO: 07/26/2024 04:06:05 AM block_added
+INFO: 07/26/2024 04:06:08 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:08 AM block_deleted
+INFO: 07/26/2024 04:06:08 AM block_added
+INFO: 07/26/2024 04:06:12 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:12 AM block_added
+INFO: 07/26/2024 04:06:12 AM block_deleted
+INFO: 07/26/2024 04:06:19 AM curriculum_problem_generated
+INFO: 07/26/2024 04:06:19 AM block_deleted
+INFO: 07/26/2024 04:06:19 AM block_added
+INFO: 07/26/2024 04:06:32 AM home_page_loaded
+INFO: 07/26/2024 04:07:18 AM home_page_loaded
+INFO: 07/26/2024 04:07:19 AM training_area_problem_Curriculum Problem_domain_./modules/Tower of Hanoi
+INFO: 07/26/2024 04:07:19 AM curriculum_problem_generated
+INFO: 07/26/2024 04:07:19 AM plan_Evaluation
+INFO: 07/26/2024 04:07:19 AM block_added
+INFO: 07/26/2024 04:07:20 AM home_page_loaded
+INFO: 07/26/2024 04:09:34 AM home_page_loaded
+INFO: 07/26/2024 04:09:37 AM home_page_loaded

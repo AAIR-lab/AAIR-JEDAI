@@ -7,6 +7,7 @@
 		can_red can_blue can_green can_brown - can
 		counter table_red table_blue table_green table_brown - location
 		fetch - robot
+		starting_point - location
 
 	)
 
@@ -16,7 +17,7 @@
 		(order can_blue counter)
 		(order can_green counter)
 		(order can_brown counter)
-
+		(at starting_point fetch)
 	)
 
 	(:goal (and

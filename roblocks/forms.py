@@ -11,5 +11,5 @@ class UploadBookForm(forms.ModelForm):
         widgets = {
             # TODO what is this? why can't we just use html?
             'domain': Select(
-                attrs={'multiple': False, 'id': 'domain_select', 'onclick': 'getMenu()', 'required': True}),
+                attrs={'multiple': False, 'id': 'domain_select', 'onchange': 'getMenu()', 'required': True}),
         }
