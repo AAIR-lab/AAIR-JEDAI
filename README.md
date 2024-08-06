@@ -27,7 +27,7 @@ JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
 
 ##  Docker Image
 
-The recommended way of using JEDAI is to use the pre-configured docker image that is available here: [JEDAI.Ed](https://drive.google.com/uc?export=download&id=1QUgsQ11z_SsmJ1vk4_LPkMvbHkinAljQ)
+The recommended way of using JEDAI is to use the pre-configured docker image that is available here: [JEDAI](https://drive.google.com/uc?export=download&id=1QUgsQ11z_SsmJ1vk4_LPkMvbHkinAljQ)
 
 Once all the files are downloaded, run the following command to load docker images - 
 
