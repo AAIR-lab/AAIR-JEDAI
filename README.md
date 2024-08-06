@@ -27,10 +27,9 @@ JEDAI: A System for Skill-Aligned Explainable Robot Planning.<br/>
 
 ##  Docker Image
 
-<!-- The recommended way of using JEDAI is to use pre-configured Virtual Machine image that is available here: [https://bit.ly/2WccU4K](https://bit.ly/2WccU4K) -->
-The recommended way of using JEDAI is to use the pre-configured docker image that is available here: 
+The recommended way of using JEDAI is to use the pre-configured docker image that is available here: [JEDAI.Ed](https://drive.google.com/uc?export=download&id=1QUgsQ11z_SsmJ1vk4_LPkMvbHkinAljQ)
 
-Once all the files are downloaded, run the following command to load docker images - [JEDAI](https://drive.google.com/drive/folders/1YqBA21d0TRN67YN0XYuYPEFnc2ObVlH6?usp=sharing)
+Once all the files are downloaded, run the following command to load docker images - 
 
 `docker load --input jedai_public.tar` <br/>
 `docker load --input novnc.tar`
@@ -39,13 +38,20 @@ Once all the files are downloaded, run the following command to load docker imag
 
 Now, to start a JEDAI instance, run the following script from the directory where all the files have been downloaded - 
 
-`./start_instances.sh -n 1`
+`./start_instances.sh -n <instance_count>` <br/>
 
-You can access the JEDAI interface over web by going to the link given after running the script.
+Replace `<instance_count>` with the number of instances you want to start.
 
-To stop the JEDAI instance, run following - 
+After running the script, you can access the JEDAI interface on the web by going to the link (in green) in the output text in the terminal.
 
-`./stop_instances.sh -n 1`
+To stop the JEDAI instance, run the following - 
+
+`./stop_instances.sh -n <instance_id>` <br/>
+
+Replace `<instance_id>` with the id of the instance you want to stop. 
+
+When running the `./start_instances.sh` script, the instance ID is given alongside the link to access the JEDAI interface.
+Also, the Instance ID is the integer following the "instance" in the docker image name - `instance<ID>...` 
 
 ## Contributors
 [Daksh Dobhal](https://github.com/DakshASU)<br/>
